@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1768870066227,
+      "tag": "0000_hesitant_the_renegades",
+      "breakpoints": true
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "site": {
+    "title": "VoipCat - Global VoIP & SIP Trunk Provider",
+    "description": "Global Voice over IP (VoIP) Solutions for Modern Businesses",
+    "tagline": "With over 10 years of experience, VoIP Cat provides reliable, high-quality Voice over IP (VoIP) services to every country worldwide at unbeatable prices."
+  },
+  "navigation": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "#about" },
+    { "label": "Cloud PBX", "href": "#cloud-pbx" },
+    { "label": "Plans", "href": "#plans" },
+    { "label": "Features", "href": "#features" },
+    { "label": "Testimonials", "href": "#testimonials" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "title": "Global Voice over IP (VoIP) Solutions for Modern Businesses",
+    "description": "With over 10 years of experience, VoIP Cat provides reliable, high-quality Voice over IP (VoIP) services to every country worldwide at unbeatable prices. We are the trusted solution for all your voice over IP service requests.",
+    "cta_primary": "Choose Your Plan",
+    "cta_secondary": "Contact Us",
+    "image": "/images/hero-voip-communication.png"
+  },
+  "about": {
+    "title": "About VoIP Cat",
+    "subtitle": "Trusted by businesses worldwide for over a decade",
+    "heading": "10+ Years of Excellence in VoIP Services",
+    "description": "Since 2015, VoIP Cat has been at the forefront of Voice over IP technology, providing businesses and individuals with reliable, crystal-clear VoIP services across the globe. Our mission is to deliver premium VoIP solutions at affordable prices without compromising on quality. With our robust infrastructure and dedicated support team, we ensure seamless communication for all our clients. Operating in over 190 countries, we understand the unique communication needs of different regions and tailor our services accordingly.",
+    "stats": [
+      { "number": "10+", "label": "Years Experience" },
+      { "number": "190+", "label": "Countries Served" },
+      { "number": "99.9%", "label": "Uptime Guarantee" },
+      { "number": "24/7", "label": "Support Available" }
+    ]
+  },
+  "cloudPbx": {
+    "title": "Cloud PBX Solutions",
+    "subtitle": "Scalable business phone systems for every size organization",
+    "plans": [
+      {
+        "name": "Small",
+        "price": 75,
+        "period": "per month",
+        "savings": "Save 10% - $810/year",
+        "description": "Just getting started? The small Cloud PBX is the best choice for SOHO environments.",
+        "feature": "Up to 8 concurrent calls",
+        "cta": "GET THIS PLAN"
+      },
+      {
+        "name": "Medium",
+        "price": 119,
+        "period": "per month",
+        "savings": "Save 10% - $1,285/year",
+        "description": "Need additional performance? The medium Cloud PBX is the right choice for your business.",
+        "feature": "Up to 40 concurrent calls",
+        "cta": "GET THIS PLAN"
+      },
+      {
+        "name": "Large",
+        "price": 199,
+        "period": "per month",
+        "savings": "Save 10% - $2,149/year",
+        "description": "Operating a bigger call center? The large Cloud PBX was designed for enterprise-level call volumes.",
+        "feature": "Up to 80 concurrent calls",
+        "cta": "GET THIS PLAN"
+      },
+      {
+        "name": "Extra-Large",
+        "price": 349,
+        "period": "per month",
+        "savings": "Save 10% - $3,769/year",
+        "description": "Want more communication power? The extra-large Cloud PBX connects you on an even wider scale.",
+        "feature": "Up to 120 concurrent calls",
+        "cta": "GET THIS PLAN"
+      }
+    ]
+  },
+  "voipPlans": {
+    "title": "Our VoIP Plans",
+    "subtitle": "Choose the perfect plan for your communication needs",
+    "plans": [
+      {
+        "name": "Standard Plan",
+        "price": 9.99,
+        "period": "per month per user",
+        "features": [
+          "Basic call quality",
+          "Standard features",
+          "Calls to 50 countries",
+          "Email support"
+        ],
+        "cta": "View Rates"
+      },
+      {
+        "name": "Premium Plan",
+        "price": 19.99,
+        "period": "per month",
+        "features": [
+          "Calls to 100 countries",
+          "HD call quality",
+          "Advanced features",
+          "Priority support"
+        ],
+        "cta": "View Rates"
+      },
+      {
+        "name": "Platinum Plan",
+        "price": 29.99,
+        "period": "per month",
+        "features": [
+          "Calls to 190+ countries",
+          "Crystal-clear HD quality",
+          "Premium features",
+          "24/7 dedicated support"
+        ],
+        "cta": "View Rates"
+      }
+    ]
+  },
+  "features": {
+    "title": "Why Choose VoIP Cat?",
+    "subtitle": "Industry-leading features for seamless communication",
+    "items": [
+      {
+        "title": "Global Coverage",
+        "description": "Connect with anyone, anywhere in the world with our extensive network spanning over 190 countries."
+      },
+      {
+        "title": "Crystal Clear Quality",
+        "description": "Experience premium HD voice quality with our advanced VoIP technology and optimized network infrastructure."
+      },
+      {
+        "title": "Affordable Pricing",
+        "description": "Get enterprise-grade VoIP services at competitive prices without compromising on quality or reliability."
+      },
+      {
+        "title": "24/7 Support",
+        "description": "Our dedicated support team is available around the clock to assist you with any questions or issues."
+      },
+      {
+        "title": "Secure & Reliable",
+        "description": "Enterprise-grade security and 99.9% uptime guarantee ensure your communications are always protected."
+      },
+      {
+        "title": "Easy Integration",
+        "description": "Seamlessly integrate with your existing systems and workflows with our flexible API and compatibility."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Hear from businesses that transformed their communication with VoIP Cat",
+    "items": [
+      {
+        "quote": "VoIP Cat has revolutionized our international communications. The call quality is exceptional, and the pricing is unbeatable. We've saved over 60% on our communication costs!",
+        "author": "Michael Johnson",
+        "title": "CEO, TechGlobal Inc.",
+        "initials": "MJ"
+      },
+      {
+        "quote": "As a multinational company, we needed a reliable VoIP provider that could handle our complex communication needs. VoIP Cat delivered beyond our expectations with their Platinum plan.",
+        "author": "Sarah Lee",
+        "title": "Operations Director, Nexus Solutions",
+        "initials": "SL"
+      },
+      {
+        "quote": "The customer support at VoIP Cat is outstanding. Any time we've had an issue, it's been resolved quickly and professionally. Their Diamond plan offers the perfect balance of features and value.",
+        "author": "David Roberts",
+        "title": "IT Manager, Innovate Corp",
+        "initials": "DR"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have questions? Our team is ready to assist you",
+    "location": {
+      "label": "Our Location",
+      "address": "251 Mercer St, New York, NY 10012, USA"
+    },
+    "phone": {
+      "label": "Call or WhatsApp Us",
+      "number": "+201557649136"
+    },
+    "email": {
+      "label": "Email Us",
+      "address": "sales.voipcat@gmail.com"
+    },
+    "hours": {
+      "label": "Working Hours",
+      "details": "Monday - Friday: 9AM - 8PM\nSaturday: 10AM - 4PM"
+    }
+  },
+  "footer": {
+    "company": "VoIP Cat",
+    "links": {
+      "company": [
+        { "label": "About Us", "href": "#about" },
+        { "label": "Cloud PBX", "href": "#cloud-pbx" },
+        { "label": "Our Plans", "href": "#plans" }
+      ],
+      "services": [
+        { "label": "Business VoIP", "href": "#" },
+        { "label": "Residential VoIP", "href": "#" },
+        { "label": "International Calling", "href": "#" },
+        { "label": "Virtual Numbers", "href": "#" },
+        { "label": "Call Center Solutions", "href": "#" },
+        { "label": "API Integration", "href": "#" }
+      ],
+      "support": [
+        { "label": "Contact", "href": "#contact" },
+        { "label": "FAQ", "href": "#" }
+      ]
+    },
+    "copyright": "© 2024 VoIP Cat. All rights reserved."
+  }
+}

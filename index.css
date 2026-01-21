@@ -1,0 +1,249 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Import Google Fonts for Modern Tech Design */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  /* Logo-inspired Cyber Blue Palette */
+  --primary: #00A3FF; /* Bright Electric Blue from logo circuits */
+  --primary-foreground: #ffffff;
+  --secondary: #001B3D; /* Deep Midnight Blue from logo base */
+  --secondary-foreground: #ffffff;
+  --accent: #00E0FF; /* Cyan highlight from logo glow */
+  --accent-foreground: #001B3D;
+  --sidebar-primary: #00A3FF;
+  --sidebar-primary-foreground: #ffffff;
+  --chart-1: #00A3FF;
+  --chart-2: #001B3D;
+  --chart-3: #00E0FF;
+  --chart-4: #0055FF;
+  --chart-5: #000D1F;
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --foreground: #001B3D;
+  --card: #ffffff;
+  --card-foreground: #001B3D;
+  --popover: #ffffff;
+  --popover-foreground: #001B3D;
+  --muted: #F0F7FF;
+  --muted-foreground: #475569;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #E2E8F0;
+  --input: #F8FAFC;
+  --ring: #00A3FF;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #001B3D;
+  --sidebar-accent: #F0F7FF;
+  --sidebar-accent-foreground: #00A3FF;
+  --sidebar-border: #E2E8F0;
+  --sidebar-ring: #00A3FF;
+}
+
+.dark {
+  --primary: #00A3FF;
+  --primary-foreground: #ffffff;
+  --secondary: #00E0FF;
+  --secondary-foreground: #ffffff;
+  --accent: #00E0FF;
+  --accent-foreground: #ffffff;
+  --sidebar-primary: #00A3FF;
+  --sidebar-primary-foreground: #ffffff;
+  --background: #000000; /* Pure black background */
+  --foreground: #F1F5F9;
+  --card: #0A0A0A; /* Very dark gray/black for cards */
+  --card-foreground: #F1F5F9;
+  --popover: #0A0A0A; /* Very dark gray/black for popovers */
+  --popover-foreground: #F1F5F9;
+  --muted: #1A1A1A; /* Dark gray for muted elements */
+  --muted-foreground: #A0A0A0;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #1A1A1A; /* Dark gray borders */
+  --input: #0A0A0A; /* Very dark gray for inputs */
+  --ring: #00A3FF;
+  --chart-1: #00A3FF;
+  --chart-2: #00E0FF;
+  --chart-3: #0055FF;
+  --chart-4: #00A3FF;
+  --chart-5: #1A1A1A;
+  --sidebar: #0A0A0A; /* Very dark gray/black for sidebar */
+  --sidebar-foreground: #F1F5F9;
+  --sidebar-accent: #000000; /* Pure black for sidebar accent */
+  --sidebar-accent-foreground: #00A3FF;
+  --sidebar-border: #1A1A1A; /* Dark gray borders */
+  --sidebar-ring: #00A3FF;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Exo 2', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+    font-family: 'Orbitron', sans-serif;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /* Card Elevation Effect with Blue Glow */
+  .card-elevated {
+    @apply bg-card text-card-foreground rounded-lg shadow-sm transition-all duration-300 border border-border;
+  }
+  .card-elevated:hover {
+    @apply shadow-lg border-primary/30;
+    box-shadow: 0 10px 25px -5px rgba(0, 163, 255, 0.1), 0 8px 10px -6px rgba(0, 163, 255, 0.1);
+  }
+
+  /* Button Glow Effect */
+  .btn-glow {
+    @apply bg-primary text-primary-foreground font-semibold rounded-lg px-6 py-3 transition-all duration-300;
+    box-shadow: 0 4px 14px 0 rgba(0, 163, 255, 0.39);
+  }
+  .btn-glow:hover {
+    @apply bg-primary/90;
+    box-shadow: 0 6px 20px rgba(0, 163, 255, 0.5);
+    transform: translateY(-1px);
+  }
+
+  /* Smooth Tab Underline */
+  .tab-underline {
+    @apply relative pb-2 text-muted-foreground transition-colors duration-300;
+  }
+  .tab-underline.active {
+    @apply text-primary font-semibold;
+  }
+  .tab-underline.active::after {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 h-1 bg-primary rounded-full;
+    box-shadow: 0 0 8px var(--primary);
+  }
+
+  /* Fade-in Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Clean Professional Background */
+  .network-bg {
+    background: #ffffff;
+  }
+  
+  .network-bg:nth-child(even) {
+    background: #F8FAFC;
+  }
+
+  /* Dark mode background adjustments */
+  .dark .network-bg {
+    background: #000000;
+  }
+  
+  .dark .network-bg:nth-child(even) {
+    background: #0A0A0A;
+  }
+
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
