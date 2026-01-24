@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useTheme } from '@/contexts/ThemeContext';
 
 /**
  * Header Component - Cyber Tech Design
@@ -10,7 +9,6 @@ import { useTheme } from '@/contexts/ThemeContext';
  */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -57,16 +55,6 @@ export default function Header() {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            {toggleTheme && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleTheme}
-                className="text-muted-foreground hover:text-primary"
-              >
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </Button>
-            )}
             <a href="https://wa.me/201557649136?text=Hello%20VoIP%20Cat" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="outline"
@@ -110,16 +98,6 @@ export default function Header() {
                 </a>
               ))}
               <div className="flex items-center gap-2 px-4 pt-2">
-                {toggleTheme && (
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={toggleTheme}
-                    className="text-muted-foreground hover:text-primary"
-                  >
-                    {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-                  </Button>
-                )}
                 <a href="https://wa.me/201557649136?text=Hello%20VoIP%20Cat" target="_blank" rel="noopener noreferrer" className="flex-1">
                   <Button
                     variant="outline"
