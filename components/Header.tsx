@@ -64,7 +64,7 @@ export default function Header() {
                 Contact
               </Button>
             </a>
-            <Button className="btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX9dCZ4ORDBXUnhKk4b0Nvd-EfPZasC6ysrTKGPUjc5qYreA/viewform" target="_blank" rel="noopener noreferrer"><Button className="btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
               Get Started
             </Button>
           </div>
