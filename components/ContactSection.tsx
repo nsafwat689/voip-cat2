@@ -17,22 +17,22 @@ export default function ContactSection() {
   const contactInfo = [
     {
       icon: MapPin,
-      label: 'Global HQ',
+      label: 'Address',
       details: '251 Mercer St, New York, NY 10012, USA',
     },
     {
       icon: Phone,
-      label: 'Neural Link',
+      label: 'Phone',
       details: '+201557649136',
     },
     {
       icon: Mail,
-      label: 'Direct Uplink',
+      label: 'Email',
       details: 'sales.voipcat@gmail.com',
     },
     {
       icon: Clock,
-      label: 'Sync Hours',
+      label: 'Work Hours',
       details: 'Mon-Fri: 9AM - 8PM\nSat: 10AM - 4PM',
     },
   ];
@@ -67,21 +67,21 @@ export default function ContactSection() {
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
             let href = '#';
-            
-            if (info.label === 'Neural Link') {
+
+            if (info.label === 'Phone') {
               href = 'https://wa.me/201557649136?text=Hello%20VoIP%20Cat';
-            } else if (info.label === 'Direct Uplink') {
+            } else if (info.label === 'Email') {
               href = 'mailto:sales.voipcat@gmail.com';
             }
-            
-            const isClickable = info.label === 'Neural Link' || info.label === 'Direct Uplink';
-            
+
+            const isClickable = info.label === 'Phone' || info.label === 'Email';
+
             return (
               <a
                 key={index}
                 href={href}
-                target={isClickable && info.label === 'Neural Link' ? '_blank' : undefined}
-                rel={isClickable && info.label === 'Neural Link' ? 'noopener noreferrer' : undefined}
+                target={isClickable && info.label === 'Phone' ? '_blank' : undefined}
+                rel={isClickable && info.label === 'Phone' ? 'noopener noreferrer' : undefined}
                 className={`card-elevated p-8 space-y-6 transition-all duration-500 group ${isClickable ? 'hover:border-primary cursor-pointer' : 'border-primary/10'}`}
               >
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-primary/20">
@@ -105,7 +105,7 @@ export default function ContactSection() {
           <div className="card-elevated p-8 md:p-12 border-primary/20 bg-primary/5 backdrop-blur-md relative overflow-hidden">
             {/* Form background accent */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
-            
+
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Name Field */}
