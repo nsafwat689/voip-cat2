@@ -64,9 +64,11 @@ export default function Header() {
                 Contact
               </Button>
             </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX9dCZ4ORDBXUnhKk4b0Nvd-EfPZasC6ysrTKGPUjc5qYreA/viewform" target="_blank" rel="noopener noreferrer"><Button className="btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-              Get Started
-            </Button>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX9dCZ4ORDBXUnhKk4b0Nvd-EfPZasC6ysrTKGPUjc5qYreA/viewform" target="_blank" rel="noopener noreferrer">
+              <Button className="btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                Get Started
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,9 +109,11 @@ export default function Header() {
                     Contact
                   </Button>
                 </a>
-                <Button className="flex-1 btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                  Get Started
-                </Button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX9dCZ4ORDBXUnhKk4b0Nvd-EfPZasC6ysrTKGPUjc5qYreA/viewform" target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button className="flex-1 btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                    Get Started
+                  </Button>
+                </a>
               </div>
             </div>
           </nav>
