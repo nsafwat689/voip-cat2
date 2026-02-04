@@ -279,7 +279,14 @@ export const aggregateRatingSchema = {
   bestRating: '5',
   worstRating: '1',
   ratingCount: '150',
+    itemReviewed: {
+    '@type': 'Organization',
+    name: 'VOIP CAT',
+    url: 'https://voipcat.com'
+  },
+
 };
+
 
 /**
  * Function to inject JSON-LD script into the document head
