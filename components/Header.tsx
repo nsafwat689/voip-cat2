@@ -1,17 +1,16 @@
 import { useState } from 'react';
-import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useTheme } from '@/contexts/ThemeContext';
 import { Link } from 'wouter';
 
 /**
  * Header Component - Cyber Tech Design
  * Features: Sticky navigation, responsive mobile menu, services dropdown, smooth transitions
+ * Light Mode Only Version
  */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -109,17 +108,6 @@ export default function Header() {
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-muted transition-colors"
-              aria-label="Toggle dark mode"
-            >
-              {theme === 'light' ? (
-                <Moon className="w-5 h-5 text-foreground" />
-              ) : (
-                <Sun className="w-5 h-5 text-foreground" />
-              )}
-            </button>
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-4 py-2 border border-primary text-primary hover:bg-primary/5 rounded-md uppercase tracking-wider text-xs transition-colors"
@@ -206,17 +194,6 @@ export default function Header() {
                 )
               ))}
               <div className="flex gap-2 px-4 pt-2">
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 rounded-lg hover:bg-muted transition-colors"
-                  aria-label="Toggle dark mode"
-                >
-                  {theme === 'light' ? (
-                    <Moon className="w-5 h-5 text-foreground" />
-                  ) : (
-                    <Sun className="w-5 h-5 text-foreground" />
-                  )}
-                </button>
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center px-4 py-2 border border-primary text-primary hover:bg-primary/5 rounded-md uppercase tracking-wider text-xs transition-colors"
