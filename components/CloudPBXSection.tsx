@@ -3,7 +3,7 @@ import { Check, Cpu, Layers, Server, Shield, ArrowRight } from 'lucide-react';
 import { useLocation } from 'wouter';
 
 /**
- * Cloud PBX Section - Light Mode Version
+ * Cloud PBX Section - Cyber Tech Design
  * Features: Pricing cards with hover elevation, feature highlights, working CTAs
  */
 export default function CloudPBXSection() {
@@ -48,17 +48,20 @@ export default function CloudPBXSection() {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 md:py-32 bg-secondary dark:bg-black relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10 animate-pulse" />
+
       <div className="container">
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
-            Hosted Phone Systems
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Cloud PBX Solutions
+        <div className="text-center mb-16 space-y-4">
+          <h2
+            className="text-3xl md:text-5xl text-white uppercase tracking-tighter"
+            style={{ fontFamily: 'Orbitron, sans-serif' }}
+          >
+            CLOUD <span className="text-primary">PBX</span> SOLUTIONS
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-base">
+          <p className="text-slate-300 max-w-2xl mx-auto text-base">
             Scalable hosted phone systems for businesses of every size. Auto-attendant, call recording, voicemail-to-email, and more — all included.
           </p>
         </div>
@@ -70,16 +73,19 @@ export default function CloudPBXSection() {
             return (
               <div
                 key={index}
-                className={`relative rounded-2xl border p-6 flex flex-col gap-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 ${
+                className={`relative rounded-xl border p-6 flex flex-col gap-5 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 ${
                   plan.highlighted
-                    ? 'border-primary bg-primary/5 shadow-md'
-                    : 'border-border bg-card'
+                    ? 'border-primary/50 bg-primary/10'
+                    : 'border-white/10 bg-white/5'
                 }`}
               >
                 {/* Highlight Badge */}
                 {plan.highlighted && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <span className="bg-primary text-primary-foreground text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
+                    <span
+                      className="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                      style={{ fontFamily: 'Orbitron, sans-serif' }}
+                    >
                       Most Popular
                     </span>
                   </div>
@@ -87,31 +93,36 @@ export default function CloudPBXSection() {
 
                 {/* Plan Name & Icon */}
                 <div className="flex items-center gap-3">
-                  <div className={`p-2 rounded-lg ${plan.highlighted ? 'bg-primary/10' : 'bg-muted'}`}>
-                    <Icon className={`w-5 h-5 ${plan.highlighted ? 'text-primary' : 'text-muted-foreground'}`} />
+                  <div className={`p-2 rounded-lg ${plan.highlighted ? 'bg-primary/20' : 'bg-white/10'}`}>
+                    <Icon className={`w-5 h-5 ${plan.highlighted ? 'text-primary' : 'text-slate-300'}`} />
                   </div>
-                  <h3 className="text-base font-bold text-foreground">{plan.name}</h3>
+                  <h3
+                    className="text-base font-bold text-white"
+                    style={{ fontFamily: 'Orbitron, sans-serif' }}
+                  >
+                    {plan.name}
+                  </h3>
                 </div>
 
                 {/* Price */}
                 {plan.price && (
                   <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-extrabold text-foreground">${plan.price}</span>
-                    <span className="text-muted-foreground text-sm">{plan.period}</span>
+                    <span className="text-4xl font-extrabold text-white">${plan.price}</span>
+                    <span className="text-slate-400 text-sm">{plan.period}</span>
                   </div>
                 )}
 
                 {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed flex-1">
+                <p className="text-slate-400 text-sm leading-relaxed flex-1">
                   {plan.description}
                 </p>
 
                 {/* Feature */}
                 <div className="flex items-center gap-2">
-                  <div className="p-0.5 rounded-full bg-primary/10">
-                    <Check className={`w-3.5 h-3.5 ${plan.highlighted ? 'text-primary' : 'text-primary'}`} />
+                  <div className="p-0.5 rounded-full bg-primary/20">
+                    <Check className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <span className="text-xs font-semibold text-foreground uppercase tracking-wide">
+                  <span className="text-xs font-bold text-slate-300 uppercase tracking-widest">
                     {plan.feature}
                   </span>
                 </div>
@@ -130,12 +141,12 @@ export default function CloudPBXSection() {
                       );
                     }
                   }}
-                  className={`w-full mt-auto ${
+                  className={`w-full h-12 uppercase tracking-widest text-[10px] font-bold transition-all duration-300 ${
                     plan.highlighted
-                      ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                      : 'bg-background border border-border text-foreground hover:bg-muted'
+                      ? 'btn-glow'
+                      : 'bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white'
                   }`}
-                  variant={plan.highlighted ? 'default' : 'outline'}
+                  style={{ fontFamily: 'Orbitron, sans-serif' }}
                 >
                   {plan.isEnterprise ? 'Contact Sales' : 'Get Started'}
                 </Button>
@@ -145,7 +156,7 @@ export default function CloudPBXSection() {
         </div>
 
         {/* Bottom link to full Cloud PBX page */}
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <Button
             variant="outline"
             onClick={() => setLocation('/cloud-pbx')}
