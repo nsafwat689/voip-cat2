@@ -3,6 +3,8 @@ import { Check, ShieldCheck, Zap, Globe, ArrowRight } from 'lucide-react';
 import { useLocation } from 'wouter';
 
 
+
+
 /**
  * VoIP Plans Section - Cyber Tech Design
  * Features: Three-tier pricing with feature lists, comparison layout, internal links
@@ -11,11 +13,15 @@ export default function PlansSection() {
   const [, setLocation] = useLocation();
 
 
+
+
   const googleSheetLinks = {
     standard: 'https://docs.google.com/spreadsheets/d/15jVmJOYjHPSYJLQnxA4yeJ5fBrw_LESr7z0TIzPcTQg/edit?pli=1&gid=0#gid=0',
     platinum: 'https://docs.google.com/spreadsheets/d/10ZffoibimILTRMbZLtzvjrMWrM3nQLkO8o8SLOnOZiM/edit?gid=0#gid=0',
     premium: 'https://docs.google.com/spreadsheets/d/17LeHQSR6jpvNZVsRiAhotEMB4ItymN3Fmqa0bWZAE8w/edit?gid=0#gid=0',
   };
+
+
 
 
   const plans = [
@@ -58,17 +64,16 @@ export default function PlansSection() {
   ];
 
 
+
+
   return (
     <section id="plans" className="py-20 md:py-32 bg-background relative">
       {/* Background accent */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 -z-10"></div>
 
 
+
+
       <div className="container">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-24 space-y-4">
-          <h2 className="text-3xl md:text-5xl text-foreground uppercase tracking-tighter" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            VOIP <span className="text-primary">RATES</span>
-          </h2>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
