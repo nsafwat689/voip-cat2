@@ -65,7 +65,7 @@ export default function VoipRates() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-slate-800"> to-slate-900
       <Header />
       <main className="flex-grow">
         <section id="rates" className="py-20 md:py-32 bg-background relative">
