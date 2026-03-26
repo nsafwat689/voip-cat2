@@ -65,7 +65,7 @@ export default function VoipRates() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900
       <Header />
       <main className="flex-grow">
         <section id="rates" className="py-20 md:py-32 bg-background relative">
@@ -96,7 +96,7 @@ export default function VoipRates() {
                     key={index}
                     className={`relative rounded-2xl transition-all duration-500 group ${
                       plan.highlighted
-                        ? 'md:scale-110 border-2 border-primary shadow-[0_0_40px_rgba(0,163,255,0.2)] z-10'
+                        ? 'md:scale-110 bg-card                     border-2 border-primary shadow-[0_0_40px_rgba(0,163,255,0.2)] z-10'
                         : 'bg-card border border-border hover:border-primary/30'
                     }`}
                   >
@@ -121,8 +121,7 @@ export default function VoipRates() {
                           <Icon className={`w-8 h-8 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`} />
                         </div>
                         <h3
-                          className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-white' : 'text-foreground'}`}
-                          style={{ fontFamily: 'Orbitron, sans-serif' }}
+              className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-foreground' : 'text-foreground'}`}                          style={{ fontFamily: 'Orbitron, sans-serif' }}
                         >
                           {plan.name}
                         </h3>
