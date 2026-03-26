@@ -2,7 +2,7 @@ import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Check, ArrowRight, Phone, Globe, Shield, Zap, Star } from 'lucide-react';
+import { Check, ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react';
 import { Link } from 'wouter';
 
 export default function VoipRates() {
@@ -50,7 +50,7 @@ export default function VoipRates() {
     },
     {
       name: 'Premium Link',
-      icon: Shield,
+      icon: ShieldCheck,
       features: [
         'Calls to 100 countries',
         'HD call quality',
@@ -65,220 +65,134 @@ export default function VoipRates() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-secondary dark:bg-black">
+    <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-grow">
+        <section id="rates" className="py-20 md:py-32 bg-background relative">
+          {/* Background accent */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 -z-10"></div>
 
-        {/* Hero Section */}
-        <section className="relative overflow-hidden bg-secondary dark:bg-black py-16 md:py-24">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10 animate-pulse" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] -z-10" />
           <div className="container">
-            <div className="text-center space-y-6 max-w-3xl mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full backdrop-blur-sm">
-                <Star className="w-4 h-4 text-primary" />
-                <span className="text-xs font-bold text-primary uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                  Competitive Pricing
-                </span>
-              </div>
-              <h1
-                className="text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tighter leading-tight"
+            {/* Section Header */}
+            <div className="text-center mb-16 md:mb-24 space-y-4">
+              <h2
+                className="text-3xl md:text-5xl text-foreground uppercase tracking-tighter"
                 style={{ fontFamily: 'Orbitron, sans-serif' }}
               >
                 VOIP <span className="text-primary">RATES</span>
-              </h1>
-              <p className="text-slate-300 text-lg max-w-xl mx-auto leading-relaxed">
-                Transparent, competitive pricing for international VoIP calls to 190+ countries. No hidden fees, no contracts. CLI supported on all routes.
+              </h2>
+              <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
+                Competitive VoIP termination rates for businesses, carriers, and resellers. All plans include CLI support and premium routes.
               </p>
             </div>
-          </div>
-        </section>
 
-        {/* Plans Grid */}
-        <section className="py-16 md:py-24 bg-secondary dark:bg-black relative">
-          <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {/* Plans Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
               {plans.map((plan, index) => {
                 const Icon = plan.icon;
                 return (
                   <div
                     key={index}
-                    className={`relative rounded-xl border p-6 flex flex-col gap-5 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 ${
+                    className={`relative rounded-2xl transition-all duration-500 group ${
                       plan.highlighted
-                        ? 'border-primary/50 bg-primary/10'
-                        : 'border-white/10 bg-white/5'
+                        ? 'md:scale-110 border-2 border-primary shadow-[0_0_40px_rgba(0,163,255,0.2)] z-10'
+                        : 'bg-card border border-border hover:border-primary/30'
                     }`}
                   >
                     {/* Highlight Badge */}
                     {plan.highlighted && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <span
-                          className="bg-primary text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                          style={{ fontFamily: 'Orbitron, sans-serif' }}
-                        >
-                          Recommended
-                        </span>
+                      <div
+                        className="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-primary text-white px-6 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] shadow-[0_0_15px_rgba(0,163,255,0.5)]"
+                        style={{ fontFamily: 'Orbitron, sans-serif' }}
+                      >
+                        Recommended
                       </div>
                     )}
 
                     {/* Plan Name & Icon */}
-                    <div className="flex items-center gap-3">
-                      <div className={`p-2 rounded-lg ${plan.highlighted ? 'bg-primary/20' : 'bg-white/10'}`}>
-                        <Icon className={`w-5 h-5 ${plan.highlighted ? 'text-primary' : 'text-slate-300'}`} />
+                    <div className="p-10 space-y-8 h-full flex flex-col">
+                      <div className="space-y-4 text-center">
+                        <div
+                          className={`w-16 h-16 mx-auto rounded-2xl flex items-center justify-center border transition-transform duration-500 group-hover:rotate-12 ${
+                            plan.highlighted ? 'bg-primary/20 border-primary/40' : 'bg-primary/5 border-primary/10'
+                          }`}
+                        >
+                          <Icon className={`w-8 h-8 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`} />
+                        </div>
+                        <h3
+                          className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-white' : 'text-foreground'}`}
+                          style={{ fontFamily: 'Orbitron, sans-serif' }}
+                        >
+                          {plan.name}
+                        </h3>
                       </div>
-                      <h3
-                        className="text-base font-bold text-white"
+
+                      {/* Features List */}
+                      <div className="space-y-4 flex-grow">
+                        {plan.features.map((feature, featureIndex) => (
+                          <div key={featureIndex} className="flex items-start gap-4">
+                            <div
+                              className={`mt-1 p-0.5 rounded-full ${
+                                plan.highlighted ? 'bg-primary/20' : 'bg-primary/10'
+                              }`}
+                            >
+                              <Check className={`w-3.5 h-3.5 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`} />
+                            </div>
+                            <span
+                              className={`text-sm font-medium ${
+                                plan.highlighted ? 'text-slate-300' : 'text-muted-foreground'
+                              }`}
+                            >
+                              {feature}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* CTA Button */}
+                      <Button
+                        onClick={() => window.open(plan.link, '_blank')}
+                        className={`w-full h-14 uppercase tracking-widest text-xs font-bold transition-all duration-300 ${
+                          plan.highlighted
+                            ? 'btn-glow'
+                            : 'bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white'
+                        }`}
                         style={{ fontFamily: 'Orbitron, sans-serif' }}
                       >
-                        {plan.name}
-                      </h3>
+                        View Rates
+                      </Button>
                     </div>
-
-                    {/* Features List */}
-                    <ul className="flex flex-col gap-2 flex-1">
-                      {plan.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center gap-2">
-                          <div className="p-0.5 rounded-full bg-primary/20">
-                            <Check className="w-3.5 h-3.5 text-primary" />
-                          </div>
-                          <span className="text-sm text-slate-300">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* CTA Button */}
-                    <Button
-                      onClick={() => window.open(plan.link, '_blank')}
-                      className={`w-full h-14 uppercase tracking-widest text-xs font-bold transition-all duration-300 ${
-                        plan.highlighted
-                          ? 'btn-glow'
-                          : 'bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white'
-                      }`}
-                      style={{ fontFamily: 'Orbitron, sans-serif' }}
-                    >
-                      View Rates
-                    </Button>
                   </div>
                 );
               })}
             </div>
-          </div>
-        </section>
 
-        {/* Key Benefits */}
-        <section className="py-16 bg-secondary dark:bg-black relative overflow-hidden">
-          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] -z-10" />
-          <div className="container">
-            <div className="text-center mb-12 space-y-4">
-              <h2
-                className="text-2xl md:text-4xl text-white uppercase tracking-tighter"
-                style={{ fontFamily: 'Orbitron, sans-serif' }}
-              >
-                WHY CHOOSE OUR <span className="text-primary">RATES</span>
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {[
-                {
-                  icon: Phone,
-                  title: 'CLI Supported',
-                  desc: 'Full Caller Line Identification on all routes. Your caller ID is always displayed correctly.',
-                },
-                {
-                  icon: Star,
-                  title: 'Premium Routes',
-                  desc: 'Tier-1 carrier routes with the highest ASR and ACD. Crystal-clear quality guaranteed.',
-                },
-                {
-                  icon: Zap,
-                  title: '24/7 Support',
-                  desc: 'Round-the-clock technical support. We monitor routes 24/7 to ensure maximum uptime.',
-                },
-              ].map((benefit, i) => {
-                const Icon = benefit.icon;
-                return (
-                  <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-6 flex flex-col gap-4 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
-                    <div className="p-2 rounded-lg bg-primary/10 w-fit">
-                      <Icon className="w-5 h-5 text-primary" />
-                    </div>
-                    <h3
-                      className="text-base font-bold text-white"
-                      style={{ fontFamily: 'Orbitron, sans-serif' }}
-                    >
-                      {benefit.title}
-                    </h3>
-                    <p className="text-slate-400 text-sm leading-relaxed">{benefit.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-24 bg-secondary dark:bg-black relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10 animate-pulse" />
-          <div className="container">
-            <div className="text-center space-y-6 max-w-2xl mx-auto">
-              <h2
-                className="text-2xl md:text-4xl text-white uppercase tracking-tighter"
-                style={{ fontFamily: 'Orbitron, sans-serif' }}
-              >
-                REQUEST A <span className="text-primary">FREE TEST</span> ROUTE
-              </h2>
-              <p className="text-slate-300 text-base leading-relaxed">
-                Not sure about the quality? Request a free test route and experience our premium VoIP quality before committing. No obligations, no credit card required.
+            {/* Bottom CTA */}
+            <div className="mt-16 text-center space-y-6">
+              <p className="text-muted-foreground max-w-xl mx-auto">
+                Need custom rates for high volume? Looking for wholesale pricing?
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/contact">
+                  <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
+                    Contact Sales
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
                 <a
-                  href="https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20to%20request%20a%20free%20test%20route."
+                  href="https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button className="btn-glow h-12 px-8 uppercase tracking-widest text-xs font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                    Request Free Test
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                  <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10">
+                    Request Free Test Route
                   </Button>
                 </a>
-                <Link href="/contact">
-                  <Button
-                    variant="outline"
-                    className="h-12 px-8 uppercase tracking-widest text-xs font-bold border-primary/50 text-primary hover:bg-primary/10"
-                    style={{ fontFamily: 'Orbitron, sans-serif' }}
-                  >
-                    Contact Us
-                  </Button>
-                </Link>
-              </div>
-              <div className="flex flex-wrap justify-center gap-6 pt-2">
-                {['No contracts', 'No setup fees', 'Free test available'].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-primary" />
-                    <span className="text-slate-300 text-sm">{item}</span>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
         </section>
-
-        {/* Internal Links */}
-        <section className="py-8 bg-secondary dark:bg-black border-t border-white/10">
-          <div className="container">
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-400">
-              <Link href="/sip-trunk" className="hover:text-primary transition-colors">SIP Trunk Services</Link>
-              <span className="text-white/20">|</span>
-              <Link href="/wholesale-voip" className="hover:text-primary transition-colors">Wholesale VoIP</Link>
-              <span className="text-white/20">|</span>
-              <Link href="/cloud-pbx" className="hover:text-primary transition-colors">Cloud PBX Solutions</Link>
-              <span className="text-white/20">|</span>
-              <Link href="/voip-reseller" className="hover:text-primary transition-colors">Become a Reseller</Link>
-              <span className="text-white/20">|</span>
-              <Link href="/voip-api" className="hover:text-primary transition-colors">VoIP API</Link>
-            </div>
-          </div>
-        </section>
-
       </main>
       <Footer />
     </div>
