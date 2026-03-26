@@ -68,7 +68,7 @@ export default function VoipRates() {
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-slate-800"> to-slate-900
       <Header />
       <main className="flex-grow">
-        <section id="rates" className="py-20 md:py-32 bg-background relative">
+        <section id="rates" className="py-20 md:py-32 relative">
           {/* Background accent */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 -z-10"></div>
 
