@@ -96,7 +96,7 @@ export default function VoipRates() {
                     key={index}
                     className={`relative rounded-2xl transition-all duration-500 group ${
                       plan.highlighted
-                        ? 'md:scale-110 bg-card                     border-2 border-primary shadow-[0_0_40px_rgba(0,163,255,0.2)] z-10'
+                        ? 'md:scale-110 bg-slate-900                     border-2 border-primary shadow-[0_0_40px_rgba(0,163,255,0.2)] z-10'
                         : 'bg-card border border-border hover:border-primary/30'
                     }`}
                   >
