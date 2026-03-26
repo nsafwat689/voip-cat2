@@ -1,47 +1,59 @@
 import { Button } from '@/components/ui/button';
-import { Mail, MapPin, Phone, Clock, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Clock, Send, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
 /**
  * Contact Section - Cyber Tech Design
- * Features: Contact info cards, contact form with validation
+ * Features: Contact info cards, contact form with mailto, WhatsApp/Telegram links
  */
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    service: '',
     message: '',
   });
 
   const contactInfo = [
     {
-      icon: MapPin,
-      label: 'Address',
-      details: '251 Mercer St, New York, NY 10012, USA',
-    },
-    {
       icon: Phone,
-      label: 'Phone',
-      details: '+201557649136',
+      label: 'Phone / WhatsApp',
+      details: '+20 155 764 9136',
+      href: 'https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20VoIP%20services.',
+      external: true,
     },
     {
       icon: Mail,
       label: 'Email',
       details: 'sales.voipcat@gmail.com',
+      href: 'mailto:sales.voipcat@gmail.com',
+      external: false,
+    },
+    {
+      icon: MessageCircle,
+      label: 'Telegram',
+      details: '@voipcat',
+      href: 'https://t.me/voipcat',
+      external: true,
     },
     {
       icon: Clock,
-      label: 'Work Hours',
-      details: 'Mon-Fri: 9AM - 8PM\nSat: 10AM - 4PM',
+      label: 'Availability',
+      details: 'Available 24/7\nFast Response Guaranteed',
+      href: '#',
+      external: false,
     },
   ];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    const subject = encodeURIComponent(`VoIP Inquiry from ${formData.name}${formData.service ? ` - ${formData.service}` : ''}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService Interest: ${formData.service}\n\nMessage:\n${formData.message}`
+    );
+    window.open(`mailto:sales.voipcat@gmail.com?subject=${subject}&body=${body}`, '_self');
+    setFormData({ name: '', email: '', phone: '', service: '', message: '' });
   };
 
   return (
@@ -58,7 +70,7 @@ export default function ContactSection() {
           </h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
-            Initiate a secure communication channel with our experts.
+            Contact us for a free test route, custom pricing, or any questions about our VoIP services.
           </p>
         </div>
 
@@ -66,22 +78,14 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
-            let href = '#';
-
-            if (info.label === 'Phone') {
-              href = 'https://wa.me/201557649136?text=Hello%20VoIP%20Cat';
-            } else if (info.label === 'Email') {
-              href = 'mailto:sales.voipcat@gmail.com';
-            }
-
-            const isClickable = info.label === 'Phone' || info.label === 'Email';
-
+            const isClickable = info.href !== '#';
+            
             return (
               <a
                 key={index}
-                href={href}
-                target={isClickable && info.label === 'Phone' ? '_blank' : undefined}
-                rel={isClickable && info.label === 'Phone' ? 'noopener noreferrer' : undefined}
+                href={info.href}
+                target={info.external ? '_blank' : undefined}
+                rel={info.external ? 'noopener noreferrer' : undefined}
                 className={`card-elevated p-8 space-y-6 transition-all duration-500 group ${isClickable ? 'hover:border-primary cursor-pointer' : 'border-primary/10'}`}
               >
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-primary/20">
@@ -105,7 +109,7 @@ export default function ContactSection() {
           <div className="card-elevated p-8 md:p-12 border-primary/20 bg-primary/5 backdrop-blur-md relative overflow-hidden">
             {/* Form background accent */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl -z-10"></div>
-
+            
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Name Field */}
@@ -143,20 +147,45 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* Phone Field */}
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  placeholder="+201557649136"
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                  className="w-full px-5 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Phone Field */}
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="+1 234 567 8900"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    className="w-full px-5 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  />
+                </div>
+
+                {/* Service Interest */}
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                    Service Interest
+                  </label>
+                  <select
+                    value={formData.service}
+                    onChange={(e) =>
+                      setFormData({ ...formData, service: e.target.value })
+                    }
+                    className="w-full px-5 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="SIP Trunking">SIP Trunking</option>
+                    <option value="Wholesale VoIP">Wholesale VoIP</option>
+                    <option value="Cloud PBX">Cloud PBX</option>
+                    <option value="VoIP API">VoIP API</option>
+                    <option value="VoIP Reseller">VoIP Reseller Program</option>
+                    <option value="Free Test Route">Free Test Route</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
               </div>
 
               {/* Message Field */}
@@ -165,7 +194,7 @@ export default function ContactSection() {
                   Your Message
                 </label>
                 <textarea
-                  placeholder="How can we help you?"
+                  placeholder="Tell us about your VoIP needs — traffic volume, destinations, current setup, etc."
                   value={formData.message}
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
@@ -181,6 +210,29 @@ export default function ContactSection() {
                 Send Message
                 <Send className="w-4 h-4" />
               </Button>
+
+              {/* Alternative contact */}
+              <p className="text-center text-sm text-muted-foreground">
+                Prefer instant messaging?{' '}
+                <a
+                  href="https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20VoIP%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  WhatsApp us
+                </a>
+                {' '}or{' '}
+                <a
+                  href="https://t.me/voipcat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary font-semibold hover:underline"
+                >
+                  Telegram us
+                </a>
+                {' '}for faster response.
+              </p>
             </form>
           </div>
         </div>

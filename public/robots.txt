@@ -1,50 +1,28 @@
-# Robots.txt for VOIP CAT - Global VoIP Solutions
-# This file helps search engines crawl and index the website efficiently
+# robots.txt for VOIP Cat - Enterprise VoIP Solutions
+# https://voipcat.com/robots.txt
 
 # Allow all search engines to crawl the entire site
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /api
-Disallow: /private
-Disallow: /*.json$
-# Disa#l#low: /*.xml$
-Disallow: /node_modules/
-Disallow: /dist/
-Disallow: /.git/
 
-# Specific rules for Google
-User-agent: Googlebot
-Allow: /
+# Crawl-delay for respectful crawling
 Crawl-delay: 0
-
-# Specific rules for Bing
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Specific rules for other search engines
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
-User-agent: DuckDuckBot
-Allow: /
-Crawl-delay: 1
-
-# Block bad bots
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: SemrushBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
 
 # Sitemap location
 Sitemap: https://voipcat.com/sitemap.xml
 
-# Crawl delay for all other bots
-Crawl-delay: 2
-Request-rate: 1/10
+# Specific directives for common bots
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Block access to API endpoints and admin areas (if any)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/

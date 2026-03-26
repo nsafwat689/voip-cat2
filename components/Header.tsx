@@ -1,23 +1,36 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/contexts/ThemeContext';
+import { Link } from 'wouter';
 
 /**
  * Header Component - Cyber Tech Design
- * Features: Sticky navigation, responsive mobile menu, smooth transitions
- * Color scheme: Logo-inspired blue palette
+ * Features: Sticky navigation, responsive mobile menu, services dropdown, smooth transitions
  */
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About', href: '/#about' },
-    { label: 'Cloud PBX', href: '/#cloud-pbx' },
-    { label: 'Plans', href: '/#plans' },
+    {
+      label: 'Services',
+      href: '#',
+      children: [
+        { label: 'Cloud PBX', href: '/cloud-pbx' },
+        { label: 'SIP Trunk', href: '/sip-trunk' },
+        { label: 'Wholesale VoIP', href: '/wholesale-voip' },
+        { label: 'VoIP API', href: '/voip-api' },
+        { label: 'VoIP Reseller', href: '/voip-reseller' },
+      ],
+    },
+    { label: 'Rates', href: '/voip-rates' },
     { label: 'Articles', href: '/articles' },
     { label: 'FAQ', href: '/faq' },
-    { label: 'Contact', href: '/#contact' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -25,7 +38,7 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between h-16 md:h-20 py-2">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="relative">
               <img
                 src="/images/logo-fox.jpg"
@@ -37,34 +50,88 @@ export default function Header() {
             <span className="font-bold text-xl text-foreground hidden sm:inline tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif' }}>
               VOIP CAT
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 uppercase tracking-widest"
-                style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.75rem' }}
-              >
-                {link.label}
-              </a>
+              link.children ? (
+                <div
+                  key={link.label}
+                  className="relative group"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                >
+                  <button
+                    className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 uppercase tracking-widest"
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.75rem' }}
+                  >
+                    {link.label}
+                    <ChevronDown className="w-3 h-3" />
+                  </button>
+                  {servicesOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-xl shadow-xl py-2 z-50">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          className="block px-4 py-3 text-sm text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                link.href.startsWith('/') && !link.href.includes('#') ? (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 uppercase tracking-widest"
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.75rem' }}
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 uppercase tracking-widest"
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.75rem' }}
+                  >
+                    {link.label}
+                  </a>
+                )
+              )
             ))}
           </nav>
 
           {/* Desktop CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <a href="https://wa.me/201557649136?text=Hello%20VoIP%20Cat" target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary/5 uppercase tracking-wider text-xs"
-                style={{ fontFamily: 'Orbitron, sans-serif' }}
-              >
-                Contact
-              </Button>
-            </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX9dCZ4ORDBXUnhKk4b0Nvd-EfPZasC6ysrTKGPUjc5qYreA/viewform" target="_blank" rel="noopener noreferrer">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-muted transition-colors"
+              aria-label="Toggle dark mode"
+            >
+              {theme === 'light' ? (
+                <Moon className="w-5 h-5 text-foreground" />
+              ) : (
+                <Sun className="w-5 h-5 text-foreground" />
+              )}
+            </button>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center px-4 py-2 border border-primary text-primary hover:bg-primary/5 rounded-md uppercase tracking-wider text-xs transition-colors"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              Contact
+            </Link>
+            <a
+              href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20get%20started%20with%20VoIP%20Cat."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button className="btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                 Get Started
               </Button>
@@ -87,30 +154,84 @@ export default function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <nav className="md:hidden pb-4 border-t border-border animate-in fade-in slide-in-from-top-2 duration-200">
-            <div className="flex flex-col gap-2 pt-2">
+            <div className="flex flex-col gap-1 pt-2">
               {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors uppercase tracking-widest"
+                link.children ? (
+                  <div key={link.label}>
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      className="w-full text-left px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors uppercase tracking-widest flex items-center justify-between"
+                      style={{ fontFamily: 'Orbitron, sans-serif' }}
+                    >
+                      {link.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {servicesOpen && (
+                      <div className="pl-6">
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  link.href.startsWith('/') && !link.href.includes('#') ? (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors uppercase tracking-widest"
+                      style={{ fontFamily: 'Orbitron, sans-serif' }}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors uppercase tracking-widest"
+                      style={{ fontFamily: 'Orbitron, sans-serif' }}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )
+              ))}
+              <div className="flex gap-2 px-4 pt-2">
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  aria-label="Toggle dark mode"
+                >
+                  {theme === 'light' ? (
+                    <Moon className="w-5 h-5 text-foreground" />
+                  ) : (
+                    <Sun className="w-5 h-5 text-foreground" />
+                  )}
+                </button>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-4 py-2 border border-primary text-primary hover:bg-primary/5 rounded-md uppercase tracking-wider text-xs transition-colors"
                   style={{ fontFamily: 'Orbitron, sans-serif' }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {link.label}
-                </a>
-              ))}
-              <div className="flex items-center gap-2 px-4 pt-2">
-                <a href="https://wa.me/201557649136?text=Hello%20VoIP%20Cat" target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button
-                    variant="outline"
-                    className="flex-1 border-primary text-primary hover:bg-primary/5 uppercase tracking-wider text-xs"
-                    style={{ fontFamily: 'Orbitron, sans-serif' }}
-                  >
-                    Contact
-                  </Button>
-                </a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX9dCZ4ORDBXUnhKk4b0Nvd-EfPZasC6ysrTKGPUjc5qYreA/viewform" target="_blank" rel="noopener noreferrer" className="flex-1">
-                  <Button className="flex-1 btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  Contact
+                </Link>
+                <a
+                  href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20get%20started%20with%20VoIP%20Cat."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1"
+                >
+                  <Button className="w-full btn-glow uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                     Get Started
                   </Button>
                 </a>

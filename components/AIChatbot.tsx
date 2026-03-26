@@ -29,35 +29,41 @@ interface VoIPPlan {
 const CONTACT_INFO = {
   sales: {
     whatsapp: '+201557649136',
-    email: 'sales@voipcat.com',
+    email: 'sales.voipcat@gmail.com',
     name: 'Sales'
   }
 };
 
 const SERVICE_OPTIONS: ServiceOption[] = [
   {
-    id: 'crm',
-    label: 'CRM Solutions',
-    description: 'Learn about our CRM and business management tools',
-    icon: <MessageSquare className="w-4 h-4" />
-  },
-  {
-    id: 'cybersecurity',
-    label: 'Cybersecurity',
-    description: 'Explore our security and compliance solutions',
-    icon: <MessageSquare className="w-4 h-4" />
-  },
-  {
-    id: 'networking',
-    label: 'Networking',
-    description: 'Discover our networking infrastructure solutions',
-    icon: <MessageSquare className="w-4 h-4" />
-  },
-  {
-    id: 'voip',
-    label: 'VoIP Services',
-    description: 'Explore our enterprise VoIP solutions',
+    id: 'sip-trunk',
+    label: 'SIP Trunking',
+    description: 'Enterprise-grade SIP trunks with HD voice and global coverage',
     icon: <Phone className="w-4 h-4" />
+  },
+  {
+    id: 'wholesale',
+    label: 'Wholesale VoIP',
+    description: 'High-volume voice termination with competitive A-Z rates',
+    icon: <Globe className="w-4 h-4" />
+  },
+  {
+    id: 'cloud-pbx',
+    label: 'Cloud PBX',
+    description: 'Hosted phone systems with auto-attendant and call routing',
+    icon: <MessageSquare className="w-4 h-4" />
+  },
+  {
+    id: 'voip-rates',
+    label: 'VoIP Rates & Plans',
+    description: 'View our competitive rates for 190+ countries',
+    icon: <Zap className="w-4 h-4" />
+  },
+  {
+    id: 'reseller',
+    label: 'VoIP Reseller Program',
+    description: 'Start your own VoIP business with our white-label solution',
+    icon: <ShieldCheck className="w-4 h-4" />
   }
 ];
 
@@ -100,6 +106,14 @@ const VOIP_PLANS: VoIPPlan[] = [
   }
 ];
 
+const SERVICE_RESPONSES: Record<string, string> = {
+  'sip-trunk': 'Our SIP Trunking service offers enterprise-grade voice connectivity with HD quality, coverage to 190+ countries, TLS/SRTP encryption, and 99.9% uptime SLA. Compatible with Asterisk, FreePBX, 3CX, and all major PBX systems. Save up to 60% compared to traditional phone lines. Would you like a free test route?',
+  'wholesale': 'Our Wholesale VoIP service provides high-quality A-Z voice termination with competitive rates, CLI routes, real-time CDR access, and 99.9% uptime SLA. We serve carriers, ITSPs, resellers, and call centers. Contact our sales team for volume pricing.',
+  'cloud-pbx': 'Our Cloud PBX solutions include auto-attendant, call routing, voicemail-to-email, call recording, and conference calling. Plans start at $75/month for up to 8 concurrent calls, with enterprise plans supporting unlimited calls. No hardware required!',
+  'voip-rates': 'We offer competitive VoIP rates for calls to 190+ countries. Below you can see our rate plans. All plans include CLI support, premium routes, and 24/7 technical support. Volume discounts are available for high-traffic customers.',
+  'reseller': 'Our VoIP Reseller Program lets you start your own VoIP business with zero upfront investment. You get white-label branding, high profit margins, a customer management portal, and full technical support from our team. Apply today and start earning!',
+};
+
 export default function AIChatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -107,7 +121,7 @@ export default function AIChatbot() {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: '1',
-      text: 'Hello! 👋 I\'m your AI assistant. How can I help you today? Please select a service below to get started.',
+      text: 'Hello! I\'m your VoIP Cat assistant. How can I help you today? Select a service below to learn more.',
       sender: 'ai',
       timestamp: new Date(),
     },
@@ -136,12 +150,10 @@ export default function AIChatbot() {
 
       // Add AI response
       setTimeout(() => {
-        let aiResponseText = '';
-        if (serviceId === 'voip') {
-          aiResponseText = `Great! You've selected ${service.label}. Below you can see our VoIP plans and pricing options. Choose a plan to view detailed rates, or contact our Sales team for more information.`;
+        const aiResponseText = SERVICE_RESPONSES[serviceId] || `Great choice! Contact our sales team to learn more about ${service.label}.`;
+        
+        if (serviceId === 'voip-rates') {
           setShowVoIPDetails(true);
-        } else {
-          aiResponseText = `Great! You've selected ${service.label}. To get more information or speak with our Sales team about ${service.label}, please use the contact options below.`;
         }
 
         const aiMessage: ChatMessage = {
@@ -157,15 +169,19 @@ export default function AIChatbot() {
 
   const handleWhatsAppContact = () => {
     const contact = CONTACT_INFO.sales;
-    const message = `Hi! I'm interested in learning more about your services. Please assist me.`;
+    const service = SERVICE_OPTIONS.find(s => s.id === selectedService);
+    const serviceName = service ? service.label : 'VoIP services';
+    const message = `Hi! I'm interested in your ${serviceName}. Please assist me.`;
     const whatsappUrl = `https://wa.me/${contact.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const handleEmailContact = () => {
     const contact = CONTACT_INFO.sales;
-    const subject = `Inquiry About Our Services`;
-    const body = `Hello,\n\nI would like to learn more about your services.\n\nThank you,`;
+    const service = SERVICE_OPTIONS.find(s => s.id === selectedService);
+    const serviceName = service ? service.label : 'VoIP services';
+    const subject = `Inquiry About ${serviceName}`;
+    const body = `Hello,\n\nI would like to learn more about your ${serviceName}.\n\nThank you,`;
     const mailtoUrl = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoUrl;
   };
@@ -180,7 +196,7 @@ export default function AIChatbot() {
     setMessages([
       {
         id: '1',
-        text: 'Hello! 👋 I\'m your AI assistant. How can I help you today? Please select a service below to get started.',
+        text: 'Hello! I\'m your VoIP Cat assistant. How can I help you today? Select a service below to learn more.',
         sender: 'ai',
         timestamp: new Date(),
       },
@@ -232,8 +248,8 @@ export default function AIChatbot() {
                   <MessageCircle className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-white font-semibold text-sm">Service Assistant</h3>
-                  <p className="text-white/80 text-xs">Select a service to get started</p>
+                  <h3 className="text-white font-semibold text-sm">VoIP Cat Assistant</h3>
+                  <p className="text-white/80 text-xs">Available 24/7 — Select a service</p>
                 </div>
               </div>
               <button
@@ -275,7 +291,7 @@ export default function AIChatbot() {
 
             {/* Service Options Section */}
             {!selectedService && (
-              <div className="border-t border-border p-3 space-y-2 bg-muted/30 max-h-48 overflow-y-auto">
+              <div className="border-t border-border p-3 space-y-2 bg-muted/30 max-h-56 overflow-y-auto">
                 <p className="text-xs font-semibold text-foreground/70 px-1">Select a Service:</p>
                 {SERVICE_OPTIONS.map((service) => (
                   <motion.button
@@ -298,91 +314,82 @@ export default function AIChatbot() {
             )}
 
             {/* VoIP Plans Section */}
-            {showVoIPDetails && selectedService === 'voip' && (
-              <div className="border-t border-border p-3 space-y-3 bg-muted/30 max-h-64 overflow-y-auto">
-                <p className="text-xs font-semibold text-foreground/70 px-1">VoIP Plans:</p>
-                <div className="space-y-2">
-                  {VOIP_PLANS.map((plan, index) => (
-                    <motion.div
-                      key={index}
-                      whileHover={{ scale: 1.02 }}
-                      className={`p-2 rounded-lg border transition-all ${
-                        plan.highlighted
-                          ? 'bg-primary/10 border-primary/50'
-                          : 'bg-background border-border hover:border-primary/30'
+            {showVoIPDetails && selectedService === 'voip-rates' && (
+              <div className="border-t border-border p-3 space-y-2 bg-muted/30 max-h-64 overflow-y-auto">
+                <p className="text-xs font-semibold text-foreground/70 px-1">VoIP Rate Plans:</p>
+                {VOIP_PLANS.map((plan, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`p-3 rounded-lg border ${
+                      plan.highlighted 
+                        ? 'border-primary bg-primary/5' 
+                        : 'border-border bg-background'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="text-primary">{plan.icon}</div>
+                      <h4 className="font-semibold text-sm text-foreground">{plan.name}</h4>
+                      {plan.highlighted && (
+                        <span className="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full">Recommended</span>
+                      )}
+                    </div>
+                    <ul className="space-y-1 mb-2">
+                      {plan.features.map((feature, fIndex) => (
+                        <li key={fIndex} className="flex items-center gap-1.5 text-xs text-foreground/70">
+                          <Check className="w-3 h-3 text-primary flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      size="sm"
+                      onClick={() => handleViewRates(plan.googleSheetLink)}
+                      className={`w-full text-xs ${
+                        plan.highlighted 
+                          ? 'bg-primary hover:bg-primary/90 text-white' 
+                          : 'bg-primary/10 text-primary hover:bg-primary/20'
                       }`}
                     >
-                      <div className="flex items-start justify-between gap-2 mb-2">
-                        <div className="flex items-start gap-2 flex-1">
-                          <div className={`text-lg mt-0.5 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`}>
-                            {plan.icon}
-                          </div>
-                          <div className="flex-1">
-                            <p className={`text-xs font-semibold ${plan.highlighted ? 'text-primary' : 'text-foreground'}`}>
-                              {plan.name}
-                              {plan.highlighted && <span className="ml-2 text-[10px] bg-primary text-white px-2 py-0.5 rounded">Recommended</span>}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="ml-6 space-y-1 mb-2">
-                        {plan.features.slice(0, 2).map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-start gap-1.5">
-                            <Check className="w-3 h-3 text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-xs text-foreground/70">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                      <Button
-                        onClick={() => handleViewRates(plan.googleSheetLink)}
-                        size="sm"
-                        className="w-full h-7 text-xs"
-                        variant={plan.highlighted ? 'default' : 'outline'}
-                      >
-                        View Rates
-                      </Button>
-                    </motion.div>
-                  ))}
-                </div>
+                      View Rates
+                    </Button>
+                  </motion.div>
+                ))}
               </div>
             )}
 
-            {/* Contact Options */}
-            <div className="border-t border-border p-3 space-y-2 bg-muted/30">
-              <p className="text-xs font-semibold text-foreground/70 px-1">Contact Our Sales Team:</p>
-              
-              <div className="flex gap-2">
+            {/* Contact Options (shown after service selection) */}
+            {selectedService && (
+              <div className="border-t border-border p-3 space-y-2 bg-muted/30">
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    onClick={handleWhatsAppContact}
+                    className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs gap-1"
+                  >
+                    <Phone className="w-3 h-3" /> WhatsApp
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={handleEmailContact}
+                    variant="outline"
+                    className="flex-1 text-xs gap-1"
+                  >
+                    <Mail className="w-3 h-3" /> Email
+                  </Button>
+                </div>
                 <Button
-                  onClick={handleWhatsAppContact}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white text-xs h-8 flex items-center justify-center gap-1"
                   size="sm"
+                  onClick={handleReset}
+                  variant="ghost"
+                  className="w-full text-xs gap-1 text-foreground/60"
                 >
-                  <Phone className="w-3 h-3" />
-                  WhatsApp
-                </Button>
-                <Button
-                  onClick={handleEmailContact}
-                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-xs h-8 flex items-center justify-center gap-1"
-                  size="sm"
-                >
-                  <Mail className="w-3 h-3" />
-                  Email
+                  <ArrowLeft className="w-3 h-3" /> Back to Services
                 </Button>
               </div>
-
-              {/* Back Button */}
-              {selectedService && (
-                <Button
-                  onClick={handleReset}
-                  variant="outline"
-                  className="w-full text-xs h-8"
-                  size="sm"
-                >
-                  <ArrowLeft className="w-3 h-3 mr-1" />
-                  Back to Services
-                </Button>
-              )}
-            </div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

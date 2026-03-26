@@ -1,45 +1,28 @@
 /**
  * Structured Data (JSON-LD) for SEO
  * Helps search engines understand the content and context of the website
- * Implements comprehensive schema.org markup for global visibility
  */
 
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  '@id': 'https://voipcat.com',
   name: 'VOIP CAT',
   url: 'https://voipcat.com',
-  logo: {
-    '@type': 'ImageObject',
-    url: 'https://voipcat.com/logo-fox.jpg',
-    width: 250,
-    height: 250,
-  },
-  image: 'https://voipcat.com/logo-fox.jpg',
-  description: 'Enterprise-grade VoIP, business communication solutions, and global networking services for businesses worldwide. Crystal-clear voice quality with 99.9% uptime guarantee.',
+  logo: 'https://voipcat.com/images/logo-fox.jpg',
+  description: 'Enterprise-grade VoIP solutions provider offering SIP trunking, wholesale voice termination, Cloud PBX, and programmable voice API for businesses worldwide.',
   sameAs: [
     'https://www.linkedin.com/company/voipcat',
     'https://twitter.com/voipcat',
-    'https://www.facebook.com/voipcat',
+    'https://www.facebook.com/people/VoipCat/61583844607938/',
   ],
-  contactPoint: [
-    {
-      '@type': 'ContactPoint',
-      contactType: 'Customer Support',
-      telephone: '+201557649136',
-      email: 'sales.voipcat@gmail.com',
-      areaServed: 'Worldwide',
-      availableLanguage: 'en',
-    },
-    {
-      '@type': 'ContactPoint',
-      contactType: 'Sales',
-      telephone: '+201557649136',
-      email: 'sales.voipcat@gmail.com',
-      areaServed: 'Worldwide',
-    },
-  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'Sales',
+    telephone: '+201557649136',
+    email: 'sales.voipcat@gmail.com',
+    availableLanguage: ['English', 'Arabic'],
+    contactOption: 'TollFree',
+  },
   address: {
     '@type': 'PostalAddress',
     streetAddress: '251 Mercer St',
@@ -48,130 +31,81 @@ export const organizationSchema = {
     postalCode: '10012',
     addressCountry: 'US',
   },
-  founder: {
-    '@type': 'Person',
-    name: 'VOIP CAT Team',
-  },
-  foundingDate: '2015',
-  areaServed: [
-    {
-      '@type': 'Country',
-      name: 'Worldwide',
-    },
-  ],
-  knowsAbout: [
-    'VoIP Solutions',
-    'Business Communication',
-    'Cloud PBX',
-    'Enterprise Telephony',
-    'Unified Communications',
-    'Global Networking',
-  ],
 };
 
 export const serviceSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': 'https://voipcat.com/services/voip',
-    name: 'Enterprise VoIP Solutions',
-    description: 'Crystal-clear, enterprise-grade VoIP services with 99.9% uptime guarantee. Global coverage to 190+ countries with advanced security features.',
+    name: 'SIP Trunking Service',
+    description: 'Enterprise-grade SIP trunking with HD voice quality, global coverage to 190+ countries, and 99.9% uptime SLA.',
     provider: {
       '@type': 'Organization',
       name: 'VOIP CAT',
-      url: 'https://voipcat.com',
     },
-    areaServed: [
-      {
-        '@type': 'Country',
-        name: 'Worldwide',
-      },
-    ],
+    areaServed: 'Worldwide',
     availableLanguage: 'en',
-    serviceType: 'Telecommunications',
-    offers: {
-      '@type': 'AggregateOffer',
-      priceCurrency: 'USD',
-      lowPrice: '75',
-      highPrice: '199',
-      offerCount: '3',
-    },
+    url: 'https://voipcat.com/sip-trunk',
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': 'https://voipcat.com/services/cloud-pbx',
+    name: 'Wholesale VoIP Termination',
+    description: 'High-quality wholesale voice termination with competitive A-Z rates, CLI routes, and real-time CDR access.',
+    provider: {
+      '@type': 'Organization',
+      name: 'VOIP CAT',
+    },
+    areaServed: 'Worldwide',
+    availableLanguage: 'en',
+    url: 'https://voipcat.com/wholesale-voip',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
     name: 'Cloud PBX Solutions',
-    description: 'Scalable neural phone systems for every size organization. From SOHO to enterprise-level call volumes with up to 80 concurrent calls.',
+    description: 'Scalable cloud-based phone systems with auto-attendant, call routing, voicemail, and conference calling for businesses of all sizes.',
     provider: {
       '@type': 'Organization',
       name: 'VOIP CAT',
-      url: 'https://voipcat.com',
     },
-    areaServed: [
-      {
-        '@type': 'Country',
-        name: 'Worldwide',
-      },
-    ],
+    areaServed: 'Worldwide',
     availableLanguage: 'en',
-    serviceType: 'Business Services',
-    offers: [
-      {
-        '@type': 'Offer',
-        name: 'Golden Node',
-        description: 'Up to 8 concurrent calls',
-        price: '75',
-        priceCurrency: 'USD',
-        priceValidUntil: '2026-12-31',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Diamond Core',
-        description: 'Up to 40 concurrent calls',
-        price: '119',
-        priceCurrency: 'USD',
-        priceValidUntil: '2026-12-31',
-      },
-      {
-        '@type': 'Offer',
-        name: 'Platinum Link',
-        description: 'Up to 80 concurrent calls',
-        price: '199',
-        priceCurrency: 'USD',
-        priceValidUntil: '2026-12-31',
-      },
-    ],
+    url: 'https://voipcat.com/cloud-pbx',
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    '@id': 'https://voipcat.com/services/business-communication',
-    name: 'Business Communication Services',
-    description: 'Unified communications platform with HD voice quality, advanced security, and 24/7 neural support for global enterprises.',
+    name: 'VoIP API',
+    description: 'Programmable voice API for building custom communication applications with call control, SIP trunk management, and real-time analytics.',
     provider: {
       '@type': 'Organization',
       name: 'VOIP CAT',
-      url: 'https://voipcat.com',
     },
-    areaServed: [
-      {
-        '@type': 'Country',
-        name: 'Worldwide',
-      },
-    ],
+    areaServed: 'Worldwide',
     availableLanguage: 'en',
-    serviceType: 'Telecommunications',
+    url: 'https://voipcat.com/voip-api',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'VoIP Reseller Program',
+    description: 'White-label VoIP reseller program with high margins, full technical support, and no upfront investment required.',
+    provider: {
+      '@type': 'Organization',
+      name: 'VOIP CAT',
+    },
+    areaServed: 'Worldwide',
+    availableLanguage: 'en',
+    url: 'https://voipcat.com/voip-reseller',
   },
 ];
 
 export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  '@id': 'https://voipcat.com',
   name: 'VOIP CAT',
   url: 'https://voipcat.com',
-  description: 'Enterprise VoIP & Business Communication Solutions - Global VoIP provider with 190+ nodes and 99.9% uptime.',
   potentialAction: {
     '@type': 'SearchAction',
     target: {
@@ -180,21 +114,7 @@ export const websiteSchema = {
     },
     'query-input': 'required name=search_term_string',
   },
-  inLanguage: 'en',
 };
-
-export const faqSchema = (faqs: Array<{ question: string; answer: string }>) => ({
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map(faq => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answer,
-    },
-  })),
-});
 
 export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
   '@context': 'https://schema.org',
@@ -213,80 +133,28 @@ export const articleSchema = (article: {
   content: string;
   author: string;
   date: string;
-  modifiedDate?: string;
   image?: string;
-  category?: string;
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'Article',
-  '@id': `https://voipcat.com/articles/${article.title.toLowerCase().replace(/\s+/g, '-')}`,
   headline: article.title,
   description: article.description,
   image: article.image || 'https://voipcat.com/images/og-articles.png',
   author: {
     '@type': 'Organization',
-    name: article.author,
-    url: 'https://voipcat.com',
+    name: 'VOIP CAT',
   },
   publisher: {
     '@type': 'Organization',
     name: 'VOIP CAT',
     logo: {
       '@type': 'ImageObject',
-      url: 'https://voipcat.com/logo-fox.jpg',
-      width: 250,
-      height: 250,
+      url: 'https://voipcat.com/images/logo-fox.jpg',
     },
   },
   datePublished: article.date,
-  dateModified: article.modifiedDate || article.date,
   articleBody: article.content,
-  keywords: article.category || 'VoIP, Business Communication',
-  inLanguage: 'en',
 });
-
-export const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://voipcat.com',
-  name: 'VOIP CAT',
-  image: 'https://voipcat.com/logo-fox.jpg',
-  description: 'Enterprise VoIP & Business Communication Solutions',
-  url: 'https://voipcat.com',
-  telephone: '+201557649136',
-  email: 'sales.voipcat@gmail.com',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '251 Mercer St',
-    addressLocality: 'New York',
-    addressRegion: 'NY',
-    postalCode: '10012',
-    addressCountry: 'US',
-  },
-  priceRange: '$75-$199',
-  areaServed: 'Worldwide',
-  sameAs: [
-    'https://www.linkedin.com/company/voipcat',
-    'https://twitter.com/voipcat',
-    'https://www.facebook.com/voipcat',
-  ],
-};
-
-export const aggregateRatingSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'AggregateRating',
-  ratingValue: '4.8',
-  bestRating: '5',
-  worstRating: '1',
-  ratingCount: '150',
-    itemReviewed: {
-    '@type': 'Organization',
-    name: 'VOIP CAT',
-    url: 'https://voipcat.com'
-  },
-
-};
-
 
 /**
  * Function to inject JSON-LD script into the document head

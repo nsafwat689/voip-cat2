@@ -1,46 +1,49 @@
 import { Facebook, Linkedin, Twitter } from 'lucide-react';
+import { Link } from 'wouter';
 
 /**
  * Footer Component - Cyber Tech Design
- * Features: Multi-column link layout, social icons, copyright
+ * Features: Multi-column link layout with all service pages, social icons, copyright
  */
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     company: [
-      { label: 'About Us', href: '#about' },
-      { label: 'Cloud PBX', href: '#cloud-pbx' },
-      { label: 'Our Plans', href: '#plans' },
+      { label: 'About Us', href: '/#about' },
+      { label: 'Articles', href: '/articles' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Contact', href: '/contact' },
     ],
     services: [
-      { label: 'Business VoIP', href: '#' },
-      { label: 'Residential VoIP', href: '#' },
-      { label: 'International Calling', href: '#' },
-      { label: 'Virtual Numbers', href: '#' },
-      { label: 'Call Center Solutions', href: '#' },
-      { label: 'API Integration', href: '#' },
+      { label: 'Cloud PBX', href: '/cloud-pbx' },
+      { label: 'SIP Trunk', href: '/sip-trunk' },
+      { label: 'Wholesale VoIP', href: '/wholesale-voip' },
+      { label: 'VoIP API', href: '/voip-api' },
+      { label: 'VoIP Reseller', href: '/voip-reseller' },
+      { label: 'VoIP Rates', href: '/voip-rates' },
     ],
     support: [
-      { label: 'Contact', href: '#contact' },
-      { label: 'FAQ', href: '#' },
+      { label: 'Contact Us', href: '/contact' },
+      { label: 'FAQ', href: '/faq' },
+      { label: 'Free Test Route', href: 'https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route.', external: true },
     ],
   };
 
   const socialLinks = [
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/voipcat', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/people/VoipCat/61583844607938/', label: 'Facebook' },
+    { icon: Twitter, href: 'https://twitter.com/voipcat', label: 'Twitter' },
   ];
 
   return (
-    <footer className="bg-secondary text-white py-16 md:py-20 border-t border-primary/20">
+    <footer className="bg-background text-white py-16 md:py-20 border-t border-primary/20">
       <div className="container">
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
               <div className="relative">
                 <img
                   src="/images/logo-fox.jpg"
@@ -50,10 +53,14 @@ export default function Footer() {
                 <div className="absolute -inset-1 bg-primary/20 blur-sm rounded-md -z-10"></div>
               </div>
               <span className="font-bold text-xl tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif' }}>VOIP CAT</span>
-            </div>
+            </Link>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              Pioneering the next generation of global communication with neural-quality voice and circuit-level reliability.
+              Enterprise-grade VoIP solutions for businesses worldwide. SIP trunking, wholesale voice termination, Cloud PBX, and more. Available 24/7.
             </p>
+            <div className="text-sm text-slate-400 space-y-1">
+              <p>Email: <a href="mailto:sales.voipcat@gmail.com" className="text-primary hover:underline">sales.voipcat@gmail.com</a></p>
+              <p>WhatsApp: <a href="https://wa.me/201557649136" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+20 155 764 9136</a></p>
+            </div>
           </div>
 
           {/* Company Links */}
@@ -62,12 +69,15 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-primary transition-colors text-sm font-medium"
-                  >
-                    {link.label}
-                  </a>
+                  {link.href.startsWith('/') && !link.href.includes('#') ? (
+                    <Link href={link.href} className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -79,12 +89,9 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-primary transition-colors text-sm font-medium"
-                  >
+                  <Link href={link.href} className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -96,12 +103,19 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-primary transition-colors text-sm font-medium"
-                  >
-                    {link.label}
-                  </a>
+                  {'external' in link && link.external ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
+                      {link.label}
+                    </a>
+                  ) : link.href.startsWith('/') ? (
+                    <Link href={link.href} className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -115,7 +129,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Copyright */}
           <p className="text-slate-500 text-xs uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            © {currentYear} VoIP Cat. Neural Communication Systems.
+            &copy; {currentYear} VoIP Cat. All Rights Reserved.
           </p>
 
           {/* Social Links */}
@@ -126,6 +140,8 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-primary/5 border border-primary/10 hover:border-primary/40 hover:bg-primary/10 transition-all flex items-center justify-center group"
                   title={social.label}
                 >

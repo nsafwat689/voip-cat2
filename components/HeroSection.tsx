@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Phone, Zap } from 'lucide-react';
+import { ArrowRight, Phone, Zap, MessageCircle } from 'lucide-react';
+import { useLocation } from 'wouter';
 
 /**
  * Hero Section - Cyber Tech Design
@@ -7,9 +8,10 @@ import { ArrowRight, Phone, Zap } from 'lucide-react';
  * Features: Tech-inspired background, glowing buttons, smooth animations
  */
 export default function HeroSection() {
+  const [, setLocation] = useLocation();
+
   return (
-    <section className="relative overflow-hidden bg-secondary py-16 md:py-28">
-      {/* Cyber background elements */}
+      <section className="relative overflow-hidden bg-secondary dark:bg-black py-16 md:py-28">      {/* Cyber background elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] -z-10 animate-pulse" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] -z-10" />
       
@@ -24,7 +26,7 @@ export default function HeroSection() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full backdrop-blur-sm">
               <Zap className="w-4 h-4 text-primary animate-pulse" />
               <span className="text-xs font-bold text-primary uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                Next-Gen Communication
+                Enterprise VoIP Solutions
               </span>
             </div>
 
@@ -34,22 +36,28 @@ export default function HeroSection() {
                 GLOBAL <span className="text-primary drop-shadow-[0_0_15px_rgba(0,163,255,0.5)]">VOIP</span> SOLUTIONS
               </h1>
               <p className="text-lg text-slate-300 max-w-xl leading-relaxed font-medium">
-                Experience the future of voice. VoIP Cat delivers ultra-reliable, high-definition communication services to 190+ countries with circuit-level precision.
+                SIP Trunking, Wholesale VoIP, and Cloud PBX for businesses worldwide. Premium routes to 190+ countries with HD voice quality and 99.9% uptime.
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
-              <Button className="btn-glow flex items-center gap-3 group h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                Choose Your Plan
+              <Button
+                onClick={() => window.open('https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route.', '_blank')}
+                className="btn-glow flex items-center gap-3 group h-14 px-8 uppercase tracking-wider text-sm"
+                style={{ fontFamily: 'Orbitron, sans-serif' }}
+              >
+                <MessageCircle className="w-5 h-5" />
+                Free Test Route
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button
                 variant="outline"
                 className="border-2 border-primary/50 text-primary hover:bg-primary/10 h-14 px-8 uppercase tracking-wider text-sm backdrop-blur-sm"
                 style={{ fontFamily: 'Orbitron, sans-serif' }}
+                onClick={() => setLocation('/voip-rates')}
               >
-                Contact Us
+                View Rates
               </Button>
             </div>
 
@@ -57,15 +65,15 @@ export default function HeroSection() {
             <div className="grid grid-cols-3 gap-8 pt-10 border-t border-primary/20">
               <div>
                 <div className="text-3xl font-bold text-primary" style={{ fontFamily: 'Orbitron, sans-serif' }}>10+</div>
-                <div className="text-[10px] uppercase tracking-widest text-slate-400 mt-1" style={{ fontFamily: 'Orbitron, sans-serif' }}>Years Tech</div>
+                <div className="text-[10px] uppercase tracking-widest text-slate-400 mt-1" style={{ fontFamily: 'Orbitron, sans-serif' }}>Years Experience</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-primary" style={{ fontFamily: 'Orbitron, sans-serif' }}>190+</div>
-                <div className="text-[10px] uppercase tracking-widest text-slate-400 mt-1" style={{ fontFamily: 'Orbitron, sans-serif' }}>Nodes</div>
+                <div className="text-[10px] uppercase tracking-widest text-slate-400 mt-1" style={{ fontFamily: 'Orbitron, sans-serif' }}>Countries</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-primary" style={{ fontFamily: 'Orbitron, sans-serif' }}>99.9%</div>
-                <div className="text-[10px] uppercase tracking-widest text-slate-400 mt-1" style={{ fontFamily: 'Orbitron, sans-serif' }}>Uptime</div>
+                <div className="text-[10px] uppercase tracking-widest text-slate-400 mt-1" style={{ fontFamily: 'Orbitron, sans-serif' }}>Uptime SLA</div>
               </div>
             </div>
           </div>
@@ -76,7 +84,7 @@ export default function HeroSection() {
               {/* Image Container with gradient overlay */}
               <img
                 src="/images/hero-voip-communication.jpg"
-                alt="VoIP Communication"
+                alt="VoIP Communication Solutions - SIP Trunking and Cloud PBX"
                 className="w-full h-auto object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
               />
               {/* Subtle overlay gradient */}
@@ -96,8 +104,8 @@ export default function HeroSection() {
                   <Phone className="w-7 h-7 text-primary" />
                 </div>
                 <div>
-                  <div className="font-bold text-white uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>Neural Voice</div>
-                  <div className="text-[10px] text-primary/80 uppercase tracking-widest mt-1" style={{ fontFamily: 'Orbitron, sans-serif' }}>HD Crystal Clear</div>
+                  <div className="font-bold text-white uppercase tracking-wider text-xs" style={{ fontFamily: 'Orbitron, sans-serif' }}>HD Voice</div>
+                  <div className="text-[10px] text-primary/80 uppercase tracking-widest mt-1" style={{ fontFamily: 'Orbitron, sans-serif' }}>Crystal Clear Quality</div>
                 </div>
               </div>
             </div>

@@ -15,14 +15,11 @@ import Footer from '@/components/Footer';
  */
 export default function Articles() {
   useSEO({
-    title: 'Knowledge Hub | Enterprise VoIP, CRM & Cybersecurity Insights | VOIP CAT',
-    description: 'Explore in-depth articles on enterprise VoIP solutions, business communication, cloud PBX, cybersecurity best practices, network infrastructure, and digital transformation. Expert insights for enterprise technology leaders worldwide.',
-    keywords: 'VoIP knowledge hub, enterprise communication articles, cloud PBX guides, cybersecurity best practices, network infrastructure, digital transformation, business communication insights, unified communications',
+    title: 'VoIP Knowledge Hub | SIP Trunking, Cloud PBX & VoIP Guides | VOIP CAT',
+    description: 'Expert guides on VoIP technology, SIP trunking, Cloud PBX setup, wholesale VoIP, and more. Learn from our team of VoIP specialists.',
+    keywords: 'VoIP guides, SIP trunk setup, Cloud PBX guide, wholesale VoIP, Asterisk setup, FreePBX guide, 3CX configuration, VoIP security, VoIP codecs',
     canonical: 'https://voipcat.com/articles',
     ogImage: 'https://voipcat.com/images/og-articles.png',
-    ogType: 'website',
-    author: 'VOIP CAT',
-    robots: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
   });
 
   const [, setLocation] = useLocation();
@@ -69,7 +66,7 @@ export default function Articles() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main className="flex-grow" role="main">
+      <main className="flex-grow">
         {/* Hero Section */}
         <motion.section
           initial={{ opacity: 0, y: -20 }}
@@ -86,10 +83,10 @@ export default function Articles() {
               className="max-w-3xl"
             >
               <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                Knowledge Hub - Enterprise VoIP & Business Communication Insights
+                VoIP Knowledge Hub
               </h1>
               <p className="text-lg text-muted-foreground mb-8">
-                Discover comprehensive guides on enterprise VoIP solutions, cloud PBX systems, business communication strategies, cybersecurity best practices, and networking infrastructure. Stay informed about the latest trends and best practices in enterprise technology and digital transformation.
+                Expert guides on VoIP technology, SIP trunking, Cloud PBX, wholesale VoIP, and PBX setup. Learn best practices from our team of specialists.
               </p>
             </motion.div>
           </div>
@@ -251,14 +248,19 @@ export default function Articles() {
         >
           <div className="container text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Stay Updated with Latest Insights
+              Ready to Get Started with VoIP?
             </h2>
             <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Subscribe to our newsletter to receive the latest articles, industry trends, and best practices delivered to your inbox.
+              Check our competitive VoIP rates, explore our services, or request a free test route to experience the quality firsthand.
             </p>
-            <Button className="btn-glow">
-              Subscribe Now
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button className="btn-glow" onClick={() => setLocation('/voip-rates')}>
+                Check VoIP Rates
+              </Button>
+              <Button variant="outline" onClick={() => setLocation('/contact')}>
+                Contact Us
+              </Button>
+            </div>
           </div>
         </motion.section>
       </main>
