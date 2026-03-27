@@ -49,7 +49,7 @@ export default function PlansSection() {
   ];
 
   return (
-    <section id="plans" className="py-20 md:py-32 bg-background relative">
+    <section id="plans" className="py-20 md:py-32 bg-secondary relative">
       {/* Background accent */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 -z-10"></div>
 
