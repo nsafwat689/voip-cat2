@@ -66,8 +66,7 @@ export default function SipTrunk() {
               </div>
               <div className="relative hidden md:block">
                 <div className="rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,163,255,0.2)] border border-primary/20">
-                  <img src="/images/voip-network.jpg" alt="SIP Trunk Network Infrastructure" className="w-full h-auto object-cover" />
-                </div>
+              <img src="/images/global-network.jpg" alt="SIP Trunk Network Infrastructure" className="w-full h-auto object-cover rounded-2xl" />                </div>
               </div>
             </div>
           </div>
