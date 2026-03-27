@@ -58,7 +58,7 @@ export default function Footer() {
               Enterprise-grade VoIP solutions for businesses worldwide. SIP trunking, wholesale voice termination, Cloud PBX, and more. Available 24/7.
             </p>
             <div className="text-sm text-slate-400 space-y-1">
-              <p>Email: <a href="mailto:sales.voipcat@gmail.com" className="text-primary hover:underline">sales.voipcat@gmail.com</a></p>
+              <p>Email: <a href="mailto:support@voipcat.com" className="text-primary hover:underline">support@voipcat.com</a></p>
               <p>WhatsApp: <a href="https://wa.me/201557649136" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+20 155 764 9136</a></p>
             </div>
           </div>
