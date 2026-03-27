@@ -128,7 +128,8 @@ export default function PlansSection() {
                   View Rates
                   </Button>
                 </div>
-              </div>          })}
+              </div>
+                        )})
         </div>
       </div>
     </section>
