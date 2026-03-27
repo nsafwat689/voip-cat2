@@ -62,8 +62,7 @@ export default function PlansSection() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
             Select your communication tier for global connectivity.
                           
-        </div>
-
+            </p>
         {/* Plans Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {plans.map((plan, index) => {
