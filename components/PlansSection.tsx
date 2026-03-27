@@ -57,7 +57,7 @@ export default function PlansSection() {
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-24 space-y-4">
           <h2 className="text-3xl md:text-5xl text-foreground uppercase tracking-tighter" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            <span className="text-primary">VOIP</span> <span className="text-primary">RATES</span>          </h2>
+            <span className="text-primary">VOIP</span> <span className="text-black">RATES</span>          </h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
             Select your communication tier for global connectivity.
@@ -126,7 +126,7 @@ export default function PlansSection() {
                     }`}
                     style={{ fontFamily: 'Orbitron, sans-serif' }}
                   >
-                    View Rates
+                    View >VOIP</span> <span className="text-primary">RATES  >VOIP</span> <span className="text-black">RATES
                   </Button>
                 </div>
               </div>
