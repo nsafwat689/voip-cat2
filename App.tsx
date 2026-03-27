@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -17,10 +18,21 @@ import Contact from "./pages/Contact";
 import CloudPBX from "./pages/CloudPBX";
 import AIChatbot from "./components/AIChatbot";
 
+// ScrollToTop component to reset scroll position on route change
+function ScrollToTop() {
+  const [location] = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
+  return null;
+}
 
 function Router() {
   return (
     <Switch>
+            <ScrollToTop />
       <Route path={"/"} component={Home} />
       <Route path={"/articles"} component={Articles} />
       <Route path={"/articles/:id"} component={ArticleDetail} />
