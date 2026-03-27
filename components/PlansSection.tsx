@@ -128,9 +128,7 @@ export default function PlansSection() {
                   View Rates
                   </Button>
                 </div>
-              </div>
-            );View >VOIP</span> <span className="text-primary">RATES  >VOIP</span> <span className="text-black">RATES  View Rates
-          })}
+              </div>          })}
         </div>
       </div>
     </section>
