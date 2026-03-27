@@ -26,8 +26,8 @@ export default function ContactSection() {
     {
       icon: Mail,
       label: 'Email',
-      details: 'sales.voipcat@gmail.com',
-      href: 'mailto:sales.voipcat@gmail.com',
+      details: 'support@voipcat.com',
+      href: 'mailto:support@voipcat.com',
       external: false,
     },
     {
@@ -52,7 +52,7 @@ export default function ContactSection() {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService Interest: ${formData.service}\n\nMessage:\n${formData.message}`
     );
-    window.open(`mailto:sales.voipcat@gmail.com?subject=${subject}&body=${body}`, '_self');
+    window.open(`mailto:support@voipcat.com?subject=${subject}&body=${body}`, '_self');
     setFormData({ name: '', email: '', phone: '', service: '', message: '' });
   };
 
