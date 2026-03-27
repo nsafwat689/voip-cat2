@@ -126,11 +126,11 @@ export default function PlansSection() {
                     }`}
                     style={{ fontFamily: 'Orbitron, sans-serif' }}
                   >
-                    View >VOIP</span> <span className="text-primary">RATES  >VOIP</span> <span className="text-black">RATES
+                  View Rates
                   </Button>
                 </div>
               </div>
-            );
+            );View >VOIP</span> <span className="text-primary">RATES  >VOIP</span> <span className="text-black">RATES  View Rates
           })}
         </div>
       </div>
