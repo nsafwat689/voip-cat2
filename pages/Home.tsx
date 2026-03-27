@@ -13,6 +13,8 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
+
+const Separator = () => <div className="border-t border-white/20" />;
 /**
  * Services Overview Section - Links to all service pages
  */
@@ -126,11 +128,17 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
+                <Separator />
         <ServicesOverview />
+                <Separator />
         <AboutSection />
+                <Separator />
         <CloudPBXSection />
+                <Separator />
         <PlansSection />
+                <Separator />
         <TestimonialsSection />
+                <Separator />
         <ContactSection />
       </main>
       <Footer />
