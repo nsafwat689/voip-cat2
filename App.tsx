@@ -32,7 +32,6 @@ function ScrollToTop() {
 function Router() {
   return (
     <Switch>
-            <ScrollToTop />
       <Route path={"/"} component={Home} />
       <Route path={"/articles"} component={Articles} />
       <Route path={"/articles/:id"} component={ArticleDetail} />
