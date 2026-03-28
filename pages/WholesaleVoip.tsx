@@ -126,7 +126,7 @@ export default function WholesaleVoip() {
               Request a free test and experience our wholesale VoIP quality. We offer competitive rates and flexible payment terms for qualified partners.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20test%20your%20wholesale%20VoIP%20routes." target="_blank" rel="noopener noreferrer">
+              <a href="/free-test" target="_blank" rel="noopener noreferrer">
                 <Button className="btn-glow flex items-center gap-3 h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   Request Free Test <ArrowRight className="w-5 h-5" />
                 </Button>

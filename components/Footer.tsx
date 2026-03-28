@@ -26,7 +26,7 @@ export default function Footer() {
     support: [
       { label: 'Contact Us', href: '/contact' },
       { label: 'FAQ', href: '/faq' },
-      { label: 'Free Test Route', href: 'https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route.', external: true },
+      { label: 'Free Test Route', href: '/free-test' },
     ],
   };
 

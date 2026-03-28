@@ -43,7 +43,7 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-5 pt-4">
               <Button
-                onClick={() => window.open('https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route.', '_blank')}
+                onClick={() => setLocation('/free-test')}
                 className="btn-glow flex items-center gap-3 group h-14 px-8 uppercase tracking-wider text-sm"
                 style={{ fontFamily: 'Orbitron, sans-serif' }}
               >

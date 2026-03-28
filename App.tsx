@@ -16,6 +16,7 @@ import VoipReseller from "./pages/VoipReseller";
 import VoipApi from "./pages/VoipApi";
 import Contact from "./pages/Contact";
 import CloudPBX from "./pages/CloudPBX";
+import FreeTest from "./pages/FreeTest";
 import AIChatbot from "./components/AIChatbot";
 
 // ScrollToTop component to reset scroll position on route change
@@ -31,6 +32,8 @@ function ScrollToTop() {
 
 function Router() {
   return (
+    <>
+    <ScrollToTop />
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/articles"} component={Articles} />
@@ -43,10 +46,12 @@ function Router() {
       <Route path={"/voip-api"} component={VoipApi} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/cloud-pbx"} component={CloudPBX} />
+      <Route path={"/free-test"} component={FreeTest} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
+    </>
   );
 }
 

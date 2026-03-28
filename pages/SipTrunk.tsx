@@ -52,7 +52,7 @@ export default function SipTrunk() {
                   Enterprise-grade SIP trunking with crystal-clear HD voice, global coverage, and industry-leading reliability. Save up to 60% compared to traditional phone lines.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20your%20SIP%20trunk%20services." target="_blank" rel="noopener noreferrer">
+                  <a href="/free-test" target="_blank" rel="noopener noreferrer">
                     <Button className="btn-glow flex items-center gap-3 h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                       Get Free Test <ArrowRight className="w-5 h-5" />
                     </Button>
@@ -127,7 +127,7 @@ export default function SipTrunk() {
               Contact us for a free test route and see the difference premium SIP trunking makes. No contracts, no setup fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20test%20your%20SIP%20trunk%20service." target="_blank" rel="noopener noreferrer">
+              <a href="/free-test" target="_blank" rel="noopener noreferrer">
                 <Button className="btn-glow flex items-center gap-3 h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   Request Free Test <ArrowRight className="w-5 h-5" />
                 </Button>
