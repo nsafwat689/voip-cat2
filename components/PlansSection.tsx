@@ -76,7 +76,7 @@ export default function PlansSection() {
               key={index}
               className={`relative rounded-2xl p-8 border transition-all duration-500 group hover:-translate-y-2 ${
                 plan.highlighted
-                  ? 'bg-primary/20 border-primary/40'
+                                    ? 'bg-[#001B3D] border-[#001B3D]'
                   : 'bg-primary/5 border-primary/10'
               }`}
             >
