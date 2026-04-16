@@ -2,7 +2,7 @@ import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Check, ArrowRight, ShieldCheck, Zap, Globe } from 'lucide-react';
+import { Check, ArrowRight, ShieldCheck, Zap, Globe, TrendingDown } from 'lucide-react';
 import { Link } from 'wouter';
 
 export default function VoipRates() {
@@ -18,6 +18,15 @@ export default function VoipRates() {
     platinum: 'https://docs.google.com/spreadsheets/d/10ZffoibimILTRMbZLtzvjrMWrM3nQLkO8o8SLOnOZiM/edit?gid=0#gid=0',
     premium: 'https://docs.google.com/spreadsheets/d/17LeHQSR6jpvNZVsRiAhotEMB4ItymN3Fmqa0bWZAE8w/edit?gid=0#gid=0',
   };
+
+  const sampleRates = [
+    { country: 'Saudi Arabia', rate: '$0.132/min', flag: '🇸🇦' },
+    { country: 'United Kingdom', rate: '$0.019/min', flag: '🇬🇧' },
+    { country: 'United States', rate: '$0.006/min', flag: '🇺🇸' },
+    { country: 'Qatar', rate: '$0.336/min', flag: '🇶🇦' },
+    { country: 'Russia', rate: '$0.12/min', flag: '🇷🇺' },
+    { country: 'Thailand', rate: '$0.07/min', flag: '🇹🇭' },
+  ];
 
   const plans = [
     {
@@ -88,7 +97,7 @@ export default function VoipRates() {
             </div>
 
             {/* Plans Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-20">
               {plans.map((plan, index) => {
                 const Icon = plan.icon;
                 return (
@@ -121,7 +130,8 @@ export default function VoipRates() {
                           <Icon className={`w-8 h-8 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`} />
                         </div>
                         <h3
-              className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-white' : 'text-foreground'}`}                          style={{ fontFamily: 'Orbitron, sans-serif' }}
+                          className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-white' : 'text-foreground'}`}
+                          style={{ fontFamily: 'Orbitron, sans-serif' }}
                         >
                           {plan.name}
                         </h3>
@@ -165,6 +175,54 @@ export default function VoipRates() {
                   </div>
                 );
               })}
+            </div>
+
+            {/* Sample Rates Section */}
+            <div className="py-16 md:py-20 border-t border-border">
+              <div className="text-center mb-12 space-y-4">
+                <div className="flex items-center justify-center gap-2">
+                  <TrendingDown className="w-6 h-6 text-primary" />
+                  <h3 className="text-2xl md:text-3xl text-foreground uppercase tracking-tighter font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                    Sample <span className="text-primary">Rates</span>
+                  </h3>
+                </div>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  Competitive rates for popular destinations. Prices shown are our lowest available rates per minute.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {sampleRates.map((item, index) => (
+                  <div
+                    key={index}
+                    className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="text-4xl">{item.flag}</div>
+                      <div className="flex-grow">
+                        <h4 className="text-sm font-bold text-foreground uppercase tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                          {item.country}
+                        </h4>
+                        <p className="text-lg font-bold text-primary mt-1">
+                          {item.rate}
+                        </p>
+                      </div>
+                      <div className="text-primary/30 group-hover:text-primary/60 transition-colors">
+                        <TrendingDown className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12 p-6 bg-primary/5 border border-primary/20 rounded-xl text-center">
+                <p className="text-muted-foreground mb-4">
+                  These are sample rates from our premium routes. Actual rates may vary based on volume, destination type, and service plan.
+                </p>
+                <p className="text-sm text-primary font-semibold">
+                  📊 View the complete rate sheet for all 190+ destinations
+                </p>
+              </div>
             </div>
 
             {/* Bottom CTA */}
