@@ -158,11 +158,21 @@ export const articleSchema = (article: {
 
 /**
  * Function to inject JSON-LD script into the document head
+ * Includes a cleanup mechanism to prevent duplication
  */
 export function injectStructuredData(schema: any) {
+  if (typeof document === 'undefined') return;
+
+  const schemaString = JSON.stringify(schema);
+  // Create a stable hash/id for this schema to avoid duplicates
+  const id = btoa(schemaString).substring(0, 32);
+  
+  if (document.getElementById(`json-ld-${id}`)) return;
+
   const script = document.createElement('script');
+  script.id = `json-ld-${id}`;
   script.type = 'application/ld+json';
-  script.textContent = JSON.stringify(schema);
+  script.textContent = schemaString;
   document.head.appendChild(script);
 }
 

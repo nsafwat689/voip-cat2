@@ -21,14 +21,13 @@ export function useSEO(config: SEOConfig) {
     document.title = config.title;
 
     // Update or create meta tags
-    const updateMetaTag = (name: string, content: string, property?: boolean) => {
-      let tag = document.querySelector(
-        property ? `meta[property="${name}"]` : `meta[name="${name}"]`
-      ) as HTMLMetaElement;
+    const updateMetaTag = (name: string, content: string, isProperty?: boolean) => {
+      const selector = isProperty ? `meta[property="${name}"]` : `meta[name="${name}"]`;
+      let tag = document.querySelector(selector) as HTMLMetaElement;
 
       if (!tag) {
         tag = document.createElement('meta');
-        if (property) {
+        if (isProperty) {
           tag.setAttribute('property', name);
         } else {
           tag.setAttribute('name', name);
@@ -86,45 +85,42 @@ export function useSEO(config: SEOConfig) {
       updateMetaTag('og:image:type', 'image/png', true);
     }
 
-    // Update Twitter tags
-    updateMetaTag('twitter:title', config.title, true);
-    updateMetaTag('twitter:description', config.description, true);
-    updateMetaTag('twitter:card', config.twitterCard || 'summary_large_image', true);
+    // Update Twitter tags (Twitter prefers 'name' for twitter:* tags)
+    updateMetaTag('twitter:title', config.title);
+    updateMetaTag('twitter:description', config.description);
+    updateMetaTag('twitter:card', config.twitterCard || 'summary_large_image');
     if (config.ogImage) {
-      updateMetaTag('twitter:image', config.ogImage, true);
+      updateMetaTag('twitter:image', config.ogImage);
     }
-    updateMetaTag('twitter:site', '@voipcat', true);
-    updateMetaTag('twitter:creator', '@voipcat', true);
+    updateMetaTag('twitter:site', '@voipcat');
+    updateMetaTag('twitter:creator', '@voipcat');
 
     // Update canonical URL
-    if (config.canonical) {
+    const currentCanonical = config.canonical || window.location.href;
+    if (currentCanonical) {
       let canonicalTag = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
       if (!canonicalTag) {
         canonicalTag = document.createElement('link');
         canonicalTag.rel = 'canonical';
         document.head.appendChild(canonicalTag);
       }
-      canonicalTag.href = config.canonical;
+      canonicalTag.href = currentCanonical;
     }
 
-    // Add alternate links for international SEO
-    let alternateTag = document.querySelector('link[rel="alternate"][hreflang="en"]') as HTMLLinkElement;
-    if (!alternateTag) {
-      alternateTag = document.createElement('link');
-      alternateTag.rel = 'alternate';
-      alternateTag.hrefLang = 'en';
-      alternateTag.href = config.canonical || window.location.href;
-      document.head.appendChild(alternateTag);
-    }
+    // Update alternate links for international SEO
+    const updateAlternateLink = (hreflang: string, href: string) => {
+      let tag = document.querySelector(`link[rel="alternate"][hreflang="${hreflang}"]`) as HTMLLinkElement;
+      if (!tag) {
+        tag = document.createElement('link');
+        tag.rel = 'alternate';
+        tag.hrefLang = hreflang;
+        document.head.appendChild(tag);
+      }
+      tag.href = href;
+    };
 
-    // Add x-default for international SEO
-    let xDefaultTag = document.querySelector('link[rel="alternate"][hreflang="x-default"]') as HTMLLinkElement;
-    if (!xDefaultTag) {
-      xDefaultTag = document.createElement('link');
-      xDefaultTag.rel = 'alternate';
-      xDefaultTag.hrefLang = 'x-default';
-      xDefaultTag.href = config.canonical || window.location.href;
-      document.head.appendChild(xDefaultTag);
-    }
+    updateAlternateLink('en', currentCanonical);
+    updateAlternateLink('x-default', currentCanonical);
+    
   }, [config]);
 }

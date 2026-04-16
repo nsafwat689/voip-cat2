@@ -7,152 +7,107 @@
   <!-- Homepage -->
   <url>
     <loc>https://voipcat.com/</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- VoIP Rates Page -->
-  <url>
-    <loc>https://voipcat.com/voip-rates</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- SIP Trunk Page -->
-  <url>
-    <loc>https://voipcat.com/sip-trunk</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Wholesale VoIP Page -->
-  <url>
-    <loc>https://voipcat.com/wholesale-voip</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Cloud PBX Page -->
+  <!-- Main Service Pages -->
   <url>
     <loc>https://voipcat.com/cloud-pbx</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://voipcat.com/sip-trunk</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://voipcat.com/wholesale-voip</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://voipcat.com/voip-rates</loc>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- VoIP API Page -->
+  <!-- Secondary Service Pages -->
   <url>
     <loc>https://voipcat.com/voip-api</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- VoIP Reseller Page -->
   <url>
     <loc>https://voipcat.com/voip-reseller</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://voipcat.com/free-test</loc>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Contact Page -->
-  <url>
-    <loc>https://voipcat.com/contact</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Articles/Blog Page -->
+  <!-- Knowledge Base & Support -->
   <url>
     <loc>https://voipcat.com/articles</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- FAQ Page -->
   <url>
     <loc>https://voipcat.com/faq</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://voipcat.com/contact</loc>
+    <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
-  <!-- Individual Article Pages -->
+  <!-- Top Articles -->
   <url>
     <loc>https://voipcat.com/articles/what-is-voip</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://voipcat.com/articles/sip-trunk-vs-pri</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://voipcat.com/articles/voip-for-call-centers</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://voipcat.com/articles/wholesale-voip-explained</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-12</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://voipcat.com/articles/voip-security-guide</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://voipcat.com/articles/3cx-sip-trunk-setup</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://voipcat.com/articles/asterisk-voip-setup</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://voipcat.com/articles/freepbx-setup-guide</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://voipcat.com/articles/cloud-pbx-benefits</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://voipcat.com/articles/voip-codecs-explained</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

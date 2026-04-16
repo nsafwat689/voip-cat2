@@ -22,6 +22,7 @@ export default function Footer() {
       { label: 'VoIP API', href: '/voip-api' },
       { label: 'VoIP Reseller', href: '/voip-reseller' },
       { label: 'VoIP Rates', href: '/voip-rates' },
+      { label: 'Free Test Route', href: '/free-test' },
     ],
     support: [
       { label: 'Contact Us', href: '/contact' },
@@ -37,7 +38,8 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-b from-slate-900 via-slate-950 to-black text-white py-16 md:py-20 border-t border-primary/20">      <div className="container">
+    <footer className="bg-gradient-to-b from-slate-900 via-slate-950 to-black text-white py-16 md:py-20 border-t border-primary/20">
+      <div className="container">
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
@@ -102,11 +104,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.label}>
-                  {'external' in link && link.external ? (
-                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
-                      {link.label}
-                    </a>
-                  ) : link.href.startsWith('/') ? (
+                  {link.href.startsWith('/') && !link.href.includes('#') ? (
                     <Link href={link.href} className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
                       {link.label}
                     </Link>

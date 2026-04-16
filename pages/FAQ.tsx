@@ -9,9 +9,9 @@ import Footer from '@/components/Footer';
 
 export default function FAQ() {
   useSEO({
-    title: 'FAQ | Frequently Asked Questions | VOIP CAT',
-    description: 'Find answers to common questions about our CRM, cybersecurity, and networking solutions. Get insights into implementation, security, compliance, and support.',
-    keywords: 'FAQ, frequently asked questions, CRM help, cybersecurity questions, networking support, implementation guide, customer support',
+    title: 'FAQ | VoIP & SIP Trunking Questions Answered | VOIP CAT',
+    description: 'Find answers to common questions about VoIP technology, SIP trunking, Cloud PBX setup, and international voice termination. Get technical support and implementation guidance.',
+    keywords: 'VoIP FAQ, SIP trunking questions, Cloud PBX support, VoIP technical help, voice termination FAQ, VoIP security, number porting',
     canonical: 'https://voipcat.com/faq',
     ogImage: 'https://voipcat.com/images/og-faq.png',
   });
@@ -59,11 +59,11 @@ export default function FAQ() {
               transition={{ duration: 0.6 }}
               className="text-center max-w-3xl mx-auto"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
-                Frequently Asked Questions
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                VOIP <span className="text-primary">FAQ</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8">
-                Find answers to common questions about our CRM, cybersecurity, and networking solutions. Can't find what you're looking for? Contact our support team.
+                Find answers to common questions about our VoIP, SIP trunking, and Cloud PBX solutions. Can't find what you're looking for? Contact our support team.
               </p>
 
               {/* Search Bar */}
@@ -71,7 +71,7 @@ export default function FAQ() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <input
                   type="text"
-                  placeholder="Search FAQs..."
+                  placeholder="Search VoIP questions..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-12 pr-6 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
@@ -200,19 +200,23 @@ export default function FAQ() {
               className="mt-20 pt-12 border-t border-border"
             >
               <div className="max-w-2xl mx-auto text-center bg-card border border-border rounded-2xl p-8 md:p-12">
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-foreground" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   Still Need Help?
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  Can't find the answer you're looking for? Our support team is here to help. Contact us anytime, and we'll get back to you as soon as possible.
+                  Can't find the answer you're looking for? Our support team is here to help. Contact us anytime via WhatsApp or email.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button className="btn-glow">
-                    Contact Support
-                  </Button>
-                  <Button variant="outline">
-                    Email Us
-                  </Button>
+                  <a href="https://wa.me/201557649136" target="_blank" rel="noopener noreferrer">
+                    <Button className="btn-glow w-full sm:w-auto">
+                      WhatsApp Support
+                    </Button>
+                  </a>
+                  <a href="mailto:support@voipcat.com">
+                    <Button variant="outline" className="w-full sm:w-auto">
+                      Email Us
+                    </Button>
+                  </a>
                 </div>
               </div>
             </motion.div>

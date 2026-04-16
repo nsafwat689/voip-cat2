@@ -1,17 +1,32 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Check, ArrowRight, MessageCircle, Globe, Zap, Shield, TrendingUp, Phone } from 'lucide-react';
+import { Check, Zap, TrendingUp, MessageCircle, Globe, Phone } from 'lucide-react';
 import { Link } from 'wouter';
 import { useSEO } from '@/hooks/useSEO';
+import { useState } from 'react';
 
 export default function FreeTest() {
   useSEO({
     title: 'Request Free VoIP Test Route | Premium SIP Trunks | VOIP CAT',
     description: 'Get high quality VoIP routes with a free test. Direct termination, CLI guaranteed, and 24/7 support. No commitment, instant activation.',
-    keywords: 'free voip test, sip trunk test, wholesale voip test, free voip route, test voip quality',
+    keywords: 'free voip test, sip trunk test, wholesale voip test, free voip route, test voip quality, VoIP provider, global voice termination',
     canonical: 'https://voipcat.com/free-test',
   });
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+    message: '',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const whatsappMsg = `Hi, I want to request a free VoIP test route.\nName: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+    window.open(`https://wa.me/201557649136?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -44,10 +59,10 @@ export default function FreeTest() {
           </div>
         </section>
 
-        {/* Why Choose Us */}
-        <section className="py-20 bg-background">
+        {/* Form Section */}
+        <section id="test-form" className="py-20 bg-background">
           <div className="container">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               <div className="space-y-8">
                 <h2 className="text-3xl md:text-4xl text-foreground uppercase tracking-tighter" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   🌍 WHY CHOOSE <span className="text-primary">VOIPCAT?</span>
@@ -55,10 +70,10 @@ export default function FreeTest() {
                 <div className="space-y-4">
                   {[
                     'Direct termination routes (no middle resellers)',
-                    'High ASR & ACD',
-                    'Low latency connections',
-                    'CLI support for all major destinations',
-                    'Fraud protection system'
+                    'High ASR & ACD for optimal performance',
+                    'Low latency global network connections',
+                    'Full CLI support for all major destinations',
+                    'Advanced fraud protection and monitoring'
                   ].map((item, i) => (
                     <div key={i} className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:border-primary/30 transition-colors">
                       <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
@@ -70,28 +85,48 @@ export default function FreeTest() {
                 </div>
               </div>
 
-              <div className="card-elevated p-10 space-y-8 border-2 border-primary/20 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 blur-3xl" />
-                <div className="text-center space-y-4 relative">
+              <div className="card-elevated p-8 md:p-10 border-2 border-primary/20 bg-primary/5 rounded-2xl">
+                <div className="text-center mb-10">
                   <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <TrendingUp className="w-8 h-8 text-primary" />
                   </div>
-                  <h2 className="text-2xl md:text-3xl text-foreground uppercase tracking-tighter" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                    🎯 REQUEST YOUR <span className="text-primary">FREE TEST</span>
+                  <h2 className="text-2xl md:text-3xl text-foreground uppercase tracking-tighter mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                    🎯 REQUEST <span className="text-primary">FREE TEST</span>
                   </h2>
                   <p className="text-muted-foreground">
-                    Start testing our routes today and see the quality yourself. Fill the form below or contact us instantly.
+                    Fill out the form below to get your test route credentials.
                   </p>
-                  <div className="pt-6">
-                    <Button 
-                      onClick={() => window.open('https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20to%20request%20a%20free%20test%20route.', '_blank')}
-                      className="btn-glow w-full h-16 text-lg uppercase tracking-widest font-bold"
-                      style={{ fontFamily: 'Orbitron, sans-serif' }}
-                    >
-                      [ FORM HERE ] - REQUEST NOW
-                    </Button>
-                  </div>
                 </div>
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]" style={{ fontFamily: 'Orbitron, sans-serif' }}>Full Name</label>
+                      <input type="text" placeholder="Your name" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-5 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50" required />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]" style={{ fontFamily: 'Orbitron, sans-serif' }}>Email</label>
+                      <input type="email" placeholder="your@email.com" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-5 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50" required />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]" style={{ fontFamily: 'Orbitron, sans-serif' }}>Company</label>
+                      <input type="text" placeholder="Your company" value={formData.company} onChange={(e) => setFormData({ ...formData, company: e.target.value })} className="w-full px-5 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]" style={{ fontFamily: 'Orbitron, sans-serif' }}>Phone</label>
+                      <input type="tel" placeholder="+1234567890" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-5 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]" style={{ fontFamily: 'Orbitron, sans-serif' }}>Message / Requirements</label>
+                    <textarea placeholder="Tell us which routes you'd like to test..." value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} rows={3} className="w-full px-5 py-4 rounded-xl border border-primary/20 bg-background/50 text-foreground placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none" />
+                  </div>
+                  <Button type="submit" className="w-full h-14 btn-glow uppercase tracking-[0.2em] text-xs font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                    Request Test Route
+                  </Button>
+                </form>
               </div>
             </div>
           </div>

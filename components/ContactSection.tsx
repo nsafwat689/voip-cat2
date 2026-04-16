@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Mail, MapPin, Phone, Clock, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Clock, Send, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
 /**
@@ -41,8 +41,8 @@ export default function ContactSection() {
       icon: Clock,
       label: 'Availability',
       details: 'Available 24/7\nFast Response Guaranteed',
-      href: '#',
-      external: false,
+      href: 'https://wa.me/201557649136',
+      external: true,
     },
   ];
 
@@ -52,7 +52,7 @@ export default function ContactSection() {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService Interest: ${formData.service}\n\nMessage:\n${formData.message}`
     );
-    window.open(`mailto:support@voipcat.com?subject=${subject}&body=${body}`, '_self');
+    window.open(`mailto:support@voipcat.com?subject=${subject}&body=${body}`, '_blank');
     setFormData({ name: '', email: '', phone: '', service: '', message: '' });
   };
 
@@ -78,7 +78,6 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {contactInfo.map((info, index) => {
             const Icon = info.icon;
-            const isClickable = info.href !== '#';
             
             return (
               <a
@@ -86,7 +85,7 @@ export default function ContactSection() {
                 href={info.href}
                 target={info.external ? '_blank' : undefined}
                 rel={info.external ? 'noopener noreferrer' : undefined}
-                className={`card-elevated p-8 space-y-6 transition-all duration-500 group ${isClickable ? 'hover:border-primary cursor-pointer' : 'border-primary/10'}`}
+                className="card-elevated p-8 space-y-6 transition-all duration-500 group hover:border-primary cursor-pointer"
               >
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 border border-primary/20">
                   <Icon className="w-7 h-7 text-primary" />
@@ -95,7 +94,7 @@ export default function ContactSection() {
                   <h4 className="text-xs font-bold text-foreground uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                     {info.label}
                   </h4>
-                  <p className={`text-sm whitespace-pre-line leading-relaxed ${isClickable ? 'text-primary font-bold' : 'text-muted-foreground'}`}>
+                  <p className="text-sm whitespace-pre-line leading-relaxed text-primary font-bold">
                     {info.details}
                   </p>
                 </div>
@@ -206,7 +205,7 @@ export default function ContactSection() {
               </div>
 
               {/* Submit Button */}
-              <Button className="w-full h-16 btn-glow uppercase tracking-[0.2em] text-xs font-bold flex items-center justify-center gap-3" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              <Button type="submit" className="w-full h-16 btn-glow uppercase tracking-[0.2em] text-xs font-bold flex items-center justify-center gap-3" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                 Send Message
                 <Send className="w-4 h-4" />
               </Button>

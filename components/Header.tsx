@@ -27,6 +27,7 @@ export default function Header() {
       ],
     },
     { label: 'Rates', href: '/voip-rates' },
+    { label: 'Free Test', href: '/free-test' },
     { label: 'Articles', href: '/articles' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/contact' },
