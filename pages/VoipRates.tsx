@@ -2,14 +2,14 @@ import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { Check, ArrowRight, ShieldCheck, Zap, Globe, TrendingDown } from 'lucide-react';
+import { Check, ArrowRight, ShieldCheck, Zap, Globe, TrendingDown, Clock } from 'lucide-react';
 import { Link } from 'wouter';
 
 export default function VoipRates() {
   useSEO({
     title: 'VoIP Rates & Pricing | Affordable International Calling | VOIP CAT',
-    description: 'Check VoIP Cat\'s competitive VoIP rates for international calling to 190+ countries. CLI supported, premium routes, and 24/7 support. Request a free test route today.',
-    keywords: 'VoIP rates, international calling rates, VoIP pricing, cheap VoIP calls, wholesale VoIP rates, SIP trunk pricing, call rates',
+    description: 'Check VoIP Cat\'s competitive VoIP rates for international calling to 190+ countries. Per-second billing, CLI supported, premium routes, and 24/7 support. Request a free test route today.',
+    keywords: 'VoIP rates, international calling rates, VoIP pricing, cheap VoIP calls, wholesale VoIP rates, SIP trunk pricing, call rates, per-second billing',
     canonical: 'https://voipcat.com/voip-rates',
   });
 
@@ -20,12 +20,15 @@ export default function VoipRates() {
   };
 
   const sampleRates = [
-    { country: 'Saudi Arabia', rate: '$0.132/min', flag: '🇸🇦' },
-    { country: 'United Kingdom', rate: '$0.019/min', flag: '🇬🇧' },
-    { country: 'United States', rate: '$0.006/min', flag: '🇺🇸' },
-    { country: 'Qatar', rate: '$0.336/min', flag: '🇶🇦' },
-    { country: 'Russia', rate: '$0.12/min', flag: '🇷🇺' },
-    { country: 'Thailand', rate: '$0.07/min', flag: '🇹🇭' },
+    { country: 'United States', rate: '$0.006/min', flag: '🇺🇸', region: 'North America' },
+    { country: 'Canada', rate: '$0.004/min', flag: '🇨🇦', region: 'North America' },
+    { country: 'United Kingdom', rate: '$0.019/min', flag: '🇬🇧', region: 'Europe' },
+    { country: 'France', rate: '$0.05/min', flag: '🇫🇷', region: 'Europe' },
+    { country: 'Saudi Arabia', rate: '$0.132/min', flag: '🇸🇦', region: 'Middle East' },
+    { country: 'Qatar', rate: '$0.336/min', flag: '🇶🇦', region: 'Middle East' },
+    { country: 'Russia', rate: '$0.12/min', flag: '🇷🇺', region: 'Europe/Asia' },
+    { country: 'Thailand', rate: '$0.07/min', flag: '🇹🇭', region: 'Asia' },
+    { country: 'Turkey', rate: '$0.36/min', flag: '🇹🇷', region: 'Europe/Asia' },
   ];
 
   const plans = [
@@ -38,7 +41,7 @@ export default function VoipRates() {
         'Calls to 50 countries',
         'Email support',
         'CLI supported',
-        'Pay-as-you-go billing',
+        'Per-second billing',
       ],
       highlighted: false,
       link: googleSheetLinks.standard,
@@ -52,7 +55,7 @@ export default function VoipRates() {
         'Premium routes',
         '24/7 dedicated support',
         'CLI supported',
-        'Volume discounts available',
+        'Per-second billing',
       ],
       highlighted: true,
       link: googleSheetLinks.platinum,
@@ -66,7 +69,7 @@ export default function VoipRates() {
         'Advanced features',
         'Priority support',
         'CLI supported',
-        'Custom routing options',
+        'Per-second billing',
       ],
       highlighted: false,
       link: googleSheetLinks.premium,
@@ -92,8 +95,23 @@ export default function VoipRates() {
               </h2>
               <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
-                Competitive VoIP termination rates for businesses, carriers, and resellers. All plans include CLI support and premium routes.
+                Competitive VoIP termination rates for businesses, carriers, and resellers. All plans include CLI support, premium routes, and <span className="text-primary font-bold">per-second billing</span>.
               </p>
+            </div>
+
+            {/* Per-Second Billing Highlight */}
+            <div className="mb-16 p-6 md:p-8 bg-gradient-to-r from-primary/10 to-accent/5 border border-primary/30 rounded-2xl">
+              <div className="flex items-center gap-4 justify-center">
+                <Clock className="w-8 h-8 text-primary flex-shrink-0" />
+                <div className="text-center">
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                    ⏱️ Per-Second Billing
+                  </h3>
+                  <p className="text-muted-foreground">
+                    Pay only for what you use. We charge per second, not per minute, so you save money on every call. No hidden fees, no minimum charges.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Plans Grid */}
@@ -187,7 +205,7 @@ export default function VoipRates() {
                   </h3>
                 </div>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                  Competitive rates for popular destinations. Prices shown are our lowest available rates per minute.
+                  Competitive rates for popular destinations worldwide. All rates are per-second billing — you only pay for the time you use.
                 </p>
               </div>
 
@@ -197,17 +215,20 @@ export default function VoipRates() {
                     key={index}
                     className="bg-card border border-border rounded-xl p-6 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className="text-4xl">{item.flag}</div>
+                    <div className="flex items-start gap-4">
+                      <div className="text-4xl flex-shrink-0">{item.flag}</div>
                       <div className="flex-grow">
                         <h4 className="text-sm font-bold text-foreground uppercase tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                           {item.country}
                         </h4>
-                        <p className="text-lg font-bold text-primary mt-1">
+                        <p className="text-xs text-muted-foreground mt-1 mb-2">
+                          {item.region}
+                        </p>
+                        <p className="text-lg font-bold text-primary">
                           {item.rate}
                         </p>
                       </div>
-                      <div className="text-primary/30 group-hover:text-primary/60 transition-colors">
+                      <div className="text-primary/30 group-hover:text-primary/60 transition-colors flex-shrink-0">
                         <TrendingDown className="w-5 h-5" />
                       </div>
                     </div>
@@ -217,7 +238,7 @@ export default function VoipRates() {
 
               <div className="mt-12 p-6 bg-primary/5 border border-primary/20 rounded-xl text-center">
                 <p className="text-muted-foreground mb-4">
-                  These are sample rates from our premium routes. Actual rates may vary based on volume, destination type, and service plan.
+                  These are sample rates from our premium routes. Actual rates may vary based on volume, destination type, and service plan. All calls are billed per second for maximum savings.
                 </p>
                 <p className="text-sm text-primary font-semibold">
                   📊 View the complete rate sheet for all 190+ destinations
