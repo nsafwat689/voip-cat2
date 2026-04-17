@@ -76,8 +76,8 @@ export default function PlansSection() {
               key={index}
               className={`relative rounded-2xl p-8 border transition-all duration-500 group hover:-translate-y-2 ${
                 plan.highlighted
-                  ? 'bg-primary/5 border-primary/50'
-                  : 'bg-card border-primary/10'
+                  ? 'bg-slate-900 border-primary/50'
+                  : 'bg-slate-800 border-primary/10'
               }`}
             >
               {/* Highlight Badge */}
@@ -95,7 +95,7 @@ export default function PlansSection() {
                   }`}>
                     <Icon className={`w-8 h-8 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`} />
                   </div>
-                  <h3 className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-foreground' : 'text-foreground'}`} style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  <h3 className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-white' : 'text-slate-200'}`} style={{ fontFamily: 'Orbitron, sans-serif' }}>
                     {plan.name}
                   </h3>
                 </div>
@@ -107,7 +107,7 @@ export default function PlansSection() {
                       <div className={`mt-1 p-0.5 rounded-full ${plan.highlighted ? 'bg-primary/20' : 'bg-primary/10'}`}>
                         <Check className={`w-3.5 h-3.5 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`} />
                       </div>
-                      <span className={`text-sm font-medium ${plan.highlighted ? 'text-foreground' : 'text-muted-foreground'}`}>
+                      <span className={`text-sm font-medium ${plan.highlighted ? 'text-slate-300' : 'text-slate-400'}`}>
                         {feature}
                       </span>
                     </div>
