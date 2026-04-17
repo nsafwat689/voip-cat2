@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { useSEO } from '@/hooks/useSEO';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { organizationSchema, serviceSchema, websiteSchema, injectStructuredData } from '@/utils/structuredData';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Phone, Globe, Server, Code, Users, BookOpen } from 'lucide-react';
@@ -15,11 +16,13 @@ import Footer from '@/components/Footer';
 
 
 const Separator = () => <div className="border-t border-white/20" />;
+
 /**
  * Services Overview Section - Links to all service pages
  */
 function ServicesOverview() {
   const [, setLocation] = useLocation();
+  const { ref, isVisible } = useScrollAnimation();
 
   const services = [
     {
@@ -61,7 +64,12 @@ function ServicesOverview() {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-background relative">
+    <section 
+      ref={ref}
+      className={`py-20 md:py-32 bg-background relative transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      }`}
+    >
       <div className="container">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl text-foreground uppercase tracking-tighter" style={{ fontFamily: 'Orbitron, sans-serif' }}>
@@ -80,7 +88,12 @@ function ServicesOverview() {
               <div
                 key={index}
                 onClick={() => setLocation(service.link)}
-                className="bg-card border border-border rounded-xl p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-pointer group"
+                className={`bg-card border border-border rounded-xl p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-pointer group transform ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+                style={{
+                  transitionDelay: isVisible ? `${index * 100}ms` : '0ms',
+                }}
               >
                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-primary/20">
                   <Icon className="w-7 h-7 text-primary" />
@@ -100,6 +113,24 @@ function ServicesOverview() {
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * Animated Section Wrapper
+ */
+function AnimatedSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-1000 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+      } ${className}`}
+    >
+      {children}
+    </div>
   );
 }
 
@@ -128,18 +159,28 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-                <Separator />
+        <Separator />
         <ServicesOverview />
-                <Separator />
-        <AboutSection />
-                <Separator />
-        <CloudPBXSection />
-                <Separator />
-        <PlansSection />
-                <Separator />
-        <TestimonialsSection />
-                <Separator />
-        <ContactSection />
+        <Separator />
+        <AnimatedSection>
+          <AboutSection />
+        </AnimatedSection>
+        <Separator />
+        <AnimatedSection>
+          <CloudPBXSection />
+        </AnimatedSection>
+        <Separator />
+        <AnimatedSection>
+          <PlansSection />
+        </AnimatedSection>
+        <Separator />
+        <AnimatedSection>
+          <TestimonialsSection />
+        </AnimatedSection>
+        <Separator />
+        <AnimatedSection>
+          <ContactSection />
+        </AnimatedSection>
       </main>
       <Footer />
     </div>
