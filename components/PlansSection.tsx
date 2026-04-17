@@ -77,7 +77,7 @@ export default function PlansSection() {
               className={`relative rounded-2xl p-8 border transition-all duration-500 group hover:-translate-y-2 ${
                 plan.highlighted
                   ? 'bg-slate-900 border-primary/50'
-                  : 'bg-slate-800 border-primary/10'
+                  : 'bg-slate-700 border-primary/10'
               }`}
             >
               {/* Highlight Badge */}
