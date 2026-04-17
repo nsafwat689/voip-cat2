@@ -49,9 +49,9 @@ export default function PlansSection() {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden bg-[#001B3D]">
+    <section className="relative py-24 overflow-hidden bg-white">
       {/* Background accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,163,255,0.05)_0%,transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,163,255,0.02)_0%,transparent_60%)]" />
 
       {/* Section Header */}
       <div className="text-center mb-16 relative z-10">
@@ -59,10 +59,10 @@ export default function PlansSection() {
           <span className="text-xs font-bold tracking-widest text-primary uppercase" style={{ fontFamily: 'Orbitron, sans-serif' }}>VoIP Pricing</span>
         </div>
         <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-          <span className="text-white">VOIP</span>{' '}
+          <span className="text-foreground">VOIP</span>{' '}
           <span className="text-primary">RATES</span>
         </h2>
-        <p className="text-lg text-slate-300 max-w-2xl mx-auto font-medium">
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
           Select your communication tier for global connectivity.
         </p>
       </div>
@@ -76,8 +76,8 @@ export default function PlansSection() {
               key={index}
               className={`relative rounded-2xl p-8 border transition-all duration-500 group hover:-translate-y-2 ${
                 plan.highlighted
-                  ? 'bg-[#002a5c] border-primary/50'
-                  : 'bg-[#00142b] border-primary/10'
+                  ? 'bg-primary/5 border-primary/50'
+                  : 'bg-card border-primary/10'
               }`}
             >
               {/* Highlight Badge */}
@@ -95,7 +95,7 @@ export default function PlansSection() {
                   }`}>
                     <Icon className={`w-8 h-8 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`} />
                   </div>
-                  <h3 className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-white' : 'text-slate-300'}`} style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  <h3 className={`text-xl font-bold uppercase tracking-wider ${plan.highlighted ? 'text-foreground' : 'text-foreground'}`} style={{ fontFamily: 'Orbitron, sans-serif' }}>
                     {plan.name}
                   </h3>
                 </div>
@@ -107,7 +107,7 @@ export default function PlansSection() {
                       <div className={`mt-1 p-0.5 rounded-full ${plan.highlighted ? 'bg-primary/20' : 'bg-primary/10'}`}>
                         <Check className={`w-3.5 h-3.5 ${plan.highlighted ? 'text-primary' : 'text-primary/70'}`} />
                       </div>
-                      <span className={`text-sm font-medium ${plan.highlighted ? 'text-slate-300' : 'text-slate-400'}`}>
+                      <span className={`text-sm font-medium ${plan.highlighted ? 'text-foreground' : 'text-muted-foreground'}`}>
                         {feature}
                       </span>
                     </div>
