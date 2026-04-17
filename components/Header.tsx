@@ -11,6 +11,7 @@ import { Link } from 'wouter';
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -32,6 +33,21 @@ export default function Header() {
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/contact' },
   ];
+
+  const handleMouseEnter = () => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setServicesOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setServicesOpen(false);
+    }, 150); // Small delay to allow moving to dropdown
+    setDropdownTimeout(timeout);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border shadow-sm">
@@ -59,23 +75,28 @@ export default function Header() {
                 <div
                   key={link.label}
                   className="relative group"
-                  onMouseEnter={() => setServicesOpen(true)}
-                  onMouseLeave={() => setServicesOpen(false)}
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <button
                     className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 uppercase tracking-widest"
                     style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.75rem' }}
                   >
                     {link.label}
-                    <ChevronDown className="w-3 h-3" />
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {servicesOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-xl shadow-xl py-2 z-50">
+                    <div 
+                      className="absolute top-full left-0 mt-2 w-56 bg-card border border-border rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-200"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
                       {link.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
                           className="block px-4 py-3 text-sm text-muted-foreground hover:text-primary hover:bg-muted transition-colors"
+                          onClick={() => setServicesOpen(false)}
                         >
                           {child.label}
                         </Link>
@@ -162,7 +183,10 @@ export default function Header() {
                             key={child.label}
                             href={child.href}
                             className="block px-4 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() => {
+                              setMobileMenuOpen(false);
+                              setServicesOpen(false);
+                            }}
                           >
                             {child.label}
                           </Link>
