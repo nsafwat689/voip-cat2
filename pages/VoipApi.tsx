@@ -1,17 +1,40 @@
+import { useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Globe, Shield, Zap, Server, Clock } from 'lucide-react';
 import { Link } from 'wouter';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function VoipApi() {
   useSEO({
-    title: 'VoIP API | Programmable Voice & SIP API | VOIP CAT',
-    description: 'Integrate VoIP into your applications with VoIP Cat\'s powerful API. Programmable voice, SIP trunking API, call control, and real-time analytics. RESTful API with comprehensive documentation.',
-    keywords: 'VoIP API, programmable voice API, SIP API, voice API, call API, telephony API, communication API',
+    title: 'VoIP API | Programmable Voice, SIP & WebRTC API for Developers | VOIP CAT',
+    description: 'Build voice into any application with the VOIP CAT VoIP API: REST + webhooks for outbound and inbound calls, SIP trunking, programmable IVR, call recording, transcription, DID provisioning, SMS and global call control. Sub-100ms latency, 99.99% uptime, SDKs for Node.js, Python, PHP, Go and more.',
+    keywords: 'VoIP API, voice API, programmable voice API, programmable SIP, SIP API, telephony API, communication API, communications API, REST API VoIP, webhooks VoIP, WebRTC API, voice SDK, Node.js voice API, Python voice API, PHP voice API, Go voice API, click to call API, IVR API, conference API, transcription API, speech to text API, text to speech API, call recording API, DID API, number provisioning API, SMS API, A2P SMS API, OTP API, programmable contact center, CPaaS, communications platform as a service, Twilio alternative, Plivo alternative, Vonage alternative, Bandwidth alternative',
     canonical: 'https://voipcat.com/voip-api',
+    ogImage: 'https://voipcat.com/images/og-image.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'VoIP API', url: 'https://voipcat.com/voip-api' },
+      ]),
+    );
+    injectStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'VOIP CAT VoIP API (Programmable Voice & SIP)',
+      serviceType: 'Programmable Voice API',
+      provider: { '@type': 'Organization', name: 'VOIP CAT', url: 'https://voipcat.com' },
+      areaServed: 'Worldwide',
+      description:
+        'REST + webhooks programmable voice and SIP API for outbound and inbound calls, IVR, recording, transcription, DID provisioning, SMS and global call control.',
+      url: 'https://voipcat.com/voip-api',
+    });
+  }, []);
 
   const features = [
     { icon: Code, title: 'RESTful API', desc: 'Clean, well-documented RESTful API with JSON responses. Easy to integrate with any programming language or platform.' },

@@ -2,7 +2,14 @@ import { useEffect } from 'react';
 import { useLocation } from 'wouter';
 import { useSEO } from '@/hooks/useSEO';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { organizationSchema, serviceSchema, websiteSchema, injectStructuredData } from '@/utils/structuredData';
+import {
+  organizationSchema,
+  serviceSchema,
+  websiteSchema,
+  professionalServiceSchema,
+  breadcrumbSchema,
+  injectStructuredData,
+} from '@/utils/structuredData';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Phone, Globe, Server, Code, Users, BookOpen } from 'lucide-react';
 import Header from '@/components/Header';
@@ -141,17 +148,21 @@ function AnimatedSection({ children, className = '' }: { children: React.ReactNo
  */
 export default function Home() {
   useSEO({
-    title: 'VoIP Cat - SIP Trunking, Wholesale VoIP & Cloud PBX Solutions',
-    description: 'Enterprise VoIP solutions: SIP trunking, wholesale VoIP termination to 190+ countries, Cloud PBX, and VoIP API. Competitive rates, 99.9% uptime, 24/7 support. Free test route available.',
-    keywords: 'VoIP provider, SIP trunk, wholesale VoIP, Cloud PBX, VoIP rates, VoIP reseller, voice termination, A-Z routes, call center VoIP, business phone system',
-    canonical: 'https://voipcat.com',
+    title: '#1 Global VoIP Provider | SIP Trunking, Wholesale VoIP, Cloud PBX & Call Center VoIP | VOIP CAT',
+    description: 'VOIP CAT is a top-rated global VoIP, SIP trunking and call center provider. Wholesale A-Z voice termination to 190+ countries, hosted Cloud PBX, programmable VoIP API, and white-label reseller programs. 99.99% uptime, HD voice, CLI guaranteed, 24/7 support. Get your free test route now.',
+    keywords: 'VoIP, VoIP provider, best VoIP provider, top VoIP provider, global VoIP provider, international VoIP, business VoIP, enterprise VoIP, SIP trunk, SIP trunking, SIP trunk provider, SIP termination, wholesale VoIP, wholesale VoIP provider, wholesale SIP, A-Z termination, A-Z voice routes, CLI routes, NCLI routes, premium routes, IVR routes, voice termination, voice carrier, tier 1 carrier, Cloud PBX, hosted PBX, virtual PBX, IP PBX, business phone system, hosted phone system, UCaaS, CCaaS, CPaaS, call center, call center provider, call center VoIP, call center solutions, contact center, contact center solutions, predictive dialer, auto dialer, IVR, ACD, call recording, call analytics, voice broadcasting, STIR SHAKEN, VoIP API, programmable voice, voice API, telephony API, REST API VoIP, WebRTC, softphone, white label VoIP, VoIP reseller, VoIP reseller program, VoIP rates, cheap VoIP rates, international VoIP rates, free VoIP test, DID numbers, DID provider, virtual numbers, toll free numbers, number porting, Asterisk SIP trunk, FreePBX SIP trunk, 3CX SIP trunk, Vicidial trunk, Microsoft Teams direct routing',
+    canonical: 'https://voipcat.com/',
     ogImage: 'https://voipcat.com/images/og-image.png',
   });
 
   useEffect(() => {
     injectStructuredData(organizationSchema);
     injectStructuredData(websiteSchema);
-    serviceSchema.forEach(schema => injectStructuredData(schema));
+    injectStructuredData(professionalServiceSchema);
+    injectStructuredData(
+      breadcrumbSchema([{ name: 'Home', url: 'https://voipcat.com/' }]),
+    );
+    serviceSchema.forEach((schema) => injectStructuredData(schema));
   }, []);
 
   return (

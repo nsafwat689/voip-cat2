@@ -1,17 +1,47 @@
+import { useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, Phone, Cloud, Shield, Zap, Users, Settings, Headphones } from 'lucide-react';
 import { Link } from 'wouter';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function CloudPBX() {
   useSEO({
-    title: 'Cloud PBX Solutions | Hosted PBX Phone System | VOIP CAT',
-    description: 'VoIP Cat Cloud PBX: scalable hosted phone systems for businesses of all sizes. Auto-attendant, call routing, voicemail, and more. Plans starting at $75/month.',
-    keywords: 'cloud PBX, hosted PBX, cloud phone system, hosted phone system, virtual PBX, business phone system, PBX provider',
+    title: 'Cloud PBX Provider | Hosted PBX & Virtual Phone System for Business & Call Centers | VOIP CAT',
+    description: 'VOIP CAT Cloud PBX is a global, scalable hosted phone system for offices, remote teams and call centers. Includes auto-attendant, IVR, ACD, call routing, call recording, voicemail-to-email, conference bridge, mobile and desktop softphones, CRM integration and 24/7 support. Plans from $75/month with free setup.',
+    keywords: 'cloud PBX, cloud PBX provider, best cloud PBX, hosted PBX, hosted PBX provider, virtual PBX, IP PBX, PBX in the cloud, cloud phone system, hosted phone system, business phone system, VoIP phone system, multi-tenant PBX, PBX provider, PBX service, UCaaS, unified communications, CCaaS, contact center as a service, call center cloud PBX, IVR, auto attendant, ACD, call queue, call recording, voicemail to email, conference bridge, softphone, mobile dialer, WebRTC PBX, FreePBX cloud, 3CX hosted, Asterisk cloud, FusionPBX, Issabel cloud, Microsoft Teams PBX',
     canonical: 'https://voipcat.com/cloud-pbx',
+    ogImage: 'https://voipcat.com/images/og-image.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'Cloud PBX', url: 'https://voipcat.com/cloud-pbx' },
+      ]),
+    );
+    injectStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: 'VOIP CAT Cloud PBX',
+      description:
+        'Hosted Cloud PBX with auto-attendant, IVR, ACD, call recording, voicemail-to-email, conference bridge and 24/7 support. Plans from $75/month.',
+      brand: { '@type': 'Brand', name: 'VOIP CAT' },
+      image: 'https://voipcat.com/images/og-image.png',
+      offers: {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'USD',
+        lowPrice: '75',
+        highPrice: '199',
+        offerCount: '4',
+        availability: 'https://schema.org/InStock',
+        url: 'https://voipcat.com/cloud-pbx',
+      },
+    });
+  }, []);
 
   const plans = [
     { name: 'Golden Node', price: 75, calls: 8, desc: 'Perfect for small offices and SOHO environments.' },

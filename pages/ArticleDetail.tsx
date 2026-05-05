@@ -6,7 +6,12 @@ import { articles } from '@/data/articles';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+import {
+  articleSchema,
+  breadcrumbSchema,
+  injectStructuredData,
+} from '@/utils/structuredData';
 
 /**
  * Simple markdown-to-HTML converter for article content
@@ -101,12 +106,35 @@ export default function ArticleDetail() {
   }
 
   useSEO({
-    title: `${article.title} | VOIP CAT`,
+    title: `${article.title} | ${article.category} | VOIP CAT Knowledge Hub`,
     description: article.excerpt,
-    keywords: `${article.category}, VoIP, SIP Trunk, ${article.title}`,
+    keywords: `${article.category}, VoIP, SIP Trunk, SIP trunking, wholesale VoIP, Cloud PBX, call center VoIP, voice termination, VoIP API, VoIP guide, VoIP tutorial, ${article.title}`,
     canonical: `https://voipcat.com/articles/${article.id}`,
     ogImage: 'https://voipcat.com/images/og-articles.png',
+    ogType: 'article',
+    author: article.author,
+    publishedDate: article.date,
+    modifiedDate: article.date,
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'Knowledge Hub', url: 'https://voipcat.com/articles' },
+        { name: article.title, url: `https://voipcat.com/articles/${article.id}` },
+      ]),
+    );
+    injectStructuredData(
+      articleSchema({
+        title: article.title,
+        description: article.excerpt,
+        content: article.content,
+        author: article.author,
+        date: article.date,
+      }),
+    );
+  }, [article.id]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

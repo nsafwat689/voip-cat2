@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 
 /**
  * Header Component - Cyber Tech Design
@@ -12,6 +12,22 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [location, setLocation] = useLocation();
+
+  // When already on the home page, clicking the logo or "Home" link
+  // should smooth-scroll back to the top of the page instead of doing
+  // nothing (because the route hasn't changed).
+  const handleHomeClick = (e: React.MouseEvent) => {
+    if (location === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      e.preventDefault();
+      setLocation('/');
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    }
+    setMobileMenuOpen(false);
+  };
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -54,11 +70,16 @@ export default function Header() {
       <div className="container">
         <div className="flex items-center justify-between h-16 md:h-20 py-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          <a
+            href="/"
+            onClick={handleHomeClick}
+            aria-label="VoIP Cat — Back to top of homepage"
+            className="flex items-center gap-3 cursor-pointer"
+          >
             <div className="relative">
               <img
                 src="/images/logo-fox.jpg"
-                alt="VoIP Cat Logo"
+                alt="VoIP Cat Logo - Global VoIP, SIP Trunking & Cloud PBX Provider"
                 className="h-12 w-auto rounded-lg shadow-sm border border-primary/20"
               />
               <div className="absolute -inset-1 bg-primary/20 blur-sm rounded-lg -z-10"></div>
@@ -66,7 +87,7 @@ export default function Header() {
             <span className="font-bold text-xl text-foreground hidden sm:inline tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif' }}>
               VOIP CAT
             </span>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
@@ -105,7 +126,17 @@ export default function Header() {
                   )}
                 </div>
               ) : (
-                link.href.startsWith('/') && !link.href.includes('#') ? (
+                link.label === 'Home' ? (
+                  <a
+                    key={link.label}
+                    href="/"
+                    onClick={handleHomeClick}
+                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 uppercase tracking-widest cursor-pointer"
+                    style={{ fontFamily: 'Orbitron, sans-serif', fontSize: '0.75rem' }}
+                  >
+                    {link.label}
+                  </a>
+                ) : link.href.startsWith('/') && !link.href.includes('#') ? (
                   <Link
                     key={link.label}
                     href={link.href}
@@ -195,7 +226,17 @@ export default function Header() {
                     )}
                   </div>
                 ) : (
-                  link.href.startsWith('/') && !link.href.includes('#') ? (
+                  link.label === 'Home' ? (
+                    <a
+                      key={link.label}
+                      href="/"
+                      onClick={handleHomeClick}
+                      className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors uppercase tracking-widest cursor-pointer"
+                      style={{ fontFamily: 'Orbitron, sans-serif' }}
+                    >
+                      {link.label}
+                    </a>
+                  ) : link.href.startsWith('/') && !link.href.includes('#') ? (
                     <Link
                       key={link.label}
                       href={link.href}

@@ -4,15 +4,37 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, DollarSign, Users, Headphones, BarChart3, Globe, Zap } from 'lucide-react';
 import { Link } from 'wouter';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function VoipReseller() {
   useSEO({
-    title: 'VoIP Reseller Program | Start Your Own VoIP Business | VOIP CAT',
-    description: 'Start your own VoIP business with VoIP Cat\'s reseller program. White-label solutions, competitive margins, full technical support, and no upfront investment required.',
-    keywords: 'VoIP reseller, VoIP reseller program, start VoIP business, white label VoIP, VoIP business opportunity, resell VoIP services',
+    title: 'VoIP Reseller Program | White-Label VoIP, SIP Trunk & Cloud PBX Reseller | VOIP CAT',
+    description: 'Launch your own global VoIP business with the VOIP CAT reseller program. 100% white-label SIP trunking, Cloud PBX, DIDs and wholesale termination, branded customer portal, instant provisioning, transparent margins, no upfront investment and dedicated technical support — start reselling VoIP today.',
+    keywords: 'VoIP reseller, VoIP reseller program, best VoIP reseller program, white label VoIP, white label SIP trunk, white label Cloud PBX, white label PBX reseller, become a VoIP reseller, start VoIP business, start a VoIP company, VoIP business opportunity, resell VoIP, resell SIP trunk, resell Cloud PBX, VoIP partner program, VoIP affiliate program, VoIP wholesale reseller, ITSP reseller, telecom reseller, branded VoIP, branded SIP trunk, multi-tenant VoIP, VoIP reseller platform, VoIP reseller portal, VoIP reseller billing',
     canonical: 'https://voipcat.com/voip-reseller',
+    ogImage: 'https://voipcat.com/images/og-image.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'VoIP Reseller', url: 'https://voipcat.com/voip-reseller' },
+      ]),
+    );
+    injectStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'VOIP CAT White-Label VoIP Reseller Program',
+      serviceType: 'VoIP Reseller Program',
+      provider: { '@type': 'Organization', name: 'VOIP CAT', url: 'https://voipcat.com' },
+      areaServed: 'Worldwide',
+      description:
+        'White-label VoIP, SIP trunk, Cloud PBX and DID reseller program with branded customer portal, instant provisioning, transparent margins and dedicated technical support.',
+      url: 'https://voipcat.com/voip-reseller',
+    });
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',

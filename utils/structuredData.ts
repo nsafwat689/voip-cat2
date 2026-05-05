@@ -6,23 +6,41 @@
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': 'https://voipcat.com/#organization',
   name: 'VOIP CAT',
+  alternateName: ['VoIP Cat', 'VoipCat', 'voipcat.com'],
   url: 'https://voipcat.com',
   logo: 'https://voipcat.com/images/logo-fox.jpg',
-  description: 'Enterprise-grade VoIP solutions provider offering SIP trunking, wholesale voice termination, Cloud PBX, and programmable voice API for businesses worldwide.',
+  image: 'https://voipcat.com/images/og-image.png',
+  description:
+    'VOIP CAT is a global VoIP and call center provider offering SIP trunking, wholesale A-Z voice termination, Cloud PBX, programmable voice API and white-label reseller programs to businesses worldwide.',
+  foundingDate: '2018',
+  areaServed: 'Worldwide',
+  knowsLanguage: ['en', 'ar', 'es', 'fr', 'de', 'pt', 'ru', 'zh', 'hi'],
   sameAs: [
     'https://www.linkedin.com/company/voipcat',
     'https://twitter.com/voipcat',
     'https://www.facebook.com/people/VoipCat/61583844607938/',
   ],
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'Sales',
-    telephone: '+201557649136',
-    email: 'sales.voipcat@gmail.com',
-    availableLanguage: ['English', 'Arabic'],
-    contactOption: 'TollFree',
-  },
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'Sales',
+      telephone: '+201557649136',
+      email: 'sales.voipcat@gmail.com',
+      availableLanguage: ['English', 'Arabic', 'Spanish', 'French'],
+      areaServed: 'Worldwide',
+    },
+    {
+      '@type': 'ContactPoint',
+      contactType: 'Customer Support',
+      telephone: '+201557649136',
+      email: 'sales.voipcat@gmail.com',
+      availableLanguage: ['English', 'Arabic'],
+      areaServed: 'Worldwide',
+      hoursAvailable: 'Mo-Su 00:00-23:59',
+    },
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: '251 Mercer St',
@@ -126,6 +144,54 @@ export const breadcrumbSchema = (items: { name: string; url: string }[]) => ({
     item: item.url,
   })),
 });
+
+export const faqPageSchema = (
+  faqs: { question: string; answer: string }[],
+) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+});
+
+export const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://voipcat.com/#service',
+  name: 'VOIP CAT - Global VoIP, SIP Trunking & Call Center Provider',
+  url: 'https://voipcat.com',
+  image: 'https://voipcat.com/images/og-image.png',
+  logo: 'https://voipcat.com/images/logo-fox.jpg',
+  telephone: '+201557649136',
+  email: 'sales.voipcat@gmail.com',
+  priceRange: '$$',
+  areaServed: 'Worldwide',
+  serviceType: [
+    'SIP Trunking',
+    'Wholesale VoIP Termination',
+    'Cloud PBX',
+    'Hosted PBX',
+    'Call Center VoIP',
+    'VoIP API',
+    'Programmable Voice',
+    'VoIP Reseller Program',
+    'DID Numbers',
+    'International Voice Termination',
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '128',
+    bestRating: '5',
+    worstRating: '1',
+  },
+};
 
 export const articleSchema = (article: {
   title: string;
