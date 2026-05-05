@@ -7,6 +7,54 @@ export interface Article {
   content: string;
   readTime: number;
   date: string;
+  /** Optional explicit cover image. If omitted, getArticleImage() picks a topical default. */
+  image?: string;
+}
+
+/**
+ * Topic-matched cover images from /public/images/. Each VoIP article renders
+ * with a picture that fits its subject so list cards and detail pages are
+ * never blank.
+ */
+const CATEGORY_IMAGES: Record<string, string> = {
+  'VoIP Basics': '/images/hero-voip-communication.jpg',
+  'SIP Trunking': '/images/global-network.jpg',
+  'Call Centers': '/images/voip-business.jpg',
+  'Wholesale VoIP': '/images/global-network.jpg',
+  'Security': '/images/voip-solution.jpg',
+  'Tutorials': '/images/pbx-system.jpg',
+  'Cloud PBX': '/images/cloud-pbx.jpg',
+  'Technical': '/images/voip-stats.jpg',
+  'Technology': '/images/voip-solution.jpg',
+  'Business': '/images/voip-business.jpg',
+};
+
+const ID_IMAGES: Record<string, string> = {
+  'what-is-voip': '/images/hero-voip-communication.jpg',
+  'sip-trunk-vs-pri': '/images/global-network.jpg',
+  'voip-for-call-centers': '/images/voip-business.jpg',
+  'wholesale-voip-explained': '/images/global-network.jpg',
+  'voip-security-guide': '/images/voip-solution.jpg',
+  '3cx-sip-trunk-setup': '/images/pbx-system.jpg',
+  'asterisk-voip-setup': '/images/pbx-system.jpg',
+  'freepbx-setup-guide': '/images/pbx-system.jpg',
+  'cloud-pbx-benefits': '/images/cloud-pbx-illustration.jpg',
+  'voip-codecs-explained': '/images/voip-stats.jpg',
+  'voip-technology-guide': '/images/voip-solution.jpg',
+  'asterisk-pbx-guide': '/images/pbx-system.jpg',
+  'voip-evolution': '/images/voip-solution.jpg',
+  'voip-benefits-business': '/images/voip-business.jpg',
+  'voip-security-best-practices': '/images/voip-solution.jpg',
+  'hosted-vs-on-premise-voip': '/images/cloud-pbx.jpg',
+};
+
+export function getArticleImage(article: Pick<Article, 'id' | 'category' | 'image'>): string {
+  if (article.image) return article.image;
+  return (
+    ID_IMAGES[article.id] ||
+    CATEGORY_IMAGES[article.category] ||
+    '/images/hero-voip-communication.jpg'
+  );
 }
 
 export const articles: Article[] = [

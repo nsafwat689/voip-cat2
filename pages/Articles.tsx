@@ -3,7 +3,7 @@ import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Search, Clock, User, Tag, Calendar, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { articles } from '@/data/articles';
+import { articles, getArticleImage } from '@/data/articles';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -199,6 +199,21 @@ export default function Articles() {
                       className="h-full bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer flex flex-col"
                       whileHover={{ y: -4 }}
                     >
+                      {/* Cover Image */}
+                      <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                        <img
+                          src={getArticleImage(article)}
+                          alt={`${article.title} - ${article.category} guide by VOIP CAT`}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src =
+                              '/images/hero-voip-communication.jpg';
+                          }}
+                        />
+                      </div>
+
                       {/* Article Content */}
                       <div className="p-6 md:p-7 flex flex-col h-full">
                         {/* Category and Read Time */}
