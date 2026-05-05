@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Asterisk PBX Server Guide: Building Your Own Phone System - Technology cover image by VOIP CAT">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="rgba(255,255,255,0.35)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <circle cx="834.4" cy="844.6" r="2.2" fill="rgba(255,255,255,0.093)"/><circle cx="969.9" cy="672.1" r="2.5" fill="rgba(255,255,255,0.093)"/><circle cx="1221.4" cy="355.4" r="2.6" fill="rgba(255,255,255,0.093)"/><circle cx="773.5" cy="534.3" r="1.1" fill="rgba(255,255,255,0.093)"/><circle cx="886.0" cy="570.5" r="2.4" fill="rgba(255,255,255,0.093)"/><circle cx="946.0" cy="449.2" r="2.3" fill="rgba(255,255,255,0.093)"/><circle cx="1044.4" cy="878.3" r="1.4" fill="rgba(255,255,255,0.093)"/><circle cx="44.3" cy="191.8" r="1.4" fill="rgba(255,255,255,0.093)"/><circle cx="1578.0" cy="557.7" r="2.3" fill="rgba(255,255,255,0.093)"/><circle cx="577.3" cy="624.1" r="2.7" fill="rgba(255,255,255,0.093)"/><circle cx="830.1" cy="516.9" r="1.5" fill="rgba(255,255,255,0.093)"/><circle cx="238.8" cy="585.3" r="1.0" fill="rgba(255,255,255,0.093)"/><circle cx="244.7" cy="419.9" r="1.9" fill="rgba(255,255,255,0.093)"/><circle cx="346.6" cy="484.1" r="2.9" fill="rgba(255,255,255,0.093)"/><circle cx="176.0" cy="180.4" r="1.2" fill="rgba(255,255,255,0.093)"/><circle cx="1374.6" cy="236.5" r="1.5" fill="rgba(255,255,255,0.093)"/><circle cx="720.7" cy="163.9" r="1.9" fill="rgba(255,255,255,0.093)"/><circle cx="1221.0" cy="254.0" r="1.5" fill="rgba(255,255,255,0.093)"/><circle cx="399.0" cy="12.5" r="1.3" fill="rgba(255,255,255,0.093)"/><circle cx="469.3" cy="311.3" r="1.7" fill="rgba(255,255,255,0.093)"/><circle cx="1095.9" cy="647.8" r="2.3" fill="rgba(255,255,255,0.093)"/><circle cx="1570.1" cy="95.5" r="2.3" fill="rgba(255,255,255,0.093)"/><circle cx="679.7" cy="685.8" r="2.5" fill="rgba(255,255,255,0.093)"/><circle cx="690.5" cy="163.1" r="1.6" fill="rgba(255,255,255,0.093)"/><circle cx="1167.3" cy="113.2" r="2.7" fill="rgba(255,255,255,0.093)"/><circle cx="244.8" cy="23.1" r="2.4" fill="rgba(255,255,255,0.093)"/><circle cx="799.6" cy="10.3" r="1.1" fill="rgba(255,255,255,0.093)"/><circle cx="1068.0" cy="72.9" r="1.6" fill="rgba(255,255,255,0.093)"/><circle cx="1132.7" cy="85.3" r="3.0" fill="rgba(255,255,255,0.093)"/><circle cx="1231.3" cy="361.3" r="1.2" fill="rgba(255,255,255,0.093)"/><circle cx="1140.1" cy="720.8" r="1.6" fill="rgba(255,255,255,0.093)"/><circle cx="457.6" cy="806.7" r="1.8" fill="rgba(255,255,255,0.093)"/><circle cx="1418.4" cy="602.2" r="2.3" fill="rgba(255,255,255,0.093)"/><circle cx="1248.2" cy="326.2" r="1.8" fill="rgba(255,255,255,0.093)"/><circle cx="1364.2" cy="822.5" r="2.6" fill="rgba(255,255,255,0.093)"/><circle cx="1341.1" cy="17.5" r="1.7" fill="rgba(255,255,255,0.093)"/><circle cx="155.8" cy="606.4" r="2.4" fill="rgba(255,255,255,0.093)"/><circle cx="1483.7" cy="554.8" r="2.5" fill="rgba(255,255,255,0.093)"/><circle cx="32.7" cy="232.7" r="2.1" fill="rgba(255,255,255,0.093)"/><circle cx="852.8" cy="631.7" r="1.8" fill="rgba(255,255,255,0.093)"/><circle cx="1339.4" cy="537.6" r="1.8" fill="rgba(255,255,255,0.093)"/><circle cx="1461.1" cy="368.7" r="1.2" fill="rgba(255,255,255,0.093)"/><circle cx="917.6" cy="223.5" r="1.3" fill="rgba(255,255,255,0.093)"/><circle cx="400.0" cy="245.7" r="2.5" fill="rgba(255,255,255,0.093)"/><circle cx="408.1" cy="612.7" r="2.9" fill="rgba(255,255,255,0.093)"/><circle cx="1517.8" cy="62.4" r="2.1" fill="rgba(255,255,255,0.093)"/><circle cx="969.1" cy="121.0" r="2.8" fill="rgba(255,255,255,0.093)"/><circle cx="811.8" cy="548.5" r="2.9" fill="rgba(255,255,255,0.093)"/><circle cx="173.7" cy="737.8" r="1.2" fill="rgba(255,255,255,0.093)"/><circle cx="1117.9" cy="92.7" r="1.3" fill="rgba(255,255,255,0.093)"/><circle cx="1074.3" cy="249.9" r="2.7" fill="rgba(255,255,255,0.093)"/><circle cx="1356.2" cy="662.5" r="1.4" fill="rgba(255,255,255,0.093)"/><circle cx="901.5" cy="542.6" r="3.0" fill="rgba(255,255,255,0.093)"/><circle cx="1508.2" cy="160.8" r="1.2" fill="rgba(255,255,255,0.093)"/><circle cx="932.3" cy="409.8" r="1.5" fill="rgba(255,255,255,0.093)"/><circle cx="1221.0" cy="235.4" r="1.3" fill="rgba(255,255,255,0.093)"/><circle cx="892.1" cy="464.9" r="2.4" fill="rgba(255,255,255,0.093)"/><circle cx="23.5" cy="782.9" r="2.1" fill="rgba(255,255,255,0.093)"/><circle cx="494.0" cy="394.5" r="2.7" fill="rgba(255,255,255,0.093)"/><circle cx="334.4" cy="683.4" r="2.6" fill="rgba(255,255,255,0.093)"/>
+  
+    <g transform="translate(960 240)" stroke="rgba(255,255,255,0.95)" stroke-width="3">
+      <rect width="280" height="380" rx="12" fill="rgba(255,255,255,0.05)"/>
+      
+        <rect x="20" y="20" width="240" height="36" rx="6" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="245" cy="38" r="4" fill="#fbbf24" stroke="none"/>
+        <line x1="40" y1="38" x2="180" y2="38" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+      
+        <rect x="20" y="70" width="240" height="36" rx="6" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="245" cy="88" r="4" fill="#22c55e" stroke="none"/>
+        <line x1="40" y1="88" x2="180" y2="88" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+      
+        <rect x="20" y="120" width="240" height="36" rx="6" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="245" cy="138" r="4" fill="#fbbf24" stroke="none"/>
+        <line x1="40" y1="138" x2="180" y2="138" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+      
+        <rect x="20" y="170" width="240" height="36" rx="6" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="245" cy="188" r="4" fill="#22c55e" stroke="none"/>
+        <line x1="40" y1="188" x2="180" y2="188" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+      
+        <rect x="20" y="220" width="240" height="36" rx="6" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="245" cy="238" r="4" fill="#fbbf24" stroke="none"/>
+        <line x1="40" y1="238" x2="180" y2="238" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+      
+        <rect x="20" y="270" width="240" height="36" rx="6" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="245" cy="288" r="4" fill="#22c55e" stroke="none"/>
+        <line x1="40" y1="288" x2="180" y2="288" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+      
+        <rect x="20" y="320" width="240" height="36" rx="6" fill="rgba(255,255,255,0.12)"/>
+        <circle cx="245" cy="338" r="4" fill="#fbbf24" stroke="none"/>
+        <line x1="40" y1="338" x2="180" y2="338" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+      
+    </g>
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" fill="#ffffff">
+    <text x="80" y="120" font-size="28" letter-spacing="6" font-weight="600" opacity="0.85">TECHNOLOGY</text>
+    <text x="80" y="260" font-size="76" font-weight="800">Asterisk PBX Server Guide:</text>
+    <text x="80" y="352" font-size="76" font-weight="800">Building Your Own Phone</text>
+    <text x="80" y="444" font-size="76" font-weight="800">System</text>
+    <text x="80" y="820" font-size="28" font-weight="700" letter-spacing="4">VOIP CAT</text>
+    <text x="80" y="855" font-size="20" opacity="0.85">voipcat.com · Global VoIP &amp; Call Center Provider</text>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="VoIP Codecs Explained: G.711, G.729, Opus, and More - Technical cover image by VOIP CAT">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#134e4a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="rgba(255,255,255,0.35)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <circle cx="545.3" cy="889.8" r="1.9" fill="rgba(255,255,255,0.046)"/><circle cx="224.1" cy="468.1" r="2.6" fill="rgba(255,255,255,0.046)"/><circle cx="858.9" cy="7.0" r="1.2" fill="rgba(255,255,255,0.046)"/><circle cx="361.7" cy="894.3" r="1.7" fill="rgba(255,255,255,0.046)"/><circle cx="967.7" cy="796.6" r="2.7" fill="rgba(255,255,255,0.046)"/><circle cx="449.1" cy="31.9" r="1.5" fill="rgba(255,255,255,0.046)"/><circle cx="846.4" cy="184.4" r="1.6" fill="rgba(255,255,255,0.046)"/><circle cx="1174.4" cy="435.8" r="1.7" fill="rgba(255,255,255,0.046)"/><circle cx="1230.9" cy="698.8" r="2.0" fill="rgba(255,255,255,0.046)"/><circle cx="1315.3" cy="3.6" r="1.1" fill="rgba(255,255,255,0.046)"/><circle cx="28.7" cy="677.8" r="1.7" fill="rgba(255,255,255,0.046)"/><circle cx="661.7" cy="823.0" r="2.9" fill="rgba(255,255,255,0.046)"/><circle cx="1047.6" cy="19.1" r="1.1" fill="rgba(255,255,255,0.046)"/><circle cx="1335.1" cy="103.7" r="1.2" fill="rgba(255,255,255,0.046)"/><circle cx="899.0" cy="591.6" r="1.8" fill="rgba(255,255,255,0.046)"/><circle cx="76.7" cy="557.7" r="2.9" fill="rgba(255,255,255,0.046)"/><circle cx="267.3" cy="200.0" r="2.2" fill="rgba(255,255,255,0.046)"/><circle cx="647.3" cy="250.2" r="2.7" fill="rgba(255,255,255,0.046)"/><circle cx="724.4" cy="825.6" r="1.8" fill="rgba(255,255,255,0.046)"/><circle cx="41.3" cy="491.7" r="1.2" fill="rgba(255,255,255,0.046)"/><circle cx="1141.5" cy="665.0" r="2.4" fill="rgba(255,255,255,0.046)"/><circle cx="840.0" cy="684.8" r="2.6" fill="rgba(255,255,255,0.046)"/><circle cx="1150.4" cy="813.5" r="1.6" fill="rgba(255,255,255,0.046)"/><circle cx="1219.5" cy="218.9" r="2.1" fill="rgba(255,255,255,0.046)"/><circle cx="1349.5" cy="291.3" r="1.7" fill="rgba(255,255,255,0.046)"/><circle cx="221.9" cy="517.9" r="2.0" fill="rgba(255,255,255,0.046)"/><circle cx="926.3" cy="793.2" r="1.4" fill="rgba(255,255,255,0.046)"/><circle cx="909.1" cy="442.7" r="1.7" fill="rgba(255,255,255,0.046)"/><circle cx="1210.3" cy="429.7" r="2.0" fill="rgba(255,255,255,0.046)"/><circle cx="1566.9" cy="193.1" r="1.9" fill="rgba(255,255,255,0.046)"/><circle cx="322.6" cy="557.7" r="2.2" fill="rgba(255,255,255,0.046)"/><circle cx="8.4" cy="250.3" r="2.4" fill="rgba(255,255,255,0.046)"/><circle cx="562.2" cy="190.8" r="2.9" fill="rgba(255,255,255,0.046)"/><circle cx="1521.2" cy="566.6" r="2.9" fill="rgba(255,255,255,0.046)"/><circle cx="374.1" cy="415.9" r="1.4" fill="rgba(255,255,255,0.046)"/><circle cx="1439.5" cy="407.6" r="1.4" fill="rgba(255,255,255,0.046)"/><circle cx="244.4" cy="534.2" r="1.9" fill="rgba(255,255,255,0.046)"/><circle cx="1327.9" cy="511.8" r="1.2" fill="rgba(255,255,255,0.046)"/><circle cx="778.3" cy="52.9" r="2.5" fill="rgba(255,255,255,0.046)"/><circle cx="1339.2" cy="545.1" r="2.0" fill="rgba(255,255,255,0.046)"/><circle cx="1368.3" cy="796.7" r="2.5" fill="rgba(255,255,255,0.046)"/><circle cx="239.3" cy="144.5" r="2.8" fill="rgba(255,255,255,0.046)"/><circle cx="167.5" cy="291.5" r="1.3" fill="rgba(255,255,255,0.046)"/><circle cx="1093.7" cy="24.9" r="1.1" fill="rgba(255,255,255,0.046)"/><circle cx="1535.3" cy="423.4" r="1.5" fill="rgba(255,255,255,0.046)"/><circle cx="1291.7" cy="769.2" r="1.9" fill="rgba(255,255,255,0.046)"/><circle cx="1097.0" cy="84.7" r="2.6" fill="rgba(255,255,255,0.046)"/><circle cx="774.9" cy="123.5" r="2.1" fill="rgba(255,255,255,0.046)"/><circle cx="353.9" cy="769.6" r="2.6" fill="rgba(255,255,255,0.046)"/><circle cx="505.1" cy="407.0" r="2.9" fill="rgba(255,255,255,0.046)"/><circle cx="1122.6" cy="302.0" r="2.0" fill="rgba(255,255,255,0.046)"/><circle cx="296.7" cy="599.6" r="2.4" fill="rgba(255,255,255,0.046)"/><circle cx="952.4" cy="470.2" r="1.7" fill="rgba(255,255,255,0.046)"/><circle cx="910.8" cy="592.9" r="2.7" fill="rgba(255,255,255,0.046)"/><circle cx="1239.9" cy="172.5" r="2.0" fill="rgba(255,255,255,0.046)"/><circle cx="701.7" cy="24.7" r="2.2" fill="rgba(255,255,255,0.046)"/><circle cx="710.9" cy="505.0" r="2.7" fill="rgba(255,255,255,0.046)"/><circle cx="987.8" cy="414.1" r="2.2" fill="rgba(255,255,255,0.046)"/><circle cx="233.0" cy="622.8" r="2.7" fill="rgba(255,255,255,0.046)"/><circle cx="511.1" cy="333.0" r="1.9" fill="rgba(255,255,255,0.046)"/>
+  
+    <g fill="none" stroke="rgba(255,255,255,0.95)" stroke-width="5" stroke-linecap="round">
+      <path d="M820 450 L 820 450.0 L 838 483.3 L 856 577.6 L 874 515.3 L 892 438.6 L 910 387.8 L 928 369.6 L 946 417.5 L 964 473.3 L 982 543.2 L 1000 509.8 L 1018 472.3 L 1036 408.3 L 1054 368.9 L 1072 398.2 L 1090 428.8 L 1108 483.3 L 1126 535.8 L 1144 505.4 L 1162 470.7 L 1180 412.0 L 1198 331.6 L 1216 407.1 L 1234 448.3 L 1252 488.2 L 1270 516.1 L 1288 508.8 L 1306 439.2 L 1324 412.9 L 1342 329.5 L 1360 400.2 L 1378 472.0 L 1396 537.7"/>
+    </g>
+    <g stroke="rgba(255,255,255,0.4)" stroke-width="2">
+      <line x1="820" y1="320" x2="1400" y2="320"/>
+      <line x1="820" y1="450" x2="1400" y2="450"/>
+      <line x1="820" y1="580" x2="1400" y2="580"/>
+    </g>
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" fill="#ffffff">
+    <text x="80" y="120" font-size="28" letter-spacing="6" font-weight="600" opacity="0.85">TECHNICAL</text>
+    <text x="80" y="260" font-size="76" font-weight="800">VoIP Codecs Explained:</text>
+    <text x="80" y="352" font-size="76" font-weight="800">G.711, G.729, Opus, and</text>
+    <text x="80" y="444" font-size="76" font-weight="800">More</text>
+    <text x="80" y="820" font-size="28" font-weight="700" letter-spacing="4">VOIP CAT</text>
+    <text x="80" y="855" font-size="20" opacity="0.85">voipcat.com · Global VoIP &amp; Call Center Provider</text>
+  </g>
+</svg>

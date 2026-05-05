@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Asterisk VoIP Setup: Complete Configuration Guide - Tutorials cover image by VOIP CAT">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#5b21b6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.42" r="0.55">
+      <stop offset="0" stop-color="rgba(255,255,255,0.35)"/>
+      <stop offset="1" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <circle cx="533.3" cy="401.1" r="2.7" fill="rgba(255,255,255,0.059)"/><circle cx="610.3" cy="377.7" r="2.1" fill="rgba(255,255,255,0.059)"/><circle cx="371.9" cy="64.8" r="2.1" fill="rgba(255,255,255,0.059)"/><circle cx="4.7" cy="720.0" r="1.3" fill="rgba(255,255,255,0.059)"/><circle cx="1068.2" cy="439.3" r="1.2" fill="rgba(255,255,255,0.059)"/><circle cx="1117.7" cy="315.2" r="2.8" fill="rgba(255,255,255,0.059)"/><circle cx="358.5" cy="268.6" r="2.5" fill="rgba(255,255,255,0.059)"/><circle cx="419.2" cy="513.0" r="1.4" fill="rgba(255,255,255,0.059)"/><circle cx="1496.9" cy="108.9" r="1.3" fill="rgba(255,255,255,0.059)"/><circle cx="251.1" cy="439.9" r="2.5" fill="rgba(255,255,255,0.059)"/><circle cx="706.3" cy="242.5" r="2.4" fill="rgba(255,255,255,0.059)"/><circle cx="1478.7" cy="476.1" r="1.7" fill="rgba(255,255,255,0.059)"/><circle cx="245.8" cy="432.0" r="2.4" fill="rgba(255,255,255,0.059)"/><circle cx="536.8" cy="639.9" r="1.3" fill="rgba(255,255,255,0.059)"/><circle cx="1462.4" cy="612.2" r="2.5" fill="rgba(255,255,255,0.059)"/><circle cx="1455.1" cy="91.9" r="2.3" fill="rgba(255,255,255,0.059)"/><circle cx="1379.7" cy="113.8" r="2.9" fill="rgba(255,255,255,0.059)"/><circle cx="606.6" cy="149.1" r="1.2" fill="rgba(255,255,255,0.059)"/><circle cx="1445.3" cy="778.5" r="2.3" fill="rgba(255,255,255,0.059)"/><circle cx="1360.1" cy="345.8" r="2.0" fill="rgba(255,255,255,0.059)"/><circle cx="1359.4" cy="468.5" r="2.5" fill="rgba(255,255,255,0.059)"/><circle cx="768.9" cy="667.1" r="1.7" fill="rgba(255,255,255,0.059)"/><circle cx="268.7" cy="857.1" r="2.1" fill="rgba(255,255,255,0.059)"/><circle cx="1037.4" cy="504.4" r="1.5" fill="rgba(255,255,255,0.059)"/><circle cx="1383.6" cy="609.8" r="1.4" fill="rgba(255,255,255,0.059)"/><circle cx="1590.9" cy="625.9" r="1.8" fill="rgba(255,255,255,0.059)"/><circle cx="309.9" cy="797.2" r="1.2" fill="rgba(255,255,255,0.059)"/><circle cx="613.9" cy="68.0" r="2.3" fill="rgba(255,255,255,0.059)"/><circle cx="316.6" cy="468.4" r="2.5" fill="rgba(255,255,255,0.059)"/><circle cx="411.8" cy="573.9" r="2.3" fill="rgba(255,255,255,0.059)"/><circle cx="838.5" cy="619.5" r="3.0" fill="rgba(255,255,255,0.059)"/><circle cx="1197.9" cy="76.6" r="2.3" fill="rgba(255,255,255,0.059)"/><circle cx="403.0" cy="296.5" r="2.2" fill="rgba(255,255,255,0.059)"/><circle cx="1234.9" cy="632.8" r="1.6" fill="rgba(255,255,255,0.059)"/><circle cx="136.8" cy="453.0" r="2.3" fill="rgba(255,255,255,0.059)"/><circle cx="738.2" cy="625.6" r="1.5" fill="rgba(255,255,255,0.059)"/><circle cx="520.9" cy="422.5" r="2.4" fill="rgba(255,255,255,0.059)"/><circle cx="1289.0" cy="586.2" r="2.1" fill="rgba(255,255,255,0.059)"/><circle cx="647.4" cy="520.1" r="1.2" fill="rgba(255,255,255,0.059)"/><circle cx="1437.6" cy="515.3" r="2.7" fill="rgba(255,255,255,0.059)"/><circle cx="420.4" cy="627.7" r="2.9" fill="rgba(255,255,255,0.059)"/><circle cx="676.4" cy="571.7" r="1.7" fill="rgba(255,255,255,0.059)"/><circle cx="1312.3" cy="836.7" r="1.9" fill="rgba(255,255,255,0.059)"/><circle cx="1063.4" cy="190.0" r="1.4" fill="rgba(255,255,255,0.059)"/><circle cx="1052.8" cy="283.8" r="1.1" fill="rgba(255,255,255,0.059)"/><circle cx="672.7" cy="209.7" r="2.5" fill="rgba(255,255,255,0.059)"/><circle cx="716.4" cy="1.9" r="2.4" fill="rgba(255,255,255,0.059)"/><circle cx="97.4" cy="718.6" r="2.8" fill="rgba(255,255,255,0.059)"/><circle cx="490.4" cy="3.5" r="1.9" fill="rgba(255,255,255,0.059)"/><circle cx="1380.7" cy="632.2" r="2.5" fill="rgba(255,255,255,0.059)"/><circle cx="1199.2" cy="533.9" r="2.8" fill="rgba(255,255,255,0.059)"/><circle cx="376.1" cy="682.1" r="2.6" fill="rgba(255,255,255,0.059)"/><circle cx="1399.7" cy="191.1" r="2.9" fill="rgba(255,255,255,0.059)"/><circle cx="1083.8" cy="701.2" r="1.7" fill="rgba(255,255,255,0.059)"/><circle cx="1291.0" cy="460.7" r="2.6" fill="rgba(255,255,255,0.059)"/><circle cx="401.8" cy="844.1" r="1.1" fill="rgba(255,255,255,0.059)"/><circle cx="358.3" cy="259.2" r="1.8" fill="rgba(255,255,255,0.059)"/><circle cx="239.0" cy="645.2" r="1.6" fill="rgba(255,255,255,0.059)"/><circle cx="437.7" cy="412.8" r="2.3" fill="rgba(255,255,255,0.059)"/><circle cx="498.0" cy="427.3" r="2.4" fill="rgba(255,255,255,0.059)"/>
+  
+    <g transform="translate(900 280)">
+      <rect width="380" height="280" rx="18" fill="rgba(0,0,0,0.45)" stroke="rgba(255,255,255,0.55)" stroke-width="3"/>
+      <circle cx="22" cy="22" r="7" fill="#ef4444"/>
+      <circle cx="46" cy="22" r="7" fill="#fbbf24"/>
+      <circle cx="70" cy="22" r="7" fill="#22c55e"/>
+      <g font-family="ui-monospace, Menlo, monospace" font-size="22" fill="rgba(255,255,255,0.92)">
+        <text x="20" y="80">$ asterisk -rvvv</text>
+        <text x="20" y="115">CLI&gt; sip show peers</text>
+        <text x="20" y="150">100/100      OK (12 ms)</text>
+        <text x="20" y="185">200/200      OK (8 ms)</text>
+        <text x="20" y="225">300/300      OK (15 ms)</text>
+      </g>
+    </g>
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif" fill="#ffffff">
+    <text x="80" y="120" font-size="28" letter-spacing="6" font-weight="600" opacity="0.85">TUTORIALS</text>
+    <text x="80" y="260" font-size="76" font-weight="800">Asterisk VoIP Setup:</text>
+    <text x="80" y="352" font-size="76" font-weight="800">Complete Configuration</text>
+    <text x="80" y="444" font-size="76" font-weight="800">Guide</text>
+    <text x="80" y="820" font-size="28" font-weight="700" letter-spacing="4">VOIP CAT</text>
+    <text x="80" y="855" font-size="20" opacity="0.85">voipcat.com · Global VoIP &amp; Call Center Provider</text>
+  </g>
+</svg>
