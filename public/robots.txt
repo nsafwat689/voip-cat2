@@ -1,18 +1,33 @@
-# robots.txt for VOIP Cat - Enterprise VoIP Solutions
+# robots.txt for VOIP CAT — Global VoIP, SIP Trunking, Cloud PBX & Call Center Provider
 # https://voipcat.com/robots.txt
+# We want every major search engine and AI crawler to index our content
+# so we can rank for VoIP, SIP trunk, wholesale VoIP, Cloud PBX and call
+# center keywords worldwide.
 
-# Allow all search engines to crawl the entire site
+# Default: allow everything (with private paths blocked further down)
 User-agent: *
 Allow: /
-
-# Crawl-delay for respectful crawling
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /__manus__/
 Crawl-delay: 0
 
-# Sitemap location
-Sitemap: https://voipcat.com/sitemap.xml
-
-# Specific directives for common bots
+# Major web search engines
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: AdsBot-Google
 Allow: /
 
 User-agent: Bingbot
@@ -21,8 +36,106 @@ Allow: /
 User-agent: Slurp
 Allow: /
 
-# Block access to API endpoints and admin areas (if any)
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
-Disallow: /private/
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Sogou
+Allow: /
+
+User-agent: Exabot
+Allow: /
+
+User-agent: facebot
+Allow: /
+
+User-agent: ia_archiver
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: SeznamBot
+Allow: /
+
+User-agent: Naver
+Allow: /
+
+# AI / generative-search crawlers — important for ChatGPT, Perplexity,
+# Google AI Overviews, Bing Copilot etc. surfacing VOIP CAT.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+User-agent: MJ12bot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+
+# Sitemap location
+Sitemap: https://voipcat.com/sitemap.xml

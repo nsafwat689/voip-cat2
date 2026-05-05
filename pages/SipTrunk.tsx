@@ -1,17 +1,40 @@
+import { useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, Phone, Globe, Shield, Server, Zap, Users, Headphones } from 'lucide-react';
 import { Link } from 'wouter';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function SipTrunk() {
   useSEO({
-    title: 'SIP Trunk Provider | Enterprise SIP Trunking Service | VOIP CAT',
-    description: 'VoIP Cat offers reliable SIP trunk services for businesses of all sizes. Reduce costs by up to 60%, get unlimited channels, and enjoy crystal-clear HD voice quality. Free test available.',
-    keywords: 'SIP trunk provider, SIP trunking service, SIP trunk, business SIP, enterprise SIP trunk, SIP trunk pricing, VoIP SIP trunk',
+    title: 'SIP Trunk Provider | Global SIP Trunking for Business, PBX & Call Centers | VOIP CAT',
+    description: 'VOIP CAT delivers global SIP trunking for businesses, call centers and ITSPs. Unlimited channels, HD voice, CLI guaranteed, TLS/SRTP encryption, geo-redundant SBCs and 99.99% uptime SLA. Compatible with Asterisk, FreePBX, 3CX, FusionPBX, Issabel, Vicidial, Genesys, Avaya, Cisco and Microsoft Teams. Cut telecom costs by up to 70% — request a free SIP trunk test.',
+    keywords: 'SIP trunk, SIP trunking, SIP trunk provider, best SIP trunk provider, SIP trunking service, SIP trunk service, SIP trunking provider, business SIP trunk, enterprise SIP trunk, international SIP trunk, global SIP trunk, SIP trunk pricing, cheap SIP trunk, unlimited SIP trunk, SIP trunk for call center, SIP trunk for PBX, SIP trunk for Asterisk, FreePBX SIP trunk, 3CX SIP trunk, FusionPBX SIP trunk, Issabel SIP trunk, Vicidial SIP trunk, Genesys SIP trunk, Avaya SIP trunk, Cisco SIP trunk, Microsoft Teams direct routing, SIP DID, SIP DDI, SIP termination, SIP origination, SIP gateway, SIP provider, VoIP SIP trunk, HD voice SIP, CLI SIP trunk, encrypted SIP trunk, TLS SRTP SIP trunk, redundant SIP trunk, free SIP trunk test',
     canonical: 'https://voipcat.com/sip-trunk',
+    ogImage: 'https://voipcat.com/images/og-image.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'SIP Trunk', url: 'https://voipcat.com/sip-trunk' },
+      ]),
+    );
+    injectStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'VOIP CAT SIP Trunking Service',
+      serviceType: 'SIP Trunking',
+      provider: { '@type': 'Organization', name: 'VOIP CAT', url: 'https://voipcat.com' },
+      areaServed: 'Worldwide',
+      description:
+        'Global SIP trunking with HD voice, unlimited channels, CLI guaranteed, geo-redundant SBCs and 99.99% uptime SLA. Compatible with Asterisk, FreePBX, 3CX, FusionPBX, Vicidial, Genesys, Avaya, Cisco and Microsoft Teams.',
+      url: 'https://voipcat.com/sip-trunk',
+    });
+  }, []);
 
   const features = [
     { icon: Globe, title: 'Global Coverage', desc: 'SIP trunks with coverage in 190+ countries. Local and international DIDs available.' },

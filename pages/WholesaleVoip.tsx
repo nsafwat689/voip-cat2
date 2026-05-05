@@ -1,17 +1,40 @@
+import { useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, Globe, Shield, Zap, TrendingUp, Server, BarChart3 } from 'lucide-react';
 import { Link } from 'wouter';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function WholesaleVoip() {
   useSEO({
-    title: 'Wholesale VoIP Provider | Bulk Voice Termination | VOIP CAT',
-    description: 'VoIP Cat offers wholesale VoIP termination with competitive rates to 190+ countries. High-volume voice termination, CLI routes, premium quality, and 24/7 NOC support.',
-    keywords: 'wholesale VoIP, wholesale VoIP provider, voice termination, bulk VoIP, VoIP termination, wholesale SIP, A-Z termination',
+    title: 'Wholesale VoIP Provider | A-Z Voice Termination & Bulk SIP Routes | VOIP CAT',
+    description: 'VOIP CAT is a tier-1 wholesale VoIP provider delivering A-Z voice termination to 190+ countries. CLI / NCLI / IVR / premium routes, full CDR access, real-time ASR/ACD/PDD reporting, volume-based pricing and 24/7 NOC support. Ideal for carriers, call centers, ITSPs, resellers and high-volume traffic senders.',
+    keywords: 'wholesale VoIP, wholesale VoIP provider, best wholesale VoIP provider, wholesale VoIP carrier, wholesale SIP, wholesale SIP provider, voice termination, voice termination provider, bulk VoIP, bulk minutes, A-Z termination, A-Z VoIP, A-Z voice routes, CLI routes, NCLI routes, CC routes, IVR routes, premium routes, retail routes, voice carrier, tier 1 VoIP carrier, VoIP wholesale rates, international call termination, wholesale VoIP USA, wholesale VoIP UK, wholesale VoIP Europe, wholesale VoIP Asia, wholesale VoIP Africa, wholesale VoIP Middle East, wholesale VoIP Latin America, voice termination USA, voice termination UK, voice termination Saudi Arabia, voice termination India, voice termination Nigeria, voice termination Pakistan, voice termination Bangladesh, voice termination Mexico, voice termination Brazil, real-time CDR, ASR, ACD, PDD, voice broadcasting termination, call center termination',
     canonical: 'https://voipcat.com/wholesale-voip',
+    ogImage: 'https://voipcat.com/images/og-image.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'Wholesale VoIP', url: 'https://voipcat.com/wholesale-voip' },
+      ]),
+    );
+    injectStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: 'VOIP CAT Wholesale VoIP Termination',
+      serviceType: 'Wholesale VoIP Termination',
+      provider: { '@type': 'Organization', name: 'VOIP CAT', url: 'https://voipcat.com' },
+      areaServed: 'Worldwide',
+      description:
+        'Tier-1 wholesale A-Z voice termination to 190+ countries with CLI / NCLI / IVR / premium routes, real-time CDR, ASR/ACD/PDD reporting and volume pricing.',
+      url: 'https://voipcat.com/wholesale-voip',
+    });
+  }, []);
 
   const features = [
     { icon: Globe, title: 'A-Z Termination', desc: 'Complete A-Z voice termination coverage with routes to 190+ countries. Direct interconnects with Tier-1 carriers worldwide.' },

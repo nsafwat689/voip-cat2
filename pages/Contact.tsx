@@ -3,16 +3,41 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Mail, MapPin, Phone, Clock, Send, MessageCircle } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function Contact() {
   useSEO({
-    title: 'Contact Us | Get in Touch | VOIP CAT',
-    description: 'Contact VoIP Cat for enterprise VoIP solutions, SIP trunking, wholesale VoIP, and more. Available 24/7 via WhatsApp, email, and phone. Free test routes available.',
-    keywords: 'contact VoIP Cat, VoIP support, VoIP sales, get in touch, VoIP help',
+    title: 'Contact VoIP Cat | 24/7 Sales & Support for SIP Trunking, Wholesale VoIP & Cloud PBX',
+    description: 'Talk to VOIP CAT — global VoIP, SIP trunking, wholesale termination, Cloud PBX and call center experts. Reach our sales and 24/7 support team via WhatsApp, email or phone. Free test routes, custom quotes and same-day onboarding available worldwide.',
+    keywords: 'contact VoIP Cat, contact VOIP CAT, VoIP support, VoIP sales, VoIP help, SIP trunk support, wholesale VoIP contact, Cloud PBX support, call center VoIP support, 24/7 VoIP support, VoIP WhatsApp, VoIP quote, VoIP demo, free VoIP test, VoIP onboarding',
     canonical: 'https://voipcat.com/contact',
+    ogImage: 'https://voipcat.com/images/og-image.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'Contact', url: 'https://voipcat.com/contact' },
+      ]),
+    );
+    injectStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: 'Contact VOIP CAT',
+      url: 'https://voipcat.com/contact',
+      mainEntity: {
+        '@type': 'Organization',
+        name: 'VOIP CAT',
+        url: 'https://voipcat.com',
+        telephone: '+201557649136',
+        email: 'sales.voipcat@gmail.com',
+        areaServed: 'Worldwide',
+      },
+    });
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',

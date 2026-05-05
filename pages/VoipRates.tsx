@@ -1,17 +1,29 @@
+import { useEffect } from 'react';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, ShieldCheck, Zap, Globe, TrendingDown, Clock } from 'lucide-react';
 import { Link } from 'wouter';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function VoipRates() {
   useSEO({
-    title: 'VoIP Rates & Pricing | Affordable International Calling | VOIP CAT',
-    description: 'Check VoIP Cat\'s competitive VoIP rates for international calling to 190+ countries. Per-second billing, CLI supported, premium routes, and 24/7 support. Request a free test route today.',
-    keywords: 'VoIP rates, international calling rates, VoIP pricing, cheap VoIP calls, wholesale VoIP rates, SIP trunk pricing, call rates, per-second billing',
+    title: 'VoIP Rates 2026 | Cheap International Call Rates & Wholesale VoIP Pricing | VOIP CAT',
+    description: 'Compare VOIP CAT VoIP rates for 190+ countries: standard, platinum and premium A-Z routes with per-second billing, CLI guaranteed, no hidden fees. Wholesale VoIP and SIP trunk pricing for call centers, ITSPs and enterprises. Request your custom rate sheet today.',
+    keywords: 'VoIP rates, VoIP pricing, VoIP rates 2026, international calling rates, international VoIP rates, cheap VoIP rates, cheapest VoIP rates, best VoIP rates, low cost VoIP, cheap international calls, wholesale VoIP rates, wholesale VoIP pricing, SIP trunk pricing, SIP trunk rates, A-Z VoIP rates, call termination rates, voice termination rates, call center VoIP rates, per-second billing, per-minute billing, CLI rates, NCLI rates, premium route rates, USA VoIP rates, UK VoIP rates, Saudi Arabia VoIP rates, Egypt VoIP rates, India VoIP rates, Pakistan VoIP rates, Nigeria VoIP rates, Bangladesh VoIP rates',
     canonical: 'https://voipcat.com/voip-rates',
+    ogImage: 'https://voipcat.com/images/og-image.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'VoIP Rates', url: 'https://voipcat.com/voip-rates' },
+      ]),
+    );
+  }, []);
 
   const googleSheetLinks = {
     standard: 'https://docs.google.com/spreadsheets/d/15jVmJOYjHPSYJLQnxA4yeJ5fBrw_LESr7z0TIzPcTQg/edit?pli=1&gid=0#gid=0',

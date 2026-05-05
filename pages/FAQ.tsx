@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,15 +6,32 @@ import { useSEO } from '@/hooks/useSEO';
 import { faqs } from '@/data/faqs';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import {
+  faqPageSchema,
+  breadcrumbSchema,
+  injectStructuredData,
+} from '@/utils/structuredData';
 
 export default function FAQ() {
   useSEO({
-    title: 'FAQ | VoIP & SIP Trunking Questions Answered | VOIP CAT',
-    description: 'Find answers to common questions about VoIP technology, SIP trunking, Cloud PBX setup, and international voice termination. Get technical support and implementation guidance.',
-    keywords: 'VoIP FAQ, SIP trunking questions, Cloud PBX support, VoIP technical help, voice termination FAQ, VoIP security, number porting',
+    title: 'VoIP FAQ | SIP Trunking, Cloud PBX, Wholesale VoIP & Call Center Questions Answered | VOIP CAT',
+    description: 'Answers to the most common questions about VoIP, SIP trunking, Cloud PBX, wholesale voice termination, call center VoIP, security, codecs, number porting, STIR/SHAKEN, and global VoIP regulations. Get expert guidance from the VOIP CAT team.',
+    keywords: 'VoIP FAQ, VoIP questions, SIP trunking FAQ, SIP trunk questions, Cloud PBX FAQ, hosted PBX questions, wholesale VoIP FAQ, voice termination FAQ, call center VoIP FAQ, VoIP security FAQ, STIR SHAKEN FAQ, number porting FAQ, LNP, VoIP codecs, G.711, G.729, opus codec, VoIP latency, VoIP jitter, VoIP regulations, VoIP compliance',
     canonical: 'https://voipcat.com/faq',
     ogImage: 'https://voipcat.com/images/og-faq.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      faqPageSchema(faqs.map((f) => ({ question: f.question, answer: f.answer }))),
+    );
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'FAQ', url: 'https://voipcat.com/faq' },
+      ]),
+    );
+  }, []);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);

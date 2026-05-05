@@ -2,11 +2,16 @@ import { useParams, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Clock, User, Tag, Calendar, ChevronRight, Phone, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { articles } from '@/data/articles';
+import { articles, getArticleImage } from '@/data/articles';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
+import {
+  articleSchema,
+  breadcrumbSchema,
+  injectStructuredData,
+} from '@/utils/structuredData';
 
 /**
  * Simple markdown-to-HTML converter for article content
@@ -101,12 +106,36 @@ export default function ArticleDetail() {
   }
 
   useSEO({
-    title: `${article.title} | VOIP CAT`,
+    title: `${article.title} | ${article.category} | VOIP CAT Knowledge Hub`,
     description: article.excerpt,
-    keywords: `${article.category}, VoIP, SIP Trunk, ${article.title}`,
+    keywords: `${article.category}, VoIP, SIP Trunk, SIP trunking, wholesale VoIP, Cloud PBX, call center VoIP, voice termination, VoIP API, VoIP guide, VoIP tutorial, ${article.title}`,
     canonical: `https://voipcat.com/articles/${article.id}`,
     ogImage: 'https://voipcat.com/images/og-articles.png',
+    ogType: 'article',
+    author: article.author,
+    publishedDate: article.date,
+    modifiedDate: article.date,
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'Knowledge Hub', url: 'https://voipcat.com/articles' },
+        { name: article.title, url: `https://voipcat.com/articles/${article.id}` },
+      ]),
+    );
+    injectStructuredData(
+      articleSchema({
+        title: article.title,
+        description: article.excerpt,
+        content: article.content,
+        author: article.author,
+        date: article.date,
+        image: `https://voipcat.com${getArticleImage(article)}`,
+      }),
+    );
+  }, [article.id]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -195,6 +224,28 @@ export default function ArticleDetail() {
           </div>
         </motion.section>
 
+        {/* Cover Image */}
+        <motion.figure
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="container max-w-5xl pt-8 md:pt-12"
+        >
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-border bg-muted shadow-sm">
+            <img
+              src={getArticleImage(article)}
+              alt={`${article.title} - ${article.category} guide by VOIP CAT`}
+              loading="eager"
+              decoding="async"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src =
+                  '/images/hero-voip-communication.jpg';
+              }}
+            />
+          </div>
+        </motion.figure>
+
         {/* Article Content */}
         <motion.section
           initial={{ opacity: 0 }}
@@ -274,25 +325,40 @@ export default function ArticleDetail() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                     onClick={() => setLocation(`/articles/${relatedArticle.id}`)}
-                    className="bg-card border border-border rounded-lg p-6 hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer group"
+                    className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer group flex flex-col"
                   >
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
-                        {relatedArticle.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Clock className="w-3 h-3" />
-                        {relatedArticle.readTime} min
-                      </span>
+                    <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                      <img
+                        src={getArticleImage(relatedArticle)}
+                        alt={`${relatedArticle.title} - ${relatedArticle.category} guide by VOIP CAT`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).src =
+                            '/images/hero-voip-communication.jpg';
+                        }}
+                      />
                     </div>
-                    <h3 className="text-lg font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                      {relatedArticle.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
-                      {relatedArticle.excerpt}
-                    </p>
-                    <div className="flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
-                      Read More <ChevronRight className="w-4 h-4" />
+                    <div className="p-6 flex flex-col flex-grow">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+                          {relatedArticle.category}
+                        </span>
+                        <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                          <Clock className="w-3 h-3" />
+                          {relatedArticle.readTime} min
+                        </span>
+                      </div>
+                      <h3 className="text-lg font-bold mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                        {relatedArticle.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
+                        {relatedArticle.excerpt}
+                      </p>
+                      <div className="mt-auto flex items-center gap-1 text-primary text-sm font-medium group-hover:gap-2 transition-all">
+                        Read More <ChevronRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </motion.div>
                 ))}

@@ -1,12 +1,13 @@
-import { useState, useMemo } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { Search, Clock, User, Tag, Calendar, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { articles } from '@/data/articles';
+import { articles, getArticleImage } from '@/data/articles';
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 /**
  * Articles Page - Knowledge Hub
@@ -15,12 +16,45 @@ import Footer from '@/components/Footer';
  */
 export default function Articles() {
   useSEO({
-    title: 'VoIP Knowledge Hub | SIP Trunking, Cloud PBX & VoIP Guides | VOIP CAT',
-    description: 'Expert guides on VoIP technology, SIP trunking, Cloud PBX setup, wholesale VoIP, and more. Learn from our team of VoIP specialists.',
-    keywords: 'VoIP guides, SIP trunk setup, Cloud PBX guide, wholesale VoIP, Asterisk setup, FreePBX guide, 3CX configuration, VoIP security, VoIP codecs',
+    title: 'VoIP Blog & Knowledge Hub | SIP Trunking, Cloud PBX, Wholesale VoIP & Call Center Guides | VOIP CAT',
+    description: 'In-depth guides, tutorials and industry analysis on VoIP, SIP trunking, Cloud PBX, wholesale voice termination, call center technology, VoIP security, codecs, STIR/SHAKEN and integrations with Asterisk, FreePBX, 3CX, FusionPBX, Vicidial, Genesys and Microsoft Teams. Written by the VOIP CAT engineering team.',
+    keywords: 'VoIP blog, VoIP knowledge base, VoIP guides, VoIP tutorials, SIP trunk guides, SIP trunk tutorial, SIP trunk setup, Cloud PBX guide, hosted PBX setup, wholesale VoIP guide, voice termination guide, call center setup, call center VoIP guide, Asterisk setup, FreePBX configuration, 3CX configuration, FusionPBX setup, Issabel guide, Vicidial setup, Genesys SIP guide, Microsoft Teams direct routing guide, VoIP security, VoIP fraud prevention, VoIP codecs, G.711, G.729, opus, STIR SHAKEN guide',
     canonical: 'https://voipcat.com/articles',
     ogImage: 'https://voipcat.com/images/og-articles.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'Knowledge Hub', url: 'https://voipcat.com/articles' },
+      ]),
+    );
+    injectStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'VOIP CAT Knowledge Hub',
+      url: 'https://voipcat.com/articles',
+      description:
+        'In-depth guides on VoIP, SIP trunking, Cloud PBX, wholesale VoIP, call centers and integrations with major PBX/dialer platforms.',
+      publisher: {
+        '@type': 'Organization',
+        name: 'VOIP CAT',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://voipcat.com/images/logo-fox.jpg',
+        },
+      },
+      blogPost: articles.map((a) => ({
+        '@type': 'BlogPosting',
+        headline: a.title,
+        description: a.excerpt,
+        author: { '@type': 'Person', name: a.author },
+        datePublished: a.date,
+        url: `https://voipcat.com/articles/${a.id}`,
+      })),
+    });
+  }, []);
 
   const [, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState('');
@@ -165,6 +199,21 @@ export default function Articles() {
                       className="h-full bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 hover:shadow-lg transition-all cursor-pointer flex flex-col"
                       whileHover={{ y: -4 }}
                     >
+                      {/* Cover Image */}
+                      <div className="relative aspect-[16/9] overflow-hidden bg-muted">
+                        <img
+                          src={getArticleImage(article)}
+                          alt={`${article.title} - ${article.category} guide by VOIP CAT`}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src =
+                              '/images/hero-voip-communication.jpg';
+                          }}
+                        />
+                      </div>
+
                       {/* Article Content */}
                       <div className="p-6 md:p-7 flex flex-col h-full">
                         {/* Category and Read Time */}

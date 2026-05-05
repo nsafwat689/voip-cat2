@@ -4,15 +4,26 @@ import { Button } from '@/components/ui/button';
 import { Check, Zap, TrendingUp, MessageCircle, Globe, Phone } from 'lucide-react';
 import { Link } from 'wouter';
 import { useSEO } from '@/hooks/useSEO';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function FreeTest() {
   useSEO({
-    title: 'Request Free VoIP Test Route | Premium SIP Trunks | VOIP CAT',
-    description: 'Get high quality VoIP routes with a free test. Direct termination, CLI guaranteed, and 24/7 support. No commitment, instant activation.',
-    keywords: 'free voip test, sip trunk test, wholesale voip test, free voip route, test voip quality, VoIP provider, global voice termination',
+    title: 'Free VoIP Test | Try Our SIP Trunk, Wholesale VoIP & Call Center Routes Free | VOIP CAT',
+    description: 'Test the VOIP CAT network risk-free. Get a free SIP trunk test, free wholesale VoIP test routes and free Cloud PBX trial — CLI guaranteed, premium A-Z termination, instant activation, no commitment, no credit card. Perfect for call centers, ITSPs, dialers and resellers.',
+    keywords: 'free VoIP test, free SIP trunk test, free SIP test, free wholesale VoIP test, free VoIP route, free VoIP trial, VoIP free trial, test SIP trunk, test VoIP quality, VoIP free demo, free A-Z termination test, free CLI route test, free call center VoIP test, no commitment VoIP, instant VoIP activation, free VoIP for testing',
     canonical: 'https://voipcat.com/free-test',
+    ogImage: 'https://voipcat.com/images/og-image.png',
   });
+
+  useEffect(() => {
+    injectStructuredData(
+      breadcrumbSchema([
+        { name: 'Home', url: 'https://voipcat.com/' },
+        { name: 'Free VoIP Test', url: 'https://voipcat.com/free-test' },
+      ]),
+    );
+  }, []);
 
   const [formData, setFormData] = useState({
     name: '',
