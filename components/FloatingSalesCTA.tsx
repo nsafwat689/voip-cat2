@@ -9,7 +9,7 @@ export default function FloatingSalesCTA() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-20 md:bottom-8 right-4 md:right-6 z-40 flex flex-col items-end gap-3">
+    <div className="fixed bottom-28 md:bottom-28 right-4 md:right-6 z-40 flex flex-col items-end gap-3">
       {open && (
         <div className="flex flex-col gap-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
           {/* WhatsApp */}

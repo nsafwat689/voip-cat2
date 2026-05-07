@@ -1,17 +1,17 @@
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Puzzle, ArrowRight } from 'lucide-react';
+import { Puzzle } from 'lucide-react';
 
 const integrations = [
-  { name: '3CX',      category: 'PBX',  desc: 'Native SIP trunk support. Deploy in under 30 minutes with our 3CX configuration wizard.',         docs: '/articles' },
-  { name: 'FreePBX',  category: 'PBX',  desc: 'Full compatibility with FreePBX trunk configuration. Supports PJSIP and chan_sip.',                docs: '/articles' },
-  { name: 'Asterisk', category: 'PBX',  desc: 'Tested with Asterisk 18, 19, 20. Includes sample dialplan and SIP.conf templates.',               docs: '/articles' },
-  { name: 'HubSpot',  category: 'CRM',  desc: 'Log calls directly in HubSpot CRM. Auto-create contacts from inbound calls.',                     docs: '/contact' },
-  { name: 'Zoho CRM', category: 'CRM',  desc: 'Click-to-call and call logging for Zoho CRM users via our VoIP API.',                             docs: '/contact' },
-  { name: 'Salesforce', category: 'CRM', desc: 'CTI integration for Salesforce Service Cloud. Inbound screen-pop and call disposition logging.',  docs: '/contact' },
-  { name: 'MicroSIP', category: 'Softphone', desc: 'Pre-configured profiles for MicroSIP softphone. One-click import.',                          docs: '/articles' },
-  { name: 'Zoiper',   category: 'Softphone', desc: 'Configuration profiles for Zoiper 5 desktop and mobile clients.',                            docs: '/articles' },
+  { name: '3CX',        category: 'PBX',        desc: 'Native SIP trunk support. Deploy in under 30 minutes with our 3CX configuration wizard.' },
+  { name: 'FreePBX',    category: 'PBX',        desc: 'Full compatibility with FreePBX trunk configuration. Supports PJSIP and chan_sip.' },
+  { name: 'Asterisk',   category: 'PBX',        desc: 'Tested with Asterisk 18, 19, 20. Includes sample dialplan and SIP.conf templates.' },
+  { name: 'HubSpot',    category: 'CRM',        desc: 'Log calls directly in HubSpot CRM. Auto-create contacts from inbound calls.' },
+  { name: 'Zoho CRM',   category: 'CRM',        desc: 'Click-to-call and call logging for Zoho CRM users via our VoIP API.' },
+  { name: 'Salesforce', category: 'CRM',        desc: 'CTI integration for Salesforce Service Cloud. Inbound screen-pop and call disposition logging.' },
+  { name: 'MicroSIP',   category: 'Softphone',  desc: 'Pre-configured profiles for MicroSIP softphone. One-click import.' },
+  { name: 'Zoiper',     category: 'Softphone',  desc: 'Configuration profiles for Zoiper 5 desktop and mobile clients.' },
 ];
 
 const categories = ['All', 'PBX', 'CRM', 'Softphone'];
@@ -49,7 +49,7 @@ export default function Integrations() {
         <section className="py-20 bg-background">
           <div className="container">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {integrations.map(({ name, category, desc, docs }, i) => (
+              {integrations.map(({ name, category, desc }, i) => (
                 <div key={i} className="bg-card border border-border rounded-xl p-8 hover:border-primary/40 transition-all group">
                   <div className="flex items-start justify-between mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl border border-primary/20 flex items-center justify-center">
@@ -58,10 +58,7 @@ export default function Integrations() {
                     <span className="text-xs font-bold px-2 py-1 bg-muted rounded-md text-muted-foreground uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>{category}</span>
                   </div>
                   <h3 className="text-foreground font-bold text-lg mb-2 group-hover:text-primary transition-colors">{name}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">{desc}</p>
-                  <a href={docs} className="inline-flex items-center gap-1 text-primary text-sm font-medium hover:gap-2 transition-all">
-                    View Docs <ArrowRight className="w-4 h-4" />
-                  </a>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
                 </div>
               ))}
             </div>
