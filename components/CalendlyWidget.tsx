@@ -6,7 +6,7 @@ import { Calendar } from 'lucide-react';
  * Inline embed for technical consultation scheduling.
  * Replace CALENDLY_URL with your actual Calendly link.
  */
-const CALENDLY_URL = 'https://calendly.com/voipcat/technical-consultation';
+const CALENDLY_URL = 'https://calendly.com/sales-voipcat/30min';
 
 export default function CalendlyWidget() {
   useEffect(() => {
