@@ -1,37 +1,35 @@
 import { useEffect, useRef, useState } from 'react';
 
 /**
- * Custom hook for scroll-triggered animations
- * Triggers animation when element comes into view
+ * Scroll animation hook — Task 18: respects prefers-reduced-motion.
+ * If user prefers reduced motion, elements are immediately visible (no animation).
  */
 export function useScrollAnimation() {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const prefersReduced = typeof window !== 'undefined'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // If reduced-motion: skip animation entirely — element starts visible
+  const [isVisible, setIsVisible] = useState(prefersReduced);
 
   useEffect(() => {
+    if (prefersReduced) return; // no observer needed
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Optional: Stop observing after animation triggers
           observer.unobserve(entry.target);
         }
       },
       {
-        threshold: 0.1, // Trigger when 10% of element is visible
-        rootMargin: '0px 0px -50px 0px', // Start animation slightly before element is fully in view
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px',
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
+    if (ref.current) observer.observe(ref.current);
+    return () => { if (ref.current) observer.unobserve(ref.current); };
   }, []);
 
   return { ref, isVisible };

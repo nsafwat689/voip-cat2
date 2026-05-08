@@ -165,6 +165,8 @@ export default defineConfig({
     root: import.meta.dirname,  build: {
         outDir: path.resolve(import.meta.dirname, "dist"),
       emptyOutDir: true,
+      rollupOptions: { output: { manualChunks: { "vendor-react": ["react","react-dom"], "vendor-router": ["wouter"], "vendor-ui": ["lucide-react"] } } },
+      assetsInlineLimit: 4096,
   },
   server: {
     host: true,
