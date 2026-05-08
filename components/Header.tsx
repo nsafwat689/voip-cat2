@@ -84,6 +84,13 @@ export default function Header() {
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1">
+            <Link
+              href="/"
+              className="flex items-center px-3 py-2 text-xs font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest rounded-md hover:bg-primary/5"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}
+            >
+              Home
+            </Link>
             {navGroups.map((group) => (
               <div
                 key={group.label}
@@ -155,6 +162,14 @@ export default function Header() {
         {mobileMenuOpen && (
           <nav className="md:hidden pb-4 border-t border-border animate-in fade-in slide-in-from-top-2 duration-200">
             <div className="flex flex-col gap-1 pt-2 max-h-[70vh] overflow-y-auto">
+              <Link
+                href="/"
+                className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors uppercase tracking-widest"
+                style={{ fontFamily: 'Orbitron, sans-serif' }}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
               {navGroups.map((group) => (
                 <div key={group.label}>
                   <div className="px-4 pt-3 pb-1 text-[10px] uppercase tracking-widest text-muted-foreground font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
