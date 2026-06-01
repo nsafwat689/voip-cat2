@@ -30,7 +30,7 @@ interface VoIPPlan {
 const CONTACT_INFO = {
   sales: {
     whatsapp: '+201557649136',
-    email: 'sales.voipcat@gmail.com',
+    email: 'support@voipcat.com',
     name: 'Sales'
   }
 };

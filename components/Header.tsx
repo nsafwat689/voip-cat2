@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { PORTAL_URL } from '@/lib/portal';
 
 /**
@@ -13,6 +13,23 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [location, setLocation] = useLocation();
+
+  // Scroll to a section on the homepage — navigates there first if needed
+  const scrollTo = useCallback((id: string) => {
+    const doScroll = () => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    if (location === '/') {
+      doScroll();
+    } else {
+      setLocation('/');
+      setTimeout(doScroll, 400);
+    }
+    setMobileMenuOpen(false);
+    setActiveDropdown(null);
+  }, [location, setLocation]);
 
   const navGroups = [
     {
@@ -50,7 +67,7 @@ export default function Header() {
       label: 'Resources',
       children: [
         { label: 'Articles',       href: '/articles',       desc: 'Expert VoIP guides' },
-        { label: 'Case Studies',   href: '/#case-studies',  desc: 'Real-world results' },
+        { label: 'Case Studies',   href: 'case-studies',    desc: 'Real-world results', anchor: true },
         { label: 'FAQ',            href: '/faq',            desc: 'Common questions answered' },
         { label: 'Live Rates',     href: PORTAL_URL,        desc: 'Log in to your portal for live pricing' },
         { label: 'Developers',     href: '/developers',     desc: 'API docs & SIP examples' },
@@ -60,7 +77,7 @@ export default function Header() {
     {
       label: 'Company',
       children: [
-        { label: 'About',   href: '/#about',   desc: 'Our story & team' },
+        { label: 'About',   href: 'about',     desc: 'Our story & team', anchor: true },
         { label: 'Contact', href: '/contact',  desc: 'Talk to a specialist' },
       ],
     },
@@ -72,7 +89,7 @@ export default function Header() {
   };
 
   const handleMouseLeave = () => {
-    const t = setTimeout(() => setActiveDropdown(null), 150);
+    const t = setTimeout(() => setActiveDropdown(null), 300);
     setDropdownTimeout(t);
   };
 
@@ -125,10 +142,11 @@ export default function Header() {
                 </button>
                 {activeDropdown === group.label && (
                   <div
-                    className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                    className="absolute top-full left-0 w-64 z-50 pt-1"
                     onMouseEnter={() => handleMouseEnter(group.label)}
                     onMouseLeave={handleMouseLeave}
                   >
+                  <div className="w-full bg-card border border-border rounded-xl shadow-2xl py-2 animate-in fade-in slide-in-from-top-1 duration-150">
                     {group.children.map((child) => {
                       const childClass = "flex flex-col px-4 py-3 hover:bg-muted hover:text-primary transition-colors group";
                       const childInner = (
@@ -137,6 +155,13 @@ export default function Header() {
                           <span className="text-xs text-muted-foreground mt-0.5">{child.desc}</span>
                         </>
                       );
+                      if ((child as any).anchor) {
+                        return (
+                          <button key={child.label} className={childClass + ' w-full text-left'} onClick={() => scrollTo(child.href)}>
+                            {childInner}
+                          </button>
+                        );
+                      }
                       return child.href.startsWith('http') ? (
                         <a key={child.label} href={child.href} target="_blank" rel="noopener noreferrer" className={childClass} onClick={() => setActiveDropdown(null)}>
                           {childInner}
@@ -147,6 +172,7 @@ export default function Header() {
                         </Link>
                       );
                     })}
+                  </div>
                   </div>
                 )}
               </div>
@@ -202,6 +228,13 @@ export default function Header() {
                   </div>
                   {group.children.map((child) => {
                     const mClass = "block px-6 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors";
+                    if ((child as any).anchor) {
+                      return (
+                        <button key={child.label} className={mClass + ' w-full text-left'} onClick={() => scrollTo(child.href)}>
+                          {child.label}
+                        </button>
+                      );
+                    }
                     return child.href.startsWith('http') ? (
                       <a key={child.label} href={child.href} target="_blank" rel="noopener noreferrer" className={mClass} onClick={() => setMobileMenuOpen(false)}>
                         {child.label}

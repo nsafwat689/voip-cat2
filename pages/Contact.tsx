@@ -40,9 +40,9 @@ export default function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      details: 'sales.voipcat@gmail.com',
+      details: 'support@voipcat.com',
       subtext: 'We reply within 2 hours',
-      href: 'mailto:sales.voipcat@gmail.com',
+      href: 'mailto:support@voipcat.com',
       external: false,
     },
     {

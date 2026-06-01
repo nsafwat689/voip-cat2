@@ -185,9 +185,9 @@ export default function FreeTest() {
                   <MessageCircle className="w-4 h-4" /> WhatsApp Sales
                 </Button>
               </a>
-              <a href="mailto:sales@voipcat.com">
+              <a href="mailto:support@voipcat.com">
                 <Button variant="outline" className="border-border hover:border-primary/50 gap-2">
-                  <Zap className="w-4 h-4" /> sales@voipcat.com
+                  <Zap className="w-4 h-4" /> support@voipcat.com
                 </Button>
               </a>
             </div>
