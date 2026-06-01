@@ -4,7 +4,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { organizationSchema, serviceSchema, websiteSchema, injectStructuredData } from '@/utils/structuredData';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Phone, Globe, Server, Code, Users, BookOpen } from 'lucide-react';
+import { ArrowRight, Phone, Globe, Server, Code, Users, Smartphone, MonitorSmartphone } from 'lucide-react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import EnterpriseTrustSection from '@/components/EnterpriseTrustSection';
@@ -16,6 +16,38 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 const Separator = () => <div className="border-t border-white/10" />;
+
+function ConnectStrip() {
+  const ways = [
+    { icon: Phone,           label: 'SIP Trunk',      desc: 'Connect any PBX or platform',   href: '/sip-trunk' },
+    { icon: MonitorSmartphone, label: 'WebRTC',        desc: 'Call from any browser, zero install', href: '/free-test' },
+    { icon: Smartphone,      label: 'Android App',    desc: 'VoIP Cat Phone on Google Play',  href: 'https://phone.voipcat.com' },
+  ];
+  return (
+    <div className="bg-black/60 border-y border-primary/15">
+      <div className="container">
+        <div className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-primary/15">
+          {ways.map(({ icon: Icon, label, desc, href }) => (
+            <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined}
+               rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+               className="flex items-center gap-4 flex-1 px-6 py-5 hover:bg-primary/5 transition-colors group">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                <Icon className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <div className="text-white text-sm font-bold uppercase tracking-wider group-hover:text-primary transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  {label}
+                </div>
+                <div className="text-slate-500 text-xs mt-0.5">{desc}</div>
+              </div>
+              <ArrowRight className="w-4 h-4 text-primary/30 group-hover:text-primary group-hover:translate-x-1 transition-all ml-auto flex-shrink-0" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function AnimatedSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   const { ref, isVisible } = useScrollAnimation();
@@ -35,8 +67,8 @@ function ServicesOverview() {
     { icon: Globe,    title: 'Wholesale VoIP',  description: 'A-Z voice termination to 190+ countries. Premium routes with high ASR, CLI support, and competitive rates for carriers.', link: '/wholesale-voip' },
     { icon: Server,   title: 'Cloud PBX',       description: 'Full-featured hosted phone system. Auto-attendant, call recording, voicemail-to-email — all in the cloud.', link: '/cloud-pbx' },
     { icon: Code,     title: 'VoIP API',        description: 'Integrate voice calling into your applications with our developer-friendly REST API. Programmable voice at scale.', link: '/voip-api' },
-    { icon: Users,    title: 'VoIP Reseller',   description: 'Start your own VoIP business. White-label solutions, custom branding, and dedicated support for resellers.', link: '/voip-reseller' },
-    { icon: BookOpen, title: 'Knowledge Hub',   description: 'Expert guides on VoIP technology, SIP trunking, PBX setup, and more. Learn from our team of specialists.', link: '/articles' },
+    { icon: Users,      title: 'VoIP Reseller',        description: 'Start your own VoIP business. White-label solutions, custom branding, and dedicated support for resellers.', link: '/voip-reseller' },
+    { icon: Smartphone, title: 'WebRTC & Mobile App',  description: 'Call from any browser with our WebRTC softphone, or download the VoIP Cat Android app — no hardware needed.', link: 'https://phone.voipcat.com' },
   ];
 
   return (
@@ -55,7 +87,8 @@ function ServicesOverview() {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div key={index} onClick={() => setLocation(service.link)}
+              <div key={index}
+                onClick={() => service.link.startsWith('http') ? window.open(service.link, '_blank', 'noopener,noreferrer') : setLocation(service.link)}
                 className={`bg-card border border-border rounded-xl p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-pointer group transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
               >
@@ -78,9 +111,9 @@ function ServicesOverview() {
 
 export default function Home() {
   useSEO({
-    title: 'VoIP Cat — Carrier-Grade SIP Trunking & Wholesale Voice Infrastructure',
-    description: 'Scale global voice operations with carrier-grade SIP trunking, wholesale A-Z termination to 190+ countries, Cloud PBX, and VoIP API. 99.99% uptime, 24/7 NOC support.',
-    keywords: 'SIP trunking, wholesale VoIP, Cloud PBX, VoIP provider, A-Z termination, carrier-grade VoIP, voice infrastructure',
+    title: 'VoIP Cat — SIP Trunking, WebRTC Softphone & Wholesale VoIP',
+    description: 'Carrier-grade SIP trunking, wholesale A-Z termination to 190+ countries, Cloud PBX, WebRTC softphone, and Android app. 99.99% uptime, per-second billing, free test route.',
+    keywords: 'SIP trunking, wholesale VoIP, Cloud PBX, VoIP provider, A-Z termination, WebRTC softphone, VoIP Android app, carrier-grade VoIP, voice termination',
     canonical: 'https://voipcat.com',
     ogImage: 'https://voipcat.com/images/og-image.png',
   });
@@ -95,10 +128,8 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
       <main className="flex-grow">
-        {/* Task 1: Rebuilt Hero */}
         <HeroSection />
-        <Separator />
-        {/* Task 2: Enterprise Trust */}
+        <ConnectStrip />
         <EnterpriseTrustSection />
         <Separator />
         <ServicesOverview />

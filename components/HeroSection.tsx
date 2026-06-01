@@ -46,7 +46,7 @@ export default function HeroSection() {
                 {' '}&amp; WHOLESALE VOICE INFRASTRUCTURE
               </h1>
               <p className="text-lg text-slate-300 max-w-xl leading-relaxed font-medium">
-                Scale global voice operations with premium A-Z routing. Enterprise SIP trunks, wholesale termination, and cloud PBX — built on redundant carrier-grade POPs across 6 continents.
+                Scale global voice operations with premium A-Z routing. Enterprise SIP trunks, wholesale termination, Cloud PBX, WebRTC softphone, and Android app — built on redundant carrier-grade POPs across 6 continents.
               </p>
             </div>
 
