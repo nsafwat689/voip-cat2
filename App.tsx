@@ -36,6 +36,7 @@ const CountryVoip       = lazy(() => import("./pages/CountryVoip"));
 const Calculator        = lazy(() => import("./pages/Calculator"));
 const ResellerCalculator= lazy(() => import("./pages/ResellerCalculator"));
 const VsCompetitor      = lazy(() => import("./pages/VsCompetitor"));
+const Demo              = lazy(() => import("./pages/Demo"));
 
 // Minimal full-screen spinner — shown during code-split loading (Task 17)
 function PageLoader() {
@@ -86,6 +87,7 @@ function Router() {
         <Route path="/calculator"          component={Calculator} />
         <Route path="/reseller-calculator" component={ResellerCalculator} />
         <Route path="/vs/:competitor"      component={VsCompetitor} />
+        <Route path="/demo"               component={Demo} />
         <Route path="/404"                 component={NotFound} />
         <Route                             component={NotFound} />
       </Switch>

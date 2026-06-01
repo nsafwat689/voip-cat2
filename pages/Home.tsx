@@ -74,7 +74,7 @@ function LiveStatsBar() {
 function ConnectStrip() {
   const ways = [
     { icon: Phone,           label: 'SIP Trunk',      desc: 'Connect any PBX or platform',   href: '/sip-trunk' },
-    { icon: MonitorSmartphone, label: 'WebRTC',        desc: 'Call from any browser, zero install', href: '/free-test' },
+    { icon: MonitorSmartphone, label: 'Live Demo',      desc: 'Call from your browser right now', href: '/demo' },
     { icon: Smartphone,      label: 'Android App',    desc: 'Download VoIP Cat Phone APK',    href: '/VoipCatPhone-v1.2.apk' },
   ];
   return (
