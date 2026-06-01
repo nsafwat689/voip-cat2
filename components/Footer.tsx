@@ -29,6 +29,8 @@ export default function Footer() {
       { label: 'Contact Us', href: '/contact' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Free Test Route', href: '/free-test' },
+      { label: 'Savings Calculator', href: '/calculator' },
+      { label: 'Reseller Calculator', href: '/reseller-calculator' },
     ],
   };
 

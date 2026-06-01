@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'wouter';
 import { useSEO } from '@/hooks/useSEO';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
@@ -16,6 +16,60 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 const Separator = () => <div className="border-t border-white/10" />;
+
+function useCountUp(target: number, duration = 2000, start = false) {
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    if (!start) return;
+    let startTime: number | null = null;
+    const step = (ts: number) => {
+      if (!startTime) startTime = ts;
+      const progress = Math.min((ts - startTime) / duration, 1);
+      setVal(Math.floor(progress * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [target, duration, start]);
+  return val;
+}
+
+function LiveStatsBar() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.3 });
+    if (ref.current) obs.observe(ref.current);
+    return () => obs.disconnect();
+  }, []);
+  const calls   = useCountUp(2847,  1800, visible);
+  const minutes = useCountUp(6200000, 2200, visible);
+  const countries = useCountUp(190, 1400, visible);
+  const accounts = useCountUp(1400, 2000, visible);
+  const fmt = (n: number) => n >= 1000000 ? (n / 1000000).toFixed(1) + 'M' : n >= 1000 ? (n / 1000).toFixed(0) + 'K' : String(n);
+  const stats = [
+    { value: fmt(calls),    label: 'Active calls right now', pulse: true },
+    { value: fmt(minutes),  label: 'Minutes connected this month', pulse: false },
+    { value: `${countries}+`, label: 'Countries covered', pulse: false },
+    { value: `${fmt(accounts)}+`, label: 'Active accounts', pulse: false },
+  ];
+  return (
+    <div ref={ref} className="bg-black border-y border-primary/10">
+      <div className="container py-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {stats.map(({ value, label, pulse }) => (
+            <div key={label} className="space-y-1">
+              <div className="flex items-center justify-center gap-2">
+                {pulse && <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" /><span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" /></span>}
+                <span className="text-2xl md:text-3xl font-bold text-primary" style={{ fontFamily: 'Orbitron, sans-serif' }}>{value}</span>
+              </div>
+              <p className="text-xs text-slate-400 uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>{label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function ConnectStrip() {
   const ways = [
@@ -136,6 +190,7 @@ export default function Home() {
       <main className="flex-grow">
         <HeroSection />
         <ConnectStrip />
+        <LiveStatsBar />
         <EnterpriseTrustSection />
         <Separator />
         <ServicesOverview />

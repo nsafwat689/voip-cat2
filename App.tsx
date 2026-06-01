@@ -31,8 +31,11 @@ const Sip3CX       = lazy(() => import("./pages/Sip3CX"));
 const SipFreePBX   = lazy(() => import("./pages/SipFreePBX"));
 const AZTermination= lazy(() => import("./pages/AZTermination"));
 const PremiumRouting= lazy(() => import("./pages/PremiumRouting"));
-const NotFound      = lazy(() => import("./pages/NotFound"));
-const CountryVoip   = lazy(() => import("./pages/CountryVoip"));
+const NotFound          = lazy(() => import("./pages/NotFound"));
+const CountryVoip       = lazy(() => import("./pages/CountryVoip"));
+const Calculator        = lazy(() => import("./pages/Calculator"));
+const ResellerCalculator= lazy(() => import("./pages/ResellerCalculator"));
+const VsCompetitor      = lazy(() => import("./pages/VsCompetitor"));
 
 // Minimal full-screen spinner — shown during code-split loading (Task 17)
 function PageLoader() {
@@ -80,6 +83,9 @@ function Router() {
         <Route path="/integrations"        component={Integrations} />
         <Route path="/developers"          component={Developers} />
         <Route path="/voip/:country"        component={CountryVoip} />
+        <Route path="/calculator"          component={Calculator} />
+        <Route path="/reseller-calculator" component={ResellerCalculator} />
+        <Route path="/vs/:competitor"      component={VsCompetitor} />
         <Route path="/404"                 component={NotFound} />
         <Route                             component={NotFound} />
       </Switch>
