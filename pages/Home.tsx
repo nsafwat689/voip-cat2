@@ -21,15 +21,17 @@ function ConnectStrip() {
   const ways = [
     { icon: Phone,           label: 'SIP Trunk',      desc: 'Connect any PBX or platform',   href: '/sip-trunk' },
     { icon: MonitorSmartphone, label: 'WebRTC',        desc: 'Call from any browser, zero install', href: '/free-test' },
-    { icon: Smartphone,      label: 'Android App',    desc: 'VoIP Cat Phone on Google Play',  href: 'https://phone.voipcat.com' },
+    { icon: Smartphone,      label: 'Android App',    desc: 'Download VoIP Cat Phone APK',    href: '/VoipCatPhone-v1.2.apk' },
   ];
   return (
     <div className="bg-black/60 border-y border-primary/15">
       <div className="container">
         <div className="flex flex-col sm:flex-row divide-y sm:divide-y-0 sm:divide-x divide-primary/15">
           {ways.map(({ icon: Icon, label, desc, href }) => (
-            <a key={label} href={href} target={href.startsWith('http') ? '_blank' : undefined}
+            <a key={label} href={href}
+               target={href.startsWith('http') ? '_blank' : undefined}
                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+               download={href.endsWith('.apk') ? 'VoipCatPhone-v1.2.apk' : undefined}
                className="flex items-center gap-4 flex-1 px-6 py-5 hover:bg-primary/5 transition-colors group">
               <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
                 <Icon className="w-5 h-5 text-primary" />
@@ -68,7 +70,7 @@ function ServicesOverview() {
     { icon: Server,   title: 'Cloud PBX',       description: 'Full-featured hosted phone system. Auto-attendant, call recording, voicemail-to-email — all in the cloud.', link: '/cloud-pbx' },
     { icon: Code,     title: 'VoIP API',        description: 'Integrate voice calling into your applications with our developer-friendly REST API. Programmable voice at scale.', link: '/voip-api' },
     { icon: Users,      title: 'VoIP Reseller',        description: 'Start your own VoIP business. White-label solutions, custom branding, and dedicated support for resellers.', link: '/voip-reseller' },
-    { icon: Smartphone, title: 'WebRTC & Mobile App',  description: 'Call from any browser with our WebRTC softphone, or download the VoIP Cat Android app — no hardware needed.', link: 'https://phone.voipcat.com' },
+    { icon: Smartphone, title: 'WebRTC & Mobile App',  description: 'Call from any browser with our WebRTC softphone, or download the VoIP Cat Android app — no hardware needed.', link: '/VoipCatPhone-v1.2.apk' },
   ];
 
   return (
@@ -88,7 +90,11 @@ function ServicesOverview() {
             const Icon = service.icon;
             return (
               <div key={index}
-                onClick={() => service.link.startsWith('http') ? window.open(service.link, '_blank', 'noopener,noreferrer') : setLocation(service.link)}
+                onClick={() => {
+                  if (service.link.endsWith('.apk')) { const a = document.createElement('a'); a.href = service.link; a.download = 'VoipCatPhone-v1.2.apk'; a.click(); }
+                  else if (service.link.startsWith('http')) { window.open(service.link, '_blank', 'noopener,noreferrer'); }
+                  else { setLocation(service.link); }
+                }}
                 className={`bg-card border border-border rounded-xl p-8 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-pointer group transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: isVisible ? `${index * 100}ms` : '0ms' }}
               >
