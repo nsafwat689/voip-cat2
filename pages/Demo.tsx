@@ -52,9 +52,9 @@ export default function Demo() {
               <div className="lg:col-span-2">
                 <div className="rounded-2xl overflow-hidden border border-primary/20 shadow-[0_0_60px_rgba(0,163,255,0.1)] bg-black" style={{ height: '640px' }}>
                   <iframe
-                    src="https://phone.voipcat.com"
+                    src="https://phone.voipcat.com/demo.html"
                     className="w-full h-full"
-                    title="VoIP Cat WebRTC Softphone"
+                    title="VoIP Cat WebRTC Softphone Demo"
                     allow="microphone; camera; autoplay"
                     style={{ border: 'none' }}
                   />
