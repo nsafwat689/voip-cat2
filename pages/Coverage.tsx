@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSEO } from '@/hooks/useSEO';
+import { PORTAL_URL } from '@/lib/portal';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Globe2, Search, Phone, Star } from 'lucide-react';
@@ -128,7 +129,7 @@ export default function Coverage() {
                 </tbody>
               </table>
             </div>
-            <p className="text-xs text-muted-foreground text-center">Showing {filtered.length} of 190+ destinations. <a href="/contact" className="text-primary underline">Contact us</a> for unlisted routes.</p>
+            <p className="text-xs text-muted-foreground text-center">Showing {filtered.length} of 190+ destinations. Est. rates are indicative — live, account-specific pricing is in your <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">portal</a>. <a href="/contact" className="text-primary underline">Contact us</a> for unlisted routes.</p>
           </div>
         </section>
       </main>

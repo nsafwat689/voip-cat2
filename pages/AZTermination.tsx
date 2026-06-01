@@ -1,6 +1,7 @@
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { PORTAL_URL } from '@/lib/portal';
 import { Globe2, ArrowRight, TrendingUp, Zap } from 'lucide-react';
 import { useLocation } from 'wouter';
 
@@ -86,6 +87,9 @@ export default function AZTermination() {
                 </tbody>
               </table>
             </div>
+            <p className="text-xs text-muted-foreground mb-10">
+              Average rates are indicative and vary by route, volume and CLI/NCLI. Live, account-specific pricing updates in real time inside the portal — <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">log in for live rates</a>.
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[{ icon: TrendingUp, t: 'LCR Optimised', d: 'Our LCR engine balances cost and quality on every call — you get the best route automatically.' },

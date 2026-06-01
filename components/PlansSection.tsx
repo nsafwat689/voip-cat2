@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Check, Zap, Globe, Server, Building2 } from 'lucide-react';
+import { PORTAL_URL } from '@/lib/portal';
 
 /**
  * Pricing / Plans Section — Task 10 Rebuild
@@ -146,6 +147,11 @@ export default function PlansSection() {
                     <h3 className="font-bold text-foreground uppercase tracking-wide text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>{plan.name}</h3>
                   </div>
                   <div className="text-2xl font-bold text-primary" style={{ fontFamily: 'Orbitron, sans-serif' }}>{plan.price}</div>
+                  {plan.price.includes('/min') && (
+                    <p className="text-[11px] text-muted-foreground">
+                      Indicative — <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">log in</a> for live rates
+                    </p>
+                  )}
                 </div>
 
                 {/* Specs */}

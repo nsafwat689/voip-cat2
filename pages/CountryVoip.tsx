@@ -1,6 +1,7 @@
 import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { PORTAL_URL } from '@/lib/portal';
 import { Globe2, Phone, Check, ArrowRight } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
 
@@ -76,6 +77,10 @@ export default function CountryVoip() {
                 <div className="text-xs text-muted-foreground uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>DID Numbers</div>
               </div>
             </div>
+
+            <p className="text-xs text-muted-foreground text-center mb-12">
+              Rate shown is indicative and account-specific. Your live pricing updates in real time inside the portal — <a href={PORTAL_URL} target="_blank" rel="noopener noreferrer" className="text-primary underline">log in for live rates</a>.
+            </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {['HD Voice Quality', 'CLI Guaranteed', '99.99% SLA', 'Free Test Route',
