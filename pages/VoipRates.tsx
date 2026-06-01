@@ -32,7 +32,7 @@ export default function VoipRates() {
       <Header />
       <main className="flex-grow">
         <section className="py-20 md:py-32 bg-background relative">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 -z-10"></div>
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[url('/images/carbon-fibre.png')] opacity-5 -z-10"></div>
 
           <div className="container">
             {/* Header */}

@@ -50,7 +50,7 @@ export default function CaseStudiesSection() {
 
   return (
     <section id="case-studies" className="py-20 md:py-32 bg-secondary relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 -z-10" />
+      <div className="absolute inset-0 bg-[url('/images/carbon-fibre.png')] opacity-10 -z-10" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px] -z-10" />
 
       <div className="container">

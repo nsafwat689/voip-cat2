@@ -89,7 +89,7 @@ export default function AboutSection() {
           {/* Right Image/Graphic Area */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden border border-primary/20 shadow-2xl">
-              <img 
+              <img loading="lazy" 
                 src="/images/global-network.jpg" 
                 alt="Global Network" 
                 className="w-full h-auto grayscale-[30%] hover:grayscale-0 transition-all duration-500"

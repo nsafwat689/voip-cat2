@@ -66,7 +66,7 @@ export default function CloudPBX() {
               </div>
               <div className="relative hidden md:block">
                 <div className="rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,163,255,0.2)] border border-primary/20">
-                  <img src="/images/cloud-pbx.jpg" alt="Cloud PBX Phone System" className="w-full h-auto object-cover" />
+                  <img loading="lazy" src="/images/cloud-pbx.jpg" alt="Cloud PBX Phone System" className="w-full h-auto object-cover" />
                 </div>
               </div>
             </div>
