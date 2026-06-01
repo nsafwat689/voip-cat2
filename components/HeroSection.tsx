@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageCircle, CheckCircle2, Globe2, Zap, Shield, Clock } from 'lucide-react';
 import { useLocation } from 'wouter';
+import { PORTAL_URL } from '@/lib/portal';
 
 /**
  * Hero Section — Enterprise Telecom Positioning
@@ -64,7 +65,7 @@ export default function HeroSection() {
                 variant="outline"
                 className="border-2 border-primary/50 text-primary hover:bg-primary/10 h-14 px-8 uppercase tracking-wider text-sm backdrop-blur-sm"
                 style={{ fontFamily: 'Orbitron, sans-serif' }}
-                onClick={() => setLocation('/voip-rates')}
+                onClick={() => window.open(PORTAL_URL, '_blank', 'noopener,noreferrer')}
               >
                 View Live Rates
               </Button>

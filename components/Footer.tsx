@@ -1,5 +1,6 @@
 import { Facebook, Linkedin, Twitter } from 'lucide-react';
 import { Link } from 'wouter';
+import { PORTAL_URL } from '@/lib/portal';
 
 /**
  * Footer Component - Cyber Tech Design
@@ -21,7 +22,7 @@ export default function Footer() {
       { label: 'Wholesale VoIP', href: '/wholesale-voip' },
       { label: 'VoIP API', href: '/voip-api' },
       { label: 'VoIP Reseller', href: '/voip-reseller' },
-      { label: 'VoIP Rates', href: '/voip-rates' },
+      { label: 'Live Rates', href: PORTAL_URL },
       { label: 'Free Test Route', href: '/free-test' },
     ],
     support: [
@@ -90,9 +91,15 @@ export default function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
-                    {link.label}
-                  </Link>
+                  {link.href.startsWith('/') ? (
+                    <Link href={link.href} className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-primary transition-colors text-sm font-medium">
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

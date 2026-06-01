@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
+import { PORTAL_URL } from '@/lib/portal';
 
 /**
  * Header — Task 5: Navigation Restructure
@@ -39,7 +40,7 @@ export default function Header() {
         { label: 'Case Studies',   href: '/#case-studies', desc: 'Real-world results' },
         { label: 'Articles',       href: '/articles',       desc: 'Expert VoIP guides' },
         { label: 'FAQ',            href: '/faq',            desc: 'Common questions answered' },
-        { label: 'VoIP Rates',     href: '/voip-rates',     desc: 'Live route pricing' },
+        { label: 'Live Rates',     href: PORTAL_URL,        desc: 'Log in to your portal for live pricing' },
         { label: 'Developers',     href: '/developers',     desc: 'API docs & SIP examples' },
         { label: 'Integrations',   href: '/integrations',   desc: '3CX, FreePBX, Asterisk & more' },
       ],
@@ -111,17 +112,24 @@ export default function Header() {
                     onMouseEnter={() => handleMouseEnter(group.label)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    {group.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        className="flex flex-col px-4 py-3 hover:bg-muted hover:text-primary transition-colors group"
-                        onClick={() => setActiveDropdown(null)}
-                      >
-                        <span className="text-sm font-semibold text-foreground group-hover:text-primary">{child.label}</span>
-                        <span className="text-xs text-muted-foreground mt-0.5">{child.desc}</span>
-                      </Link>
-                    ))}
+                    {group.children.map((child) => {
+                      const childClass = "flex flex-col px-4 py-3 hover:bg-muted hover:text-primary transition-colors group";
+                      const childInner = (
+                        <>
+                          <span className="text-sm font-semibold text-foreground group-hover:text-primary">{child.label}</span>
+                          <span className="text-xs text-muted-foreground mt-0.5">{child.desc}</span>
+                        </>
+                      );
+                      return child.href.startsWith('http') ? (
+                        <a key={child.label} href={child.href} target="_blank" rel="noopener noreferrer" className={childClass} onClick={() => setActiveDropdown(null)}>
+                          {childInner}
+                        </a>
+                      ) : (
+                        <Link key={child.label} href={child.href} className={childClass} onClick={() => setActiveDropdown(null)}>
+                          {childInner}
+                        </Link>
+                      );
+                    })}
                   </div>
                 )}
               </div>
@@ -175,16 +183,18 @@ export default function Header() {
                   <div className="px-4 pt-3 pb-1 text-[10px] uppercase tracking-widest text-muted-foreground font-bold" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                     {group.label}
                   </div>
-                  {group.children.map((child) => (
-                    <Link
-                      key={child.label}
-                      href={child.href}
-                      className="block px-6 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
+                  {group.children.map((child) => {
+                    const mClass = "block px-6 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors";
+                    return child.href.startsWith('http') ? (
+                      <a key={child.label} href={child.href} target="_blank" rel="noopener noreferrer" className={mClass} onClick={() => setMobileMenuOpen(false)}>
+                        {child.label}
+                      </a>
+                    ) : (
+                      <Link key={child.label} href={child.href} className={mClass} onClick={() => setMobileMenuOpen(false)}>
+                        {child.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               ))}
               <div className="flex gap-2 px-4 pt-4 border-t border-border mt-2">

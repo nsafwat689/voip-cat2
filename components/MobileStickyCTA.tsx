@@ -1,5 +1,6 @@
 import { MessageCircle, DollarSign, FlaskConical } from 'lucide-react';
 import { useLocation } from 'wouter';
+import { PORTAL_URL } from '@/lib/portal';
 
 /**
  * Mobile Sticky CTA Bar — Task 3
@@ -24,8 +25,8 @@ export default function MobileStickyCTA() {
     },
     {
       icon: DollarSign,
-      label: 'Pricing',
-      onClick: () => setLocation('/voip-rates'),
+      label: 'Live Rates',
+      href: PORTAL_URL,
       className: 'bg-secondary text-primary border border-primary/40',
     },
   ];

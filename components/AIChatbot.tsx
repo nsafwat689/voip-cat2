@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageCircle, Phone, Mail, MessageSquare, ArrowLeft, Check, Zap, Globe, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { PORTAL_URL } from '@/lib/portal';
 
 export interface ChatMessage {
   id: string;
@@ -22,7 +23,7 @@ interface VoIPPlan {
   icon: React.ReactNode;
   features: string[];
   highlighted: boolean;
-  googleSheetLink: string;
+  link: string;
 }
 
 // Contact information configuration - Sales only
@@ -78,7 +79,7 @@ const VOIP_PLANS: VoIPPlan[] = [
       'Email support',
     ],
     highlighted: false,
-    googleSheetLink: 'https://docs.google.com/spreadsheets/d/15jVmJOYjHPSYJLQnxA4yeJ5fBrw_LESr7z0TIzPcTQg/edit?pli=1&gid=0#gid=0'
+    link: PORTAL_URL
   },
   {
     name: 'Platinum Core',
@@ -90,7 +91,7 @@ const VOIP_PLANS: VoIPPlan[] = [
       '24/7 dedicated support',
     ],
     highlighted: true,
-    googleSheetLink: 'https://docs.google.com/spreadsheets/d/10ZffoibimILTRMbZLtzvjrMWrM3nQLkO8o8SLOnOZiM/edit?gid=0#gid=0'
+    link: PORTAL_URL
   },
   {
     name: 'Premium Link',
@@ -102,7 +103,7 @@ const VOIP_PLANS: VoIPPlan[] = [
       'Priority support',
     ],
     highlighted: false,
-    googleSheetLink: 'https://docs.google.com/spreadsheets/d/17LeHQSR6jpvNZVsRiAhotEMB4ItymN3Fmqa0bWZAE8w/edit?gid=0#gid=0'
+    link: PORTAL_URL
   }
 ];
 
@@ -110,7 +111,7 @@ const SERVICE_RESPONSES: Record<string, string> = {
   'sip-trunk': 'Our SIP Trunking service offers enterprise-grade voice connectivity with HD quality, coverage to 190+ countries, TLS/SRTP encryption, and 99.9% uptime SLA. Compatible with Asterisk, FreePBX, 3CX, and all major PBX systems. Save up to 60% compared to traditional phone lines. Would you like a free test route?',
   'wholesale': 'Our Wholesale VoIP service provides high-quality A-Z voice termination with competitive rates, CLI routes, real-time CDR access, and 99.9% uptime SLA. We serve carriers, ITSPs, resellers, and call centers. Contact our sales team for volume pricing.',
   'cloud-pbx': 'Our Cloud PBX solutions include auto-attendant, call routing, voicemail-to-email, call recording, and conference calling. Plans start at $75/month for up to 8 concurrent calls, with enterprise plans supporting unlimited calls. No hardware required!',
-  'voip-rates': 'We offer competitive VoIP rates for calls to 190+ countries. Below you can see our rate plans. All plans include CLI support, premium routes, and 24/7 technical support. Volume discounts are available for high-traffic customers.',
+  'voip-rates': 'We offer competitive VoIP rates for calls to 190+ countries with per-second billing, CLI support, premium routes, and 24/7 technical support. Live rates are account-specific and update constantly, so they live inside your portal — log in to view live pricing, or request a free test route to get started. Volume discounts are available for high-traffic customers.',
   'reseller': 'Our VoIP Reseller Program lets you start your own VoIP business with zero upfront investment. You get white-label branding, high profit margins, a customer management portal, and full technical support from our team. Apply today and start earning!',
 };
 
@@ -346,14 +347,14 @@ export default function AIChatbot() {
                     </ul>
                     <Button
                       size="sm"
-                      onClick={() => handleViewRates(plan.googleSheetLink)}
+                      onClick={() => handleViewRates(plan.link)}
                       className={`w-full text-xs ${
                         plan.highlighted 
                           ? 'bg-primary hover:bg-primary/90 text-white' 
                           : 'bg-primary/10 text-primary hover:bg-primary/20'
                       }`}
                     >
-                      View Rates
+                      Log In for Live Rates
                     </Button>
                   </motion.div>
                 ))}
