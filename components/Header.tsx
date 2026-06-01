@@ -35,10 +35,22 @@ export default function Header() {
       ],
     },
     {
+      label: 'Tools',
+      badge: 'New',
+      children: [
+        { label: 'Live WebRTC Demo',        href: '/demo',                desc: 'Make a real call from your browser now' },
+        { label: 'Savings Calculator',      href: '/calculator',          desc: 'See how much you save vs market rates' },
+        { label: 'Reseller Calculator',     href: '/reseller-calculator', desc: 'Project your monthly reseller earnings' },
+        { label: 'VoIP Cat vs Twilio',      href: '/vs/twilio',           desc: 'Feature & price comparison' },
+        { label: 'VoIP Cat vs Vonage',      href: '/vs/vonage',           desc: 'Feature & price comparison' },
+        { label: 'VoIP Cat vs Telnyx',      href: '/vs/telnyx',           desc: 'Feature & price comparison' },
+      ],
+    },
+    {
       label: 'Resources',
       children: [
-        { label: 'Case Studies',   href: '/#case-studies', desc: 'Real-world results' },
         { label: 'Articles',       href: '/articles',       desc: 'Expert VoIP guides' },
+        { label: 'Case Studies',   href: '/#case-studies',  desc: 'Real-world results' },
         { label: 'FAQ',            href: '/faq',            desc: 'Common questions answered' },
         { label: 'Live Rates',     href: PORTAL_URL,        desc: 'Log in to your portal for live pricing' },
         { label: 'Developers',     href: '/developers',     desc: 'API docs & SIP examples' },
@@ -104,6 +116,11 @@ export default function Header() {
                   style={{ fontFamily: 'Orbitron, sans-serif' }}
                 >
                   {group.label}
+                  {(group as any).badge && (
+                    <span className="ml-1 px-1.5 py-0.5 text-[9px] font-bold bg-primary text-white rounded-full uppercase tracking-wide leading-none">
+                      {(group as any).badge}
+                    </span>
+                  )}
                   <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeDropdown === group.label ? 'rotate-180' : ''}`} />
                 </button>
                 {activeDropdown === group.label && (

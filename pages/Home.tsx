@@ -4,7 +4,7 @@ import { useSEO } from '@/hooks/useSEO';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { organizationSchema, serviceSchema, websiteSchema, injectStructuredData } from '@/utils/structuredData';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Phone, Globe, Server, Code, Users, Smartphone, MonitorSmartphone } from 'lucide-react';
+import { ArrowRight, Phone, Globe, Server, Code, Users, Smartphone, MonitorSmartphone, Calculator, DollarSign, PhoneCall, Zap } from 'lucide-react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import EnterpriseTrustSection from '@/components/EnterpriseTrustSection';
@@ -169,6 +169,115 @@ function ServicesOverview() {
   );
 }
 
+function ToolsShowcase() {
+  const [, setLocation] = useLocation();
+  const { ref, isVisible } = useScrollAnimation();
+
+  const tools = [
+    {
+      icon: PhoneCall,
+      badge: 'Live',
+      badgeColor: 'bg-green-500',
+      title: 'WebRTC Demo',
+      desc: 'Make a real call from your browser right now. No signup, no download — hear the quality yourself.',
+      cta: 'Try It Now',
+      href: '/demo',
+      accent: 'border-green-500/30 hover:border-green-500/60',
+      iconBg: 'bg-green-500/10',
+      iconColor: 'text-green-400',
+    },
+    {
+      icon: Calculator,
+      badge: 'Free Tool',
+      badgeColor: 'bg-primary',
+      title: 'Savings Calculator',
+      desc: 'Enter your current call volume and destinations. See exactly how much you save switching to VoIP Cat.',
+      cta: 'Calculate Savings',
+      href: '/calculator',
+      accent: 'border-primary/30 hover:border-primary/60',
+      iconBg: 'bg-primary/10',
+      iconColor: 'text-primary',
+    },
+    {
+      icon: DollarSign,
+      badge: 'Resellers',
+      badgeColor: 'bg-emerald-600',
+      title: 'Earnings Calculator',
+      desc: 'Project your monthly income as a VoIP reseller. Slide the volume, set your markup, see your revenue.',
+      cta: 'Project Earnings',
+      href: '/reseller-calculator',
+      accent: 'border-emerald-500/30 hover:border-emerald-500/60',
+      iconBg: 'bg-emerald-500/10',
+      iconColor: 'text-emerald-400',
+    },
+    {
+      icon: Zap,
+      badge: 'Compare',
+      badgeColor: 'bg-violet-600',
+      title: 'vs. Competitors',
+      desc: 'Honest feature-by-feature comparisons: VoIP Cat vs Twilio, Vonage, and Telnyx. See why we win.',
+      cta: 'See Comparisons',
+      href: '/vs/twilio',
+      accent: 'border-violet-500/30 hover:border-violet-500/60',
+      iconBg: 'bg-violet-500/10',
+      iconColor: 'text-violet-400',
+    },
+  ];
+
+  return (
+    <section ref={ref} className="py-20 md:py-28 bg-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,163,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,163,255,0.03)_1px,transparent_1px)] bg-[size:60px_60px] -z-10" />
+      <div className="container">
+        <div className="text-center mb-14 space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full">
+            <Zap className="w-4 h-4 text-primary" />
+            <span className="text-xs font-bold text-primary uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              Free Tools
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-5xl text-white uppercase tracking-tighter" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+            TRY BEFORE YOU <span className="text-primary">COMMIT</span>
+          </h2>
+          <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+            Everything you need to make an informed decision — calculators, live demos, and competitor comparisons. All free, all instant.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {tools.map((t, i) => {
+            const Icon = t.icon;
+            return (
+              <div
+                key={t.title}
+                onClick={() => t.href.startsWith('http') ? window.open(t.href, '_blank', 'noopener,noreferrer') : setLocation(t.href)}
+                className={`relative bg-card border ${t.accent} rounded-2xl p-8 cursor-pointer group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                style={{ transitionDelay: isVisible ? `${i * 80}ms` : '0ms', transition: 'all 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease' }}
+              >
+                <div className="flex items-start gap-5">
+                  <div className={`w-14 h-14 ${t.iconBg} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                    <Icon className={`w-7 h-7 ${t.iconColor}`} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-lg font-bold text-white uppercase tracking-wide" style={{ fontFamily: 'Orbitron, sans-serif' }}>{t.title}</h3>
+                      <span className={`px-2 py-0.5 text-[10px] font-bold ${t.badgeColor} text-white rounded-full uppercase tracking-wide`}>{t.badge}</span>
+                    </div>
+                    <p className="text-slate-400 text-sm leading-relaxed mb-4">{t.desc}</p>
+                    <div className="flex items-center gap-1.5 text-sm font-bold text-primary group-hover:gap-2.5 transition-all uppercase tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                      {t.cta} <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   useSEO({
     title: 'VoIP Cat — SIP Trunking, WebRTC Softphone & Wholesale VoIP',
@@ -194,6 +303,8 @@ export default function Home() {
         <EnterpriseTrustSection />
         <Separator />
         <ServicesOverview />
+        <Separator />
+        <AnimatedSection><ToolsShowcase /></AnimatedSection>
         <Separator />
         <AnimatedSection><AboutSection /></AnimatedSection>
         <Separator />
