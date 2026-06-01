@@ -59,9 +59,30 @@ export default function Demo() {
                     style={{ border: 'none' }}
                   />
                 </div>
-                <p className="text-xs text-muted-foreground text-center mt-3">
-                  Your browser will ask for microphone permission — required for voice calls.
-                </p>
+                <div className="mt-3 space-y-2">
+                  <p className="text-xs text-muted-foreground text-center">
+                    Your browser will ask for microphone permission — required for voice calls.
+                  </p>
+                  <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 space-y-2">
+                    <p className="text-xs font-bold text-primary uppercase tracking-widest text-center" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                      How to test
+                    </p>
+                    <div className="space-y-1.5 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <span className="text-primary font-bold font-mono bg-primary/10 px-2 py-0.5 rounded">1234</span>
+                        <span>Dial this to hear our quality demo message</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-primary font-bold font-mono bg-primary/10 px-2 py-0.5 rounded">*43</span>
+                        <span>Echo test — hear your own voice back</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-primary font-bold font-mono bg-primary/10 px-2 py-0.5 rounded">+1234567890</span>
+                        <span>Any real number — same promo message plays</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Side info */}
