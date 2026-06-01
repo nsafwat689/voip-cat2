@@ -46,12 +46,10 @@
     <link rel="icon" type="image/x-icon" href="/logo-fox.jpg" />
     <link rel="apple-touch-icon" href="/logo-fox.jpg" />
     
-    <!-- Preconnect + preload critical fonts -->
+    <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Orbitron is used in every heading — load early with display:swap so text never blocks paint -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" />
-    <!-- WhatsApp CDN hint (used in multiple CTAs) -->
+    <!-- DNS prefetch for WhatsApp CTAs -->
     <link rel="dns-prefetch" href="https://wa.me" />
     
     <!-- Theme Color -->
