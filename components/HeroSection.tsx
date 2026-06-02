@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle2, Globe2, Zap, Shield, Clock, LogIn, PhoneCall } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Globe2, Zap, Shield, Clock, LogIn, PhoneCall, Smartphone } from 'lucide-react';
 import { useLocation } from 'wouter';
 import { PORTAL_URL } from '@/lib/portal';
 
@@ -44,7 +44,7 @@ export default function HeroSection() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/30 rounded-full backdrop-blur-sm">
               <Zap className="w-4 h-4 text-primary animate-pulse" />
               <span className="text-xs font-bold text-primary uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-                Carrier-Grade Infrastructure
+                SIP Trunking · WebRTC · Android App
               </span>
             </div>
 
@@ -111,6 +111,32 @@ export default function HeroSection() {
                 <LogIn className="w-5 h-5 flex-shrink-0" />
                 Register Free
                 <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+
+            {/* Android app — tertiary CTA */}
+            <div className="flex items-center gap-4">
+              <a
+                href="/VoipCatPhone-v1.2.apk"
+                download="VoipCatPhone-v1.2.apk"
+                className="inline-flex items-center gap-2 text-slate-400 hover:text-primary transition-colors group"
+              >
+                <Smartphone className="w-4 h-4 flex-shrink-0" />
+                <span className="text-xs uppercase tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  Download Android App
+                </span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+              <span className="text-slate-700 text-xs">·</span>
+              <a
+                href="/demo"
+                className="inline-flex items-center gap-2 text-slate-400 hover:text-green-400 transition-colors group"
+              >
+                <span className="relative flex h-2 w-2"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" /><span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" /></span>
+                <span className="text-xs uppercase tracking-wider" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  Try WebRTC Free — no signup
+                </span>
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
 
