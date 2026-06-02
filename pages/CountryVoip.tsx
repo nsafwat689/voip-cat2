@@ -5,6 +5,7 @@ import { PORTAL_URL } from '@/lib/portal';
 import { Globe2, Phone, Check, ArrowRight, BookOpen, Calculator, Zap } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
 import { countryServiceSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
+import { useEffect } from 'react';
 
 // Country data map — 50 key VoIP destinations for SEO
 const countryData: Record<string, {
@@ -81,15 +82,17 @@ export default function CountryVoip() {
     canonical: `https://voipcat.com/voip/${params.country}`,
   });
 
-  injectStructuredData(countryServiceSchema({
-    name: country.name, description: country.description,
-    rate: country.rate, prefix: country.prefix, slug: params.country || '',
-  }));
-  injectStructuredData(breadcrumbSchema([
-    { name: 'Home',     url: 'https://voipcat.com' },
-    { name: 'Coverage', url: 'https://voipcat.com/coverage' },
-    { name: `VoIP ${country.name}`, url: `https://voipcat.com/voip/${params.country}` },
-  ]));
+  useEffect(() => {
+    injectStructuredData(countryServiceSchema({
+      name: country.name, description: country.description,
+      rate: country.rate, prefix: country.prefix, slug: params.country || '',
+    }));
+    injectStructuredData(breadcrumbSchema([
+      { name: 'Home',     url: 'https://voipcat.com' },
+      { name: 'Coverage', url: 'https://voipcat.com/coverage' },
+      { name: `VoIP ${country.name}`, url: `https://voipcat.com/voip/${params.country}` },
+    ]));
+  }, [params.country]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

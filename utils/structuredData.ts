@@ -156,21 +156,22 @@ export const articleSchema = (article: {
   articleBody: article.content,
 });
 
-/**
- * Function to inject JSON-LD script into the document head
- * Includes a cleanup mechanism to prevent duplication
- */
+function hashSchema(str: string): string {
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) {
+    h = ((h << 5) + h) ^ str.charCodeAt(i);
+    h = h >>> 0;
+  }
+  return h.toString(36);
+}
+
 export function injectStructuredData(schema: any) {
   if (typeof document === 'undefined') return;
-
   const schemaString = JSON.stringify(schema);
-  // Create a stable hash/id for this schema to avoid duplicates
-  const id = btoa(schemaString).substring(0, 32);
-  
-  if (document.getElementById(`json-ld-${id}`)) return;
-
+  const id = `json-ld-${hashSchema(schemaString)}`;
+  if (document.getElementById(id)) return;
   const script = document.createElement('script');
-  script.id = `json-ld-${id}`;
+  script.id = id;
   script.type = 'application/ld+json';
   script.textContent = schemaString;
   document.head.appendChild(script);

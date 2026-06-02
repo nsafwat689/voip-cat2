@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { articles } from '@/data/articles';
 import { useSEO } from '@/hooks/useSEO';
 import { articleSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useMemo } from 'react';
@@ -134,18 +135,21 @@ export default function ArticleDetail() {
     ogType: 'article',
   });
 
-  injectStructuredData(articleSchema({
-    title: article.title,
-    description: article.excerpt,
-    content: article.content,
-    author: article.author,
-    date: article.date,
-  }));
-  injectStructuredData(breadcrumbSchema([
-    { name: 'Home',     url: 'https://voipcat.com' },
-    { name: 'Articles', url: 'https://voipcat.com/articles' },
-    { name: article.title, url: `https://voipcat.com/articles/${article.id}` },
-  ]));
+  useEffect(() => {
+    if (!article) return;
+    injectStructuredData(articleSchema({
+      title: article.title,
+      description: article.excerpt,
+      content: article.content,
+      author: article.author,
+      date: article.date,
+    }));
+    injectStructuredData(breadcrumbSchema([
+      { name: 'Home',     url: 'https://voipcat.com' },
+      { name: 'Articles', url: 'https://voipcat.com/articles' },
+      { name: article.title, url: `https://voipcat.com/articles/${article.id}` },
+    ]));
+  }, [article?.id]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">

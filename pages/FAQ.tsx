@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,11 +17,13 @@ export default function FAQ() {
     ogImage: 'https://voipcat.com/images/og-faq.png',
   });
 
-  injectStructuredData(faqPageSchema(faqs.map(f => ({ question: f.question, answer: f.answer }))));
-  injectStructuredData(breadcrumbSchema([
-    { name: 'Home', url: 'https://voipcat.com' },
-    { name: 'FAQ', url: 'https://voipcat.com/faq' },
-  ]));
+  useEffect(() => {
+    injectStructuredData(faqPageSchema(faqs.map(f => ({ question: f.question, answer: f.answer }))));
+    injectStructuredData(breadcrumbSchema([
+      { name: 'Home', url: 'https://voipcat.com' },
+      { name: 'FAQ', url: 'https://voipcat.com/faq' },
+    ]));
+  }, []);
 
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);

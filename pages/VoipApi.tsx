@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Code, Globe, Shield, Zap, Server, Clock } from 'lucide-react';
 import { Link } from 'wouter';
 import { pageServiceSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
+import { useEffect } from 'react';
 
 export default function VoipApi() {
   useSEO({
@@ -13,8 +14,10 @@ export default function VoipApi() {
     keywords: 'VoIP API, programmable voice API, SIP API, voice API, call API, telephony API, communication API',
     canonical: 'https://voipcat.com/voip-api',
   });
-  injectStructuredData(pageServiceSchema('VoIP API', 'Programmable voice API for building custom communication applications with call control, SIP management, and real-time analytics.', 'https://voipcat.com/voip-api'));
-  injectStructuredData(breadcrumbSchema([{ name: 'Home', url: 'https://voipcat.com' }, { name: 'VoIP API', url: 'https://voipcat.com/voip-api' }]));
+  useEffect(() => {
+    injectStructuredData(pageServiceSchema('VoIP API', 'Programmable voice API for building custom communication applications with call control, SIP management, and real-time analytics.', 'https://voipcat.com/voip-api'));
+    injectStructuredData(breadcrumbSchema([{ name: 'Home', url: 'https://voipcat.com' }, { name: 'VoIP API', url: 'https://voipcat.com/voip-api' }]));
+  }, []);
 
   const features = [
     { icon: Code, title: 'RESTful API', desc: 'Clean, well-documented RESTful API with JSON responses. Easy to integrate with any programming language or platform.' },
