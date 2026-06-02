@@ -1,9 +1,10 @@
 import { useParams, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, User, Tag, Calendar, ChevronRight, Phone, MessageCircle } from 'lucide-react';
+import { ArrowLeft, Clock, User, Tag, Calendar, ChevronRight, Phone, MessageCircle, List, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { articles } from '@/data/articles';
 import { useSEO } from '@/hooks/useSEO';
+import { articleSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useMemo } from 'react';
@@ -82,6 +83,28 @@ export default function ArticleDetail() {
     return renderMarkdown(article.content);
   }, [article]);
 
+  const tocItems = useMemo(() => {
+    if (!article) return [];
+    const matches = [...article.content.matchAll(/^## (.+)$/gm)];
+    return matches.map(m => ({
+      text: m[1],
+      id: m[1].toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+    }));
+  }, [article]);
+
+  const topicCTA = useMemo(() => {
+    if (!article) return null;
+    const id = article.id;
+    if (id.includes('3cx') || id.includes('freepbx'))  return { label: 'SIP Trunk Setup Guide', href: '/sip-trunk',        text: 'Connect your PBX with a carrier-grade SIP trunk.' };
+    if (id.includes('wholesale') || id.includes('a-z')) return { label: 'Wholesale VoIP Rates', href: '/wholesale-voip',    text: 'Get A-Z termination with premium CLI routes.' };
+    if (id.includes('reseller'))                         return { label: 'Reseller Program',      href: '/voip-reseller',    text: 'Start your own VoIP business with white-label access.' };
+    if (id.includes('webrtc'))                           return { label: 'Try Live WebRTC Demo',  href: '/demo',             text: 'Make a real call from your browser right now.' };
+    if (id.includes('call-center') || id.includes('cost')) return { label: 'Savings Calculator', href: '/calculator',       text: 'See exactly how much you save vs market rates.' };
+    if (id.includes('fraud') || id.includes('security')) return { label: 'SIP Security Guide',   href: '/security',         text: 'See how VoIP Cat protects your calls.' };
+    if (id.includes('cloud-pbx'))                        return { label: 'Cloud PBX Service',     href: '/cloud-pbx',        text: 'Hosted phone system — no hardware required.' };
+    return { label: 'Get a Free Test Route', href: '/free-test', text: 'Sign up in 60 seconds. No credit card required.' };
+  }, [article]);
+
   if (!article) {
     return (
       <div className="min-h-screen flex flex-col bg-background">
@@ -106,7 +129,23 @@ export default function ArticleDetail() {
     keywords: `${article.category}, VoIP, SIP Trunk, ${article.title}`,
     canonical: `https://voipcat.com/articles/${article.id}`,
     ogImage: 'https://voipcat.com/images/og-articles.png',
+    author: article.author,
+    publishedDate: article.date,
+    ogType: 'article',
   });
+
+  injectStructuredData(articleSchema({
+    title: article.title,
+    description: article.excerpt,
+    content: article.content,
+    author: article.author,
+    date: article.date,
+  }));
+  injectStructuredData(breadcrumbSchema([
+    { name: 'Home',     url: 'https://voipcat.com' },
+    { name: 'Articles', url: 'https://voipcat.com/articles' },
+    { name: article.title, url: `https://voipcat.com/articles/${article.id}` },
+  ]));
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -202,55 +241,142 @@ export default function ArticleDetail() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="py-12 md:py-20"
         >
-          <div className="container max-w-4xl">
-            <article className="prose prose-lg dark:prose-invert max-w-none">
-              <div
-                className="text-lg leading-relaxed text-foreground/90"
-                dangerouslySetInnerHTML={{ __html: renderedContent }}
-              />
-            </article>
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12 max-w-6xl mx-auto">
 
-            {/* Mid-article CTA */}
-            <div className="my-12 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-6 md:p-8 text-center">
-              <h3 className="text-xl font-bold mb-2">Need VoIP Services?</h3>
-              <p className="text-muted-foreground mb-4">Get a free test route and see the quality for yourself. No commitment required.</p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button onClick={() => setLocation('/contact')} className="btn-glow">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Contact Us
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => window.open('https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route.', '_blank')}
+              {/* Main content */}
+              <div>
+                <article className="prose prose-lg dark:prose-invert max-w-none">
+                  <div
+                    className="text-lg leading-relaxed text-foreground/90"
+                    dangerouslySetInnerHTML={{ __html: renderedContent }}
+                  />
+                </article>
+
+                {/* Topic-specific CTA */}
+                {topicCTA && (
+                  <div className="my-12 bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-6 md:p-8">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                      <div className="flex-1">
+                        <h3 className="text-lg font-bold text-foreground mb-1">{topicCTA.label}</h3>
+                        <p className="text-muted-foreground text-sm">{topicCTA.text}</p>
+                      </div>
+                      <div className="flex gap-3 flex-shrink-0">
+                        <Button onClick={() => setLocation(topicCTA.href)} className="btn-glow gap-2">
+                          <ArrowRight className="w-4 h-4" /> Explore
+                        </Button>
+                        <Button
+                          variant="outline"
+                          onClick={() => window.open('https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route.', '_blank')}
+                          className="gap-2"
+                        >
+                          <MessageCircle className="w-4 h-4" /> WhatsApp
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Internal links */}
+                <div className="my-8 p-6 bg-card border border-border rounded-xl">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4" style={{ fontFamily: 'Orbitron, sans-serif' }}>Also explore</h3>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                    {[
+                      { label: 'SIP Trunk', href: '/sip-trunk' },
+                      { label: 'Wholesale VoIP', href: '/wholesale-voip' },
+                      { label: 'Live WebRTC Demo', href: '/demo' },
+                      { label: 'Savings Calculator', href: '/calculator' },
+                      { label: 'Coverage Map', href: '/coverage' },
+                      { label: 'Free Test Route', href: '/free-test' },
+                    ].map(({ label, href }) => (
+                      <button
+                        key={href}
+                        onClick={() => setLocation(href)}
+                        className="text-left px-3 py-2 rounded-lg text-sm text-primary hover:bg-primary/10 border border-primary/20 hover:border-primary/40 transition-colors flex items-center gap-1.5"
+                      >
+                        <ChevronRight className="w-3 h-3 flex-shrink-0" />{label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Author Bio */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="bg-card border border-border rounded-xl p-6 md:p-8"
                 >
-                  <MessageCircle className="w-4 h-4 mr-2" />
-                  WhatsApp Us
-                </Button>
+                  <div className="flex items-start gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0">
+                      <User className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-foreground mb-2">About the Author</h3>
+                      <p className="text-muted-foreground">
+                        {article.author} — Experts in VoIP, SIP trunking, and cloud communications with years of experience helping businesses optimize their voice infrastructure.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
+
+              {/* Sidebar: TOC + quick links */}
+              <aside className="hidden lg:block">
+                <div className="sticky top-28 space-y-6">
+                  {tocItems.length > 0 && (
+                    <div className="bg-card border border-border rounded-xl p-5">
+                      <div className="flex items-center gap-2 mb-4">
+                        <List className="w-4 h-4 text-primary" />
+                        <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground" style={{ fontFamily: 'Orbitron, sans-serif' }}>Contents</span>
+                      </div>
+                      <nav className="space-y-2">
+                        {tocItems.map((item) => (
+                          <a
+                            key={item.id}
+                            href={`#${item.id}`}
+                            className="block text-sm text-muted-foreground hover:text-primary transition-colors py-1 border-l-2 border-border hover:border-primary pl-3"
+                          >
+                            {item.text}
+                          </a>
+                        ))}
+                      </nav>
+                    </div>
+                  )}
+
+                  <div className="bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/20 rounded-xl p-5 space-y-3">
+                    <div className="text-xs font-bold uppercase tracking-widest text-primary mb-3" style={{ fontFamily: 'Orbitron, sans-serif' }}>Start Free</div>
+                    <p className="text-sm text-muted-foreground">Get SIP credentials in 60 seconds. No credit card.</p>
+                    <Button className="btn-glow w-full text-xs gap-2" onClick={() => setLocation('/free-test')}>
+                      <Phone className="w-3.5 h-3.5" /> Free Test Route
+                    </Button>
+                    <Button variant="outline" className="w-full text-xs gap-2 border-primary/30" onClick={() => setLocation('/demo')}>
+                      Try Live Demo
+                    </Button>
+                  </div>
+
+                  <div className="bg-card border border-border rounded-xl p-5 space-y-2">
+                    <div className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3" style={{ fontFamily: 'Orbitron, sans-serif' }}>Services</div>
+                    {[
+                      { label: 'SIP Trunking',  href: '/sip-trunk' },
+                      { label: 'Wholesale VoIP', href: '/wholesale-voip' },
+                      { label: 'Cloud PBX',      href: '/cloud-pbx' },
+                      { label: 'VoIP Reseller',  href: '/voip-reseller' },
+                      { label: 'VoIP API',       href: '/voip-api' },
+                    ].map(({ label, href }) => (
+                      <button
+                        key={href}
+                        onClick={() => setLocation(href)}
+                        className="w-full text-left text-sm text-muted-foreground hover:text-primary flex items-center gap-2 py-1.5 border-b border-border/50 last:border-0 transition-colors"
+                      >
+                        <ChevronRight className="w-3 h-3 text-primary" />{label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </aside>
+
             </div>
-
-            {/* Divider */}
-            <div className="my-12 border-t border-border" />
-
-            {/* Author Bio Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-card border border-border rounded-xl p-6 md:p-8"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center flex-shrink-0">
-                  <User className="w-8 h-8 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-foreground mb-2">About the Author</h3>
-                  <p className="text-muted-foreground">
-                    {article.author} — Experts in VoIP, SIP trunking, and cloud communications with years of experience helping businesses optimize their voice infrastructure.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           </div>
         </motion.section>
 

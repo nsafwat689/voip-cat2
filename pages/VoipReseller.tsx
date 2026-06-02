@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, DollarSign, Users, Headphones, BarChart3, Globe, Zap } from 'lucide-react';
 import { Link } from 'wouter';
 import { useState } from 'react';
+import { pageServiceSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function VoipReseller() {
   useSEO({
@@ -13,6 +14,8 @@ export default function VoipReseller() {
     keywords: 'VoIP reseller, VoIP reseller program, start VoIP business, white label VoIP, VoIP business opportunity, resell VoIP services',
     canonical: 'https://voipcat.com/voip-reseller',
   });
+  injectStructuredData(pageServiceSchema('VoIP Reseller Program', 'White-label VoIP reseller program with high margins, full technical support, and no upfront investment required.', 'https://voipcat.com/voip-reseller'));
+  injectStructuredData(breadcrumbSchema([{ name: 'Home', url: 'https://voipcat.com' }, { name: 'VoIP Reseller', url: 'https://voipcat.com/voip-reseller' }]));
 
   const [formData, setFormData] = useState({
     name: '',

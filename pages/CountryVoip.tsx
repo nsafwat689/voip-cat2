@@ -2,8 +2,9 @@ import { useSEO } from '@/hooks/useSEO';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { PORTAL_URL } from '@/lib/portal';
-import { Globe2, Phone, Check, ArrowRight } from 'lucide-react';
+import { Globe2, Phone, Check, ArrowRight, BookOpen, Calculator, Zap } from 'lucide-react';
 import { useParams, useLocation } from 'wouter';
+import { countryServiceSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 // Country data map — 50 key VoIP destinations for SEO
 const countryData: Record<string, {
@@ -80,6 +81,16 @@ export default function CountryVoip() {
     canonical: `https://voipcat.com/voip/${params.country}`,
   });
 
+  injectStructuredData(countryServiceSchema({
+    name: country.name, description: country.description,
+    rate: country.rate, prefix: country.prefix, slug: params.country || '',
+  }));
+  injectStructuredData(breadcrumbSchema([
+    { name: 'Home',     url: 'https://voipcat.com' },
+    { name: 'Coverage', url: 'https://voipcat.com/coverage' },
+    { name: `VoIP ${country.name}`, url: `https://voipcat.com/voip/${params.country}` },
+  ]));
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
@@ -135,6 +146,68 @@ export default function CountryVoip() {
             </div>
           </div>
         </section>
+
+        {/* Related Services */}
+        <section className="py-16 bg-black border-t border-primary/10">
+          <div className="container">
+            <h2 className="text-xl font-bold text-white uppercase tracking-wider mb-8 text-center" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              Related <span className="text-primary">Services</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { icon: Phone,      label: 'SIP Trunk',       desc: 'Connect your PBX to ' + country.name,         href: '/sip-trunk' },
+                { icon: Globe2,     label: 'Wholesale VoIP',  desc: 'High-volume termination to ' + country.name,  href: '/wholesale-voip' },
+                { icon: Calculator, label: 'Cost Calculator', desc: 'Compare your current rates vs VoIP Cat',       href: '/calculator' },
+                { icon: Zap,        label: 'Free Test Route', desc: 'Test our quality to ' + country.name + ' now', href: '/free-test' },
+              ].map(({ icon: Icon, label, desc, href }) => (
+                <button
+                  key={href}
+                  onClick={() => setLocation(href)}
+                  className="flex items-start gap-3 p-5 bg-card border border-border hover:border-primary/50 rounded-xl text-left group transition-all"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-foreground group-hover:text-primary transition-colors">{label}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{desc}</div>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Related Reading */}
+        <section className="py-12 bg-background border-t border-border">
+          <div className="container">
+            <div className="flex items-center gap-2 mb-6">
+              <BookOpen className="w-4 h-4 text-primary" />
+              <h3 className="text-sm font-bold uppercase tracking-widest text-muted-foreground" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                Related Guides
+              </h3>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {[
+                { label: 'How to Set Up SIP Trunk on 3CX', href: '/articles/sip-trunk-setup-3cx' },
+                { label: 'How to Set Up SIP Trunk on FreePBX', href: '/articles/sip-trunk-setup-freepbx' },
+                { label: 'Wholesale VoIP Guide', href: '/articles/wholesale-voip-guide' },
+                { label: 'A-Z Termination Explained', href: '/articles/a-z-termination-guide' },
+                { label: 'VoIP Fraud Prevention', href: '/articles/voip-fraud-prevention' },
+                { label: 'SIP Trunk vs PRI', href: '/articles/sip-trunk-vs-pri' },
+              ].map(({ label, href }) => (
+                <button
+                  key={href}
+                  onClick={() => setLocation(href)}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-card border border-border hover:border-primary/50 hover:text-primary text-sm text-muted-foreground transition-all"
+                >
+                  <ArrowRight className="w-3 h-3" />{label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </div>

@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, Phone, Globe, Shield, Server, Zap, Users, Headphones } from 'lucide-react';
 import { Link } from 'wouter';
+import { pageServiceSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function SipTrunk() {
   useSEO({
@@ -12,6 +13,8 @@ export default function SipTrunk() {
     keywords: 'SIP trunk provider, SIP trunking service, SIP trunk, business SIP, enterprise SIP trunk, SIP trunk pricing, VoIP SIP trunk',
     canonical: 'https://voipcat.com/sip-trunk',
   });
+  injectStructuredData(pageServiceSchema('SIP Trunking Service', 'Enterprise-grade SIP trunking with HD voice quality, global coverage to 190+ countries, and 99.99% uptime SLA.', 'https://voipcat.com/sip-trunk'));
+  injectStructuredData(breadcrumbSchema([{ name: 'Home', url: 'https://voipcat.com' }, { name: 'SIP Trunk', url: 'https://voipcat.com/sip-trunk' }]));
 
   const features = [
     { icon: Globe, title: 'Global Coverage', desc: 'SIP trunks with coverage in 190+ countries. Local and international DIDs available.' },

@@ -19,7 +19,7 @@ export const organizationSchema = {
     '@type': 'ContactPoint',
     contactType: 'Sales',
     telephone: '+201557649136',
-    email: 'sales.voipcat@gmail.com',
+    email: 'support@voipcat.com',
     availableLanguage: ['English', 'Arabic'],
     contactOption: 'TollFree',
   },
@@ -184,3 +184,54 @@ export function useStructuredData(schemas: any[]) {
     injectStructuredData(schema);
   });
 }
+
+export const faqPageSchema = (faqs: { question: string; answer: string }[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(f => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: f.answer,
+    },
+  })),
+});
+
+export const countryServiceSchema = (country: { name: string; description: string; rate: string; prefix: string; slug: string }) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `VoIP Termination ${country.name}`,
+  description: country.description,
+  provider: {
+    '@type': 'Organization',
+    name: 'VoIP Cat',
+    url: 'https://voipcat.com',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: country.name,
+    telephone: country.prefix,
+  },
+  url: `https://voipcat.com/voip/${country.slug}`,
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'USD',
+    price: country.rate.replace('$', '').replace('/min', ''),
+    unitText: 'per minute',
+  },
+});
+
+export const pageServiceSchema = (name: string, description: string, url: string) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name,
+  description,
+  provider: {
+    '@type': 'Organization',
+    name: 'VoIP Cat',
+    url: 'https://voipcat.com',
+  },
+  areaServed: 'Worldwide',
+  url,
+});

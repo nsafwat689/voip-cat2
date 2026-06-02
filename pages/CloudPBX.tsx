@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, Phone, Cloud, Shield, Zap, Users, Settings, Headphones } from 'lucide-react';
 import { Link } from 'wouter';
+import { pageServiceSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function CloudPBX() {
   useSEO({
@@ -12,6 +13,8 @@ export default function CloudPBX() {
     keywords: 'cloud PBX, hosted PBX, cloud phone system, hosted phone system, virtual PBX, business phone system, PBX provider',
     canonical: 'https://voipcat.com/cloud-pbx',
   });
+  injectStructuredData(pageServiceSchema('Cloud PBX', 'Scalable hosted phone systems with auto-attendant, call routing, voicemail-to-email, and conference calling for businesses of all sizes.', 'https://voipcat.com/cloud-pbx'));
+  injectStructuredData(breadcrumbSchema([{ name: 'Home', url: 'https://voipcat.com' }, { name: 'Cloud PBX', url: 'https://voipcat.com/cloud-pbx' }]));
 
   const plans = [
     { name: 'Golden Node', price: 75, calls: 8, desc: 'Perfect for small offices and SOHO environments.' },

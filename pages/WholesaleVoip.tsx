@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, ArrowRight, Globe, Shield, Zap, TrendingUp, Server, BarChart3 } from 'lucide-react';
 import { Link } from 'wouter';
+import { pageServiceSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 
 export default function WholesaleVoip() {
   useSEO({
@@ -12,6 +13,8 @@ export default function WholesaleVoip() {
     keywords: 'wholesale VoIP, wholesale VoIP provider, voice termination, bulk VoIP, VoIP termination, wholesale SIP, A-Z termination',
     canonical: 'https://voipcat.com/wholesale-voip',
   });
+  injectStructuredData(pageServiceSchema('Wholesale VoIP Termination', 'High-quality A-Z wholesale voice termination with competitive rates to 190+ countries, CLI routes, and 24/7 NOC support.', 'https://voipcat.com/wholesale-voip'));
+  injectStructuredData(breadcrumbSchema([{ name: 'Home', url: 'https://voipcat.com' }, { name: 'Wholesale VoIP', url: 'https://voipcat.com/wholesale-voip' }]));
 
   const features = [
     { icon: Globe, title: 'A-Z Termination', desc: 'Complete A-Z voice termination coverage with routes to 190+ countries. Direct interconnects with Tier-1 carriers worldwide.' },

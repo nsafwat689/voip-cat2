@@ -4,6 +4,7 @@ import { ChevronDown, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useSEO } from '@/hooks/useSEO';
 import { faqs } from '@/data/faqs';
+import { faqPageSchema, breadcrumbSchema, injectStructuredData } from '@/utils/structuredData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -15,6 +16,12 @@ export default function FAQ() {
     canonical: 'https://voipcat.com/faq',
     ogImage: 'https://voipcat.com/images/og-faq.png',
   });
+
+  injectStructuredData(faqPageSchema(faqs.map(f => ({ question: f.question, answer: f.answer }))));
+  injectStructuredData(breadcrumbSchema([
+    { name: 'Home', url: 'https://voipcat.com' },
+    { name: 'FAQ', url: 'https://voipcat.com/faq' },
+  ]));
 
   const [searchQuery, setSearchQuery] = useState('');
   const [expandedId, setExpandedId] = useState<string | null>(null);
