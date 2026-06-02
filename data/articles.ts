@@ -1291,4 +1291,1053 @@ Experience the difference with VoIP Cat. [Register for a free test account today
     readTime: 8,
     date: "2026-06-01",
   },
+  {
+    id: "voip-for-small-business",
+    title: "VoIP for Small Business: The Complete 2026 Guide",
+    author: "VoIP Cat Team",
+    category: "Business",
+    excerpt: "How small businesses can cut phone bills by 60–80% using VoIP — without expensive hardware or IT staff.",
+    readTime: 7,
+    date: "2026-05-15",
+    content: `# VoIP for Small Business: The Complete 2026 Guide
+
+Small businesses spend an average of $50–$100 per employee per month on traditional phone lines. VoIP (Voice over Internet Protocol) can cut that by 60–80%, while adding features that legacy carriers charge extra for. This guide explains how to make the switch with zero downtime.
+
+## What Is VoIP and Why Does It Matter for Small Business?
+
+VoIP converts your voice into data packets sent over the internet instead of copper phone lines. The cost advantage is structural: internet capacity is cheap; PSTN copper is expensive to maintain. A SIP trunk from a wholesale provider like VoIP Cat routes your calls on the same carrier-grade infrastructure that large enterprises use — but without enterprise pricing.
+
+Key numbers:
+- Average SIP trunk rate to US: $0.004/min (vs $0.03–$0.05 on retail carrier plans)
+- HD voice quality with G.722 codec at 64 kbps
+- Features included: call recording, IVR, voicemail-to-email, call queues
+
+## What You Need to Get Started
+
+**Option 1 — Use your existing PBX:** If you already run 3CX, FreePBX, or Asterisk, you simply add a SIP trunk. No hardware purchase needed.
+
+**Option 2 — Cloud PBX:** Use VoIP Cat's hosted phone system. You get a web dashboard, softphones for every team member, and a local DID — no server to manage.
+
+**Option 3 — Softphone only:** Download the VoIP Cat Android app or use any SIP-compatible softphone (Zoiper, MicroSIP, Linphone). Works on existing smartphones.
+
+Minimum requirements:
+- Stable broadband: 100 Kbps per simultaneous call
+- A SIP account (free to register at portal.voipcat.com)
+- A softphone or IP phone
+
+## How to Register and Start Calling in 60 Seconds
+
+1. Go to portal.voipcat.com and create a free account — no credit card required
+2. Download your SIP credentials (username, password, SIP server address)
+3. Enter them into your PBX or softphone
+4. Make a test call to confirm audio quality
+
+VoIP Cat provides a free test route so you can validate call quality before adding any credit.
+
+## Features Small Businesses Should Look For
+
+**Per-second billing:** Never pay for a 61-second call billed as 2 minutes. VoIP Cat bills to the exact second.
+
+**CLI (Caller ID):** Your caller ID must display correctly to maximize answer rates. Demand CLI-guaranteed routes.
+
+**SIP encryption:** TLS/SRTP protects call audio from interception. Important for any business handling customer data.
+
+**Real-time CDR:** See every call in your dashboard as it happens. Know which calls lasted how long and what they cost.
+
+**DID numbers:** Local phone numbers in 50+ countries. Appear local to your customers anywhere in the world.
+
+## How Much Do You Save?
+
+A 10-employee office making 5,000 minutes of outbound calls per month to the US:
+- Traditional carrier: ~$250/month (at $0.05/min)
+- VoIP Cat SIP trunk: ~$20/month (at $0.004/min)
+- **Annual saving: $2,760**
+
+That saving scales linearly. A 50-employee business saves ~$13,800 per year.
+
+## Common Concerns Answered
+
+**"What if my internet goes down?"** — Set a failover number (mobile) in your PBX. Calls route automatically if your primary line fails.
+
+**"Will call quality be good enough?"** — On a stable broadband connection, VoIP Cat delivers MOS scores consistently above 4.0 (equivalent to landline quality).
+
+**"Can I keep my existing number?"** — Yes. Number porting takes 3–10 business days depending on your current carrier.
+
+## Next Steps
+
+Register a free account at portal.voipcat.com, get your SIP credentials, and make your first call in under 5 minutes. No commitment, no credit card.`,
+  },
+  {
+    id: "sip-trunk-pricing-guide",
+    title: "SIP Trunk Pricing Explained: What You Actually Pay in 2026",
+    author: "VoIP Cat Team",
+    category: "Business",
+    excerpt: "A transparent breakdown of SIP trunk costs — per-minute rates, channel fees, DIDs, setup costs — and how to compare providers fairly.",
+    readTime: 6,
+    date: "2026-05-20",
+    content: `# SIP Trunk Pricing Explained: What You Actually Pay in 2026
+
+SIP trunk pricing looks simple on the surface — a per-minute rate — but the real cost includes several line items that vary wildly between providers. This guide breaks down every component so you can compare apples to apples.
+
+## The 5 Cost Components of a SIP Trunk
+
+### 1. Per-Minute Termination Rate
+
+The core cost: what you pay per minute for outbound calls. Rates vary by destination:
+- United States: $0.004–$0.012/min
+- United Kingdom: $0.006–$0.015/min
+- Saudi Arabia: $0.018–$0.040/min
+- India: $0.009–$0.025/min
+
+**Watch for:** billing increment. A provider billing in 60-second increments charges you for a full minute on a 10-second call. VoIP Cat bills per-second — you pay exactly what you use.
+
+### 2. Channel Fees (Concurrent Call Limits)
+
+Some providers charge a monthly fee per channel (one simultaneous call = one channel). A business needing 10 concurrent calls at $5/channel = $50/month before any call costs.
+
+VoIP Cat does not charge per-channel fees on wholesale plans. Channels scale with your traffic automatically.
+
+### 3. DID (Direct Inward Dialing) Numbers
+
+Inbound numbers cost $1–$10/month per number depending on country. US DIDs are cheapest ($1–$2). UK geographic DIDs run $3–$5. Middle East DIDs with geographic numbers run higher.
+
+### 4. Setup and Activation Fees
+
+Some carriers charge $50–$500 to provision a SIP trunk. VoIP Cat has zero setup fees — self-service activation takes under 5 minutes.
+
+### 5. Minimum Monthly Commitments
+
+Retail carriers often require $50–$200 minimum spend regardless of usage. Wholesale providers like VoIP Cat have no minimums — you pay only for what you send.
+
+## How to Calculate Your True Monthly Cost
+
+\`\`\`
+Monthly cost = (Minutes × Rate per minute) + (DIDs × DID fee) + Channel fees + Setup/porting fees
+\`\`\`
+
+Example: 10,000 minutes to the US + 3 US DIDs, no channel fees:
+- VoIP Cat: (10,000 × $0.004) + (3 × $1.50) = $40 + $4.50 = **$44.50/month**
+- Typical retail provider: (10,000 × $0.025) + (3 × $3) + $50 minimum = $250 + $9 + $50 = **$309/month**
+
+## Premium vs Standard Routes
+
+Not all per-minute rates are equal. A $0.004/min rate on a "standard" route may have lower ASR (Answer Seizure Ratio) — more calls failing to connect — than a $0.006/min premium route. For call centers, a 5% ASR difference translates directly to lost revenue.
+
+VoIP Cat offers:
+- **Standard routes:** Best cost, high ASR (>92%)
+- **Premium routes:** CLI guaranteed, ASR >96%, higher MOS score
+
+Always ask for ASR data before committing to a new provider.
+
+## Per-Second vs Per-Minute vs 6-Second Billing
+
+- **Per-minute:** 1.5-minute call billed as 2 minutes. You overpay 33%.
+- **6-second increments:** 1.5-minute call billed as 1:36. You overpay 6.7%.
+- **Per-second:** 1.5-minute call billed as exactly 1:30. Zero overpay.
+
+For high-volume call centers, per-second billing can save 8–15% compared to per-minute billing on the same traffic.
+
+## Questions to Ask Any SIP Trunk Provider
+
+1. What is the billing increment?
+2. Is CLI (Caller ID) guaranteed on all routes?
+3. Are there per-channel fees?
+4. What is the minimum monthly commitment?
+5. What is the ASR on routes I will use most?
+6. Is there a free test route before I commit?
+
+VoIP Cat answers yes to CLI, no to per-channel fees and minimums, and yes to a free test route — no credit card required.`,
+  },
+  {
+    id: "voip-pbx-comparison",
+    title: "Asterisk vs FreePBX vs 3CX: Which PBX for SIP Trunking in 2026?",
+    author: "VoIP Cat Team",
+    category: "Guides",
+    excerpt: "Comparing the three most popular PBX platforms for SIP trunk integration — which is easiest to set up, most flexible, and best for your use case.",
+    readTime: 8,
+    date: "2026-05-22",
+    content: `# Asterisk vs FreePBX vs 3CX: Which PBX for SIP Trunking in 2026?
+
+Choosing a PBX platform is a long-term commitment. The wrong choice means months of troubleshooting; the right choice gives you a call infrastructure that scales for years. This comparison focuses specifically on SIP trunk integration — which platform is easiest to connect, most reliable, and most flexible.
+
+## Quick Overview
+
+| | Asterisk | FreePBX | 3CX |
+|---|---|---|---|
+| Type | Bare-metal telephony engine | GUI wrapper on Asterisk | Commercial UCaaS/PBX |
+| Learning curve | High | Medium | Low |
+| License | Free/Open Source | Free (core) / Paid (modules) | Freemium / Paid |
+| SIP Trunk setup | Manual config files | Web GUI wizard | Web GUI wizard |
+| Best for | Developers, carriers | SMBs, IT admins | SMBs, enterprises |
+
+## Asterisk: Maximum Flexibility, Maximum Effort
+
+Asterisk is the engine under most open-source PBX platforms. Configuring a SIP trunk in raw Asterisk means editing **pjsip.conf** or **sip.conf** directly — no GUI. This gives you full control:
+
+\`\`\`
+[voipcat]
+type=registration
+transport=udp
+outbound_auth=voipcat-auth
+server_uri=sip:sip.voipcat.com
+client_uri=sip:USERNAME@sip.voipcat.com
+\`\`\`
+
+**Pros:** Handles any edge case. Scales to carrier-grade traffic. No licensing cost.
+
+**Cons:** Requires command-line expertise. Difficult to onboard non-technical staff. Errors are silent (no GUI warnings).
+
+**Use Asterisk if:** You're building a custom application, carrier infrastructure, or need PJSIP-level control.
+
+## FreePBX: The Sweet Spot for Most Businesses
+
+FreePBX wraps Asterisk in a web GUI. Adding a SIP trunk is a 10-field form — no config files. VoIP Cat publishes a step-by-step guide specifically for FreePBX PJSIP trunk setup.
+
+Key advantages over bare Asterisk:
+- Visual trunk configuration with validation
+- Module ecosystem (call recording, IVR, time conditions)
+- FreePBX Distro ISO for quick deployment
+- Active community and commercial support from Sangoma
+
+**Pros:** Accessible without deep telephony knowledge. Huge module library. Free for most use cases.
+
+**Cons:** GUI abstracts some Asterisk power. Some modules require paid licenses. Heavy on server resources vs raw Asterisk.
+
+**Use FreePBX if:** You want the power of Asterisk without the command-line learning curve. Best balance for SMBs and managed service providers.
+
+## 3CX: Best for Teams That Want Zero Maintenance
+
+3CX is a commercial platform with a polished GUI and cloud/self-hosted options. SIP trunk setup uses a template system — VoIP Cat provides a 3CX-specific configuration template that auto-populates most fields.
+
+3CX includes:
+- Windows and Linux installer
+- WebRTC browser calling built in
+- iOS/Android apps
+- Microsoft Teams integration
+- Built-in video conferencing
+
+**Pros:** Easiest to deploy. Best-looking UI. Strong remote work features.
+
+**Cons:** Annual license cost (even on self-hosted). Proprietary — less flexibility than Asterisk. Licensing model changed significantly in 2023, now consumption-based.
+
+**Use 3CX if:** Your team is non-technical, you want everything in one package, and the licensing cost fits your budget.
+
+## SIP Trunk Compatibility
+
+All three platforms support SIP (Session Initiation Protocol) and are compatible with VoIP Cat's PJSIP endpoints. Key compatibility notes:
+
+- **Asterisk/FreePBX:** Use PJSIP (not chan_sip) for new deployments. VoIP Cat recommends PJSIP transport for better NAT traversal.
+- **3CX:** Uses its own SIP stack. Configure as a "Generic SIP Trunk" with VoIP Cat's server address and credentials.
+
+All three support:
+- G.711 (PCMA/PCMU) — standard voice codec
+- G.729 — bandwidth-efficient codec
+- TLS/SRTP — encrypted signaling and media
+
+## The Recommendation
+
+- **Carrier or developer building a VoIP product:** Asterisk
+- **SMB or MSP managing business phones:** FreePBX
+- **Non-technical team wanting simplicity:** 3CX
+
+Whichever you choose, VoIP Cat provides configuration guides, sample configs, and free test routes to validate your setup before going live. Register at portal.voipcat.com — credentials in 60 seconds.`,
+  },
+  {
+    id: "voip-codecs-explained",
+    title: "VoIP Codecs Explained: G.711, G.729, Opus — Which Should You Use?",
+    author: "VoIP Cat Team",
+    category: "Technical",
+    excerpt: "A plain-English guide to the most common VoIP codecs — what they are, how they affect call quality and bandwidth, and which to choose for your setup.",
+    readTime: 6,
+    date: "2026-05-25",
+    content: `# VoIP Codecs Explained: G.711, G.729, Opus — Which Should You Use?
+
+A codec (coder-decoder) converts voice audio into digital data for transmission and back again. Your choice of codec affects three things: audio quality, bandwidth consumption, and compatibility. This guide covers the most common VoIP codecs in plain English.
+
+## The Core Trade-off: Quality vs Bandwidth
+
+Every codec makes a trade-off between:
+- **Audio quality** (measured by MOS — Mean Opinion Score, 1–5)
+- **Bandwidth** (kilobits per second per call)
+- **Processing load** (how much CPU to encode/decode)
+
+Higher quality = more bandwidth. You choose based on your network capacity and quality requirements.
+
+## G.711: The Baseline (a-Law / u-Law)
+
+G.711 is the gold standard for voice quality. It's used in PSTN telephone networks and delivers near-CD quality audio.
+
+- **MOS score:** 4.1–4.5
+- **Bandwidth:** 64 kbps (plus ~20 kbps overhead = ~85 kbps per call)
+- **Compression:** None (PCM audio, lossless)
+- **Variants:** G.711a (a-law, used in Europe/international) and G.711u (μ-law, used in North America)
+
+**Use G.711 when:** You have sufficient bandwidth and want the best possible voice quality. Ideal for call centers where agent clarity is critical.
+
+## G.729: The Bandwidth Saver
+
+G.729 compresses audio aggressively, using 8x less bandwidth than G.711 at the cost of some quality.
+
+- **MOS score:** 3.9–4.1
+- **Bandwidth:** 8 kbps (plus overhead = ~30 kbps per call)
+- **Compression:** Heavy (lossy)
+- **Note:** G.729 codec licensing was required until 2017; now royalty-free
+
+**Use G.729 when:** You have limited bandwidth (satellite, slow connections) or need to maximize concurrent calls on a thin pipe. Not suitable where every nuance of voice quality matters.
+
+## Opus: The Modern Choice
+
+Opus is an open, royalty-free codec developed by the IETF. It adapts its bitrate dynamically based on network conditions, making it ideal for WebRTC and variable-quality connections.
+
+- **MOS score:** 4.0–4.5 (at higher bitrates)
+- **Bandwidth:** 6–510 kbps (adaptive)
+- **Compression:** Adaptive (lossy at lower bitrates)
+- **Native to:** WebRTC browsers, modern softphones
+
+**Use Opus when:** You're running WebRTC calling (browser-based), your clients use mobile softphones on 4G/LTE, or your network has variable quality.
+
+## G.722: HD Voice
+
+G.722 is the "wideband" codec that delivers HD voice — capturing frequencies up to 7 kHz vs G.711's 3.4 kHz. Calls sound noticeably clearer and more natural.
+
+- **MOS score:** 4.5
+- **Bandwidth:** 64 kbps (same as G.711 but higher frequency range)
+- **Requirement:** Both endpoints must support G.722
+
+**Use G.722 when:** Both your phones/softphones support it and HD voice quality is a priority. Most modern IP phones and softphones support G.722.
+
+## Codec Negotiation in SIP
+
+When two SIP endpoints connect, they negotiate which codec to use via SDP (Session Description Protocol). Your PBX offers a list of codecs in priority order:
+
+\`\`\`
+m=audio 12345 RTP/AVP 0 8 18 9
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:18 G729/8000
+a=rtpmap:9 G722/8000
+\`\`\`
+
+The far end picks the first codec on the list that it also supports. Configure your PBX codec priority to match your priorities:
+1. G.722 (if available) — best quality
+2. G.711 (PCMA or PCMU) — reliable fallback
+3. G.729 — bandwidth fallback
+4. Opus — WebRTC endpoints
+
+## VoIP Cat Codec Support
+
+VoIP Cat's carrier network supports G.711 (both a-law and μ-law), G.729, G.722, and Opus. Transcoding is handled at the edge — if your PBX sends G.729 but the destination expects G.711, we transcode transparently without quality loss.
+
+For optimal performance, configure your PBX to prefer G.711 or G.722 and let VoIP Cat handle the downstream codec negotiation.`,
+  },
+  {
+    id: "voip-number-porting",
+    title: "VoIP Number Porting: How to Keep Your Business Number When Switching",
+    author: "VoIP Cat Team",
+    category: "Guides",
+    excerpt: "A step-by-step guide to porting your existing phone number to a VoIP provider — timelines, what can go wrong, and how to migrate without downtime.",
+    readTime: 5,
+    date: "2026-05-28",
+    content: `# VoIP Number Porting: How to Keep Your Business Number When Switching
+
+Your phone number is a business asset. Customers know it, it's on your website, business cards, and Google Business profile. When switching to VoIP, you can keep it. This process is called number porting (or LNP — Local Number Portability).
+
+## How Number Porting Works
+
+Number porting transfers your phone number from your current carrier (the "losing" carrier) to your new VoIP provider (the "gaining" carrier). You initiate the process, and the carriers coordinate the transfer behind the scenes.
+
+The key legal principle: in most countries, you own your number. Your carrier cannot block a port.
+
+## What You Need Before Porting
+
+Before submitting a port request to VoIP Cat, have these ready:
+
+1. **Account number** with your current carrier (found on your bill)
+2. **Service address** on file with your current carrier
+3. **PIN or password** if your carrier requires one for account access
+4. **Billing name** on the account
+5. **Copy of a recent bill** (some carriers require this)
+
+For business accounts, the billing name must exactly match what your carrier has on file. One mismatch character causes rejection.
+
+## The Porting Timeline
+
+| Step | Time |
+|------|------|
+| Submit port request | Day 0 |
+| Carrier validates request | 1–3 business days |
+| Rejection (if any) | 3–5 business days |
+| Approved port date confirmed | 5–7 business days |
+| Number transfers | 7–14 business days total |
+
+US and UK domestic ports are typically fastest (7–10 days). International ports can take 30+ days depending on the country.
+
+## How to Avoid Downtime During Porting
+
+The transfer happens at a specific moment — often 11:30 PM local time on the agreed date. To ensure zero downtime:
+
+1. **Keep your old line active** until the port completes. Do not cancel your current service.
+2. **Configure your VoIP setup first.** Have your SIP trunk and PBX fully working on a temporary number before porting.
+3. **Test inbound calls** on the temporary number before your port date.
+4. On port completion, your number rings on VoIP Cat. Old line goes silent automatically.
+
+## What Can Go Wrong
+
+**Rejection due to mismatched account info:** The most common failure. Your name, address, or account number doesn't exactly match what the carrier has. Fix: call your carrier, confirm every field, resubmit.
+
+**Carrier delays:** Some carriers deliberately slow-walk ports. This is illegal under FCC rules (US) and Ofcom rules (UK). If a port takes more than 4 business days for domestic numbers, escalate.
+
+**Number is not portable:** Numbers associated with alarm systems, elevators, or some PBX lines can be blocked. Ask VoIP Cat to check portability before you start.
+
+**Contract termination fees:** Porting triggers your service agreement's exit clause. Check for early termination fees before initiating.
+
+## After Porting: What Changes
+
+Once ported, your number is on VoIP Cat's infrastructure:
+- Inbound calls route to your configured SIP trunk or IVR
+- Outbound calls still show your number as caller ID (CLI)
+- DID management (forward to mobile, voicemail, etc.) is done via the portal
+
+You can keep the number indefinitely on VoIP Cat. If you ever move providers again, you can port out — your ownership of the number is permanent.
+
+## Start the Process
+
+Contact VoIP Cat support via WhatsApp or email with your current carrier details. We'll verify portability, prepare the LOA (Letter of Authorization), and guide you through every step.`,
+  },
+  {
+    id: "voip-troubleshooting",
+    title: "VoIP Troubleshooting: Fix Common SIP and Audio Issues (2026)",
+    author: "VoIP Cat Team",
+    category: "Technical",
+    excerpt: "The most common VoIP problems — one-way audio, registration failures, echo, choppy voice — and exactly how to fix each one.",
+    readTime: 7,
+    date: "2026-05-30",
+    content: `# VoIP Troubleshooting: Fix Common SIP and Audio Issues (2026)
+
+VoIP problems fall into two categories: signaling issues (calls won't connect) and media issues (call connects but audio is bad). This guide covers both, with diagnostic steps and fixes.
+
+## Issue 1: SIP Registration Failure
+
+**Symptoms:** Softphone or PBX shows "Registration Failed", "401 Unauthorized", or "503 Service Unavailable".
+
+**Diagnosis checklist:**
+1. Username and password — double-check for typos, copy/paste from portal
+2. SIP server address — confirm the exact domain (e.g., sip.voipcat.com)
+3. Firewall — is port 5060 (UDP/TCP) open outbound?
+4. SIP ALG — many routers have "SIP ALG" or "SIP helper" enabled, which mangles SIP packets
+
+**Most common fix:** Disable SIP ALG on your router/firewall. This single setting causes ~60% of registration failures. Look in your router's security settings or firewall rules.
+
+For persistent 401 errors: the password is wrong or the account is suspended. Login to portal.voipcat.com to verify account status.
+
+## Issue 2: One-Way Audio (You Hear Them, They Can't Hear You — or Vice Versa)
+
+**Symptoms:** Call connects, but audio only flows one direction.
+
+**Cause:** Almost always a NAT (Network Address Translation) problem. Your PBX sends the correct SIP signaling but the RTP media stream references an internal IP address (192.168.x.x) that the remote side can't reach.
+
+**Fix in Asterisk/FreePBX:**
+\`\`\`
+; In pjsip.conf or via GUI
+local_net=192.168.0.0/16
+external_media_address=YOUR.PUBLIC.IP
+external_signaling_address=YOUR.PUBLIC.IP
+nat=force_rport,comedia
+\`\`\`
+
+**Fix in 3CX:** Set your public IP under Admin > Network > External IP. Enable STUN.
+
+**General fix:** Use a STUN server to detect your public IP automatically. Most SIP clients support STUN configuration.
+
+## Issue 3: Echo on Calls
+
+**Symptoms:** You hear your own voice echoed back, or the remote party hears theirs.
+
+**Causes:**
+- Acoustic echo: microphone picking up speaker output (use a headset)
+- Electrical echo: ATA or phone hardware not applying echo cancellation
+
+**Fix:**
+- Use a headset instead of speakerphone for the reporting party
+- Enable echo cancellation in your PBX (echocancel=yes in Asterisk)
+- If using an ATA, check firmware for echo cancellation settings
+- On VoIP Cat's side, echo cancellation is applied on all routes
+
+## Issue 4: Choppy or Robotic Audio
+
+**Symptoms:** Voice cuts in and out, sounds robotic or garbled.
+
+**Causes:** Packet loss or jitter on your network or ISP connection.
+
+**Diagnosis:**
+\`\`\`bash
+ping -c 100 sip.voipcat.com
+# Look for: >1% packet loss or jitter >30ms
+\`\`\`
+
+**Fixes:**
+1. Enable QoS on your router — prioritize UDP traffic on port 5060 and RTP ports (usually 10000–20000)
+2. Reduce codec bitrate — switch from G.711 to G.729 if bandwidth is constrained
+3. Increase jitter buffer in your PBX settings
+4. Contact your ISP if packet loss is >2%
+
+## Issue 5: Calls Drop After 30 or 60 Seconds
+
+**Symptoms:** Call connects normally but disconnects at exactly 30 or 60 seconds.
+
+**Cause:** SIP re-INVITE not passing through NAT correctly. Firewall is dropping the RTP stream.
+
+**Fix:**
+- Verify SIP session timers are configured (allow re-INVITE)
+- Check that your firewall's UDP timeout is longer than 60 seconds (set to 120s+)
+- If using Asterisk: set session-timers=accept in pjsip.conf
+
+## Issue 6: Calls Connect But Hang Up Immediately
+
+**Symptoms:** You dial, it connects briefly, then immediately disconnects.
+
+**Cause:** Codec mismatch. Your PBX offers only codecs that VoIP Cat doesn't support for that route, so the call fails to establish media.
+
+**Fix:** Add G.711 (PCMA and PCMU) to your codec list. These are universally supported.
+
+## Useful Diagnostic Tools
+
+- **SIP debug in Asterisk:** run "pjsip set logger on" — shows all SIP messages
+- **Wireshark:** Capture SIP/RTP traffic for deep analysis
+- **SIPp:** SIP test tool for simulating calls
+- **VoIP Cat portal:** CDR shows call status codes (200 OK = success, 486 = busy, 503 = unreachable)
+
+## Getting Help
+
+If you've worked through this guide and still have issues, contact VoIP Cat support with:
+1. The SIP response code from your CDR (e.g., 403, 488, 503)
+2. Your PBX platform and version
+3. Whether the issue is inbound, outbound, or both
+
+Support is available 24/7 via WhatsApp at +201557649136 or email at support@voipcat.com.`,
+  },
+  {
+    id: "voip-call-center-setup",
+    title: "How to Set Up a VoIP Call Center in 2026 (Without Breaking the Budget)",
+    author: "VoIP Cat Team",
+    category: "Business",
+    excerpt: "A practical guide to building a modern call center with VoIP — infrastructure, routing, dialers, and how to keep per-minute costs under control.",
+    readTime: 8,
+    date: "2026-05-10",
+    content: `# How to Set Up a VoIP Call Center in 2026 (Without Breaking the Budget)
+
+Building a call center on VoIP infrastructure instead of traditional PRI lines reduces costs by 70–80% and enables features that legacy systems can't offer. This guide covers what you actually need — and what you don't.
+
+## The Core Infrastructure
+
+A modern VoIP call center has four layers:
+
+1. **SIP Trunk** — connects your call center to the PSTN. Routes calls in and out.
+2. **PBX or Cloud Platform** — handles call routing, queuing, IVR, and agent assignment.
+3. **Agent interface** — softphone or IP phone at each agent workstation.
+4. **Management layer** — CDR reporting, call recording, quality monitoring.
+
+Total infrastructure cost for a 10-seat call center using VoIP Cat + FreePBX: approximately $0 in software + SIP trunk costs per minute.
+
+## Choosing the Right PBX for Call Center Use
+
+**FreePBX + Asterisk** is the most cost-effective choice for call centers:
+- Queue module (ACD) — distributes calls to available agents
+- Call recording — built-in, stored locally or cloud
+- IVR builder — multi-level menus with time-based routing
+- Real-time agent dashboard — see who's on a call, who's waiting
+- Reporting — call volume, duration, wait time by queue
+
+For 1–10 agents: FreePBX Community Edition (free)
+For 10–50 agents: FreePBX Business Edition (commercial modules)
+For 50+ agents: Consider Vicidial (open-source predictive dialer) or GoAutoDial
+
+## SIP Trunk Configuration for Call Centers
+
+Call centers have specific requirements:
+
+**High concurrent call capacity:** Configure your SIP trunk without per-channel limits. VoIP Cat wholesale accounts support unlimited concurrent calls — you pay per minute, not per channel.
+
+**Multiple DIDs:** Get separate inbound numbers for different campaigns, departments, or regions. Route each DID to its own queue.
+
+**Outbound CLI:** Set your outbound caller ID per campaign. Improves answer rates by 20–40% vs anonymous calls.
+
+**Geographic routing:** For international call centers, route calls via the closest POP to reduce latency. VoIP Cat has POPs in Europe, Middle East, Asia, and Americas.
+
+## Building the IVR (Interactive Voice Response)
+
+A well-designed IVR reduces agent load by 30–40%:
+
+\`\`\`
+Welcome to [Company]. Press 1 for Sales, 2 for Support, 3 for Billing.
+[If no input after 10 seconds, transfer to operator]
+[If agent unavailable, offer callback]
+\`\`\`
+
+Keep it to 3 options maximum. Every additional option increases caller drop rate by 5–8%.
+
+## Call Recording and Compliance
+
+For call centers handling customer data (PCI DSS, HIPAA, GDPR):
+- Record calls to encrypted local storage
+- Implement call pausing during payment card entry
+- Retain recordings for legally required periods (varies by jurisdiction)
+
+VoIP Cat's SIP trunks support SRTP (encrypted media), preventing call interception at the network level.
+
+## Predictive Dialers for Outbound
+
+For outbound campaigns, a predictive dialer dials more numbers than you have agents, connecting only answered calls. This increases agent talk time from ~15 min/hour (manual) to ~45 min/hour.
+
+Open-source options:
+- **Vicidial:** Most popular open-source predictive dialer, runs on Asterisk
+- **GoAutoDial:** Cloud-based, easier setup than Vicidial
+- **FreePBX + Custom Campaigns:** Basic outbound campaign management
+
+VoIP Cat provides high-ASR routes optimized for outbound dialer traffic. Contact sales for dialer-specific rate packages.
+
+## Cost Calculation for a 10-Seat Call Center
+
+Assumptions: 8 hours/day, 50% talk time, 30-day month:
+- Total minutes: 10 agents × 8h × 0.5 × 60 min × 30 = 72,000 minutes/month
+- At $0.004/min (US): **$288/month total call costs**
+- At $0.012/min (UK): **$864/month total call costs**
+
+Compare to ISDN PRI: typically $1,500–$3,000/month for equivalent capacity.
+
+## Getting Started
+
+Register at portal.voipcat.com for a free test account. Configure your SIP trunk with VoIP Cat credentials in FreePBX, create your first queue, and run a test campaign. Our team can provide dialer-optimized routes and custom volume pricing for >100,000 minutes/month.`,
+  },
+  {
+    id: "voip-bandwidth-requirements",
+    title: "How Much Bandwidth Does VoIP Use? Calculator & Full Guide (2026)",
+    author: "VoIP Cat Team",
+    category: "Technical",
+    excerpt: "Calculate exactly how much internet bandwidth your VoIP calls need — by codec, number of simultaneous calls, and whether you have enough headroom.",
+    readTime: 5,
+    date: "2026-05-12",
+    content: `# How Much Bandwidth Does VoIP Use? Calculator & Full Guide (2026)
+
+VoIP doesn't use much bandwidth — a single call takes less than a YouTube video in standard definition. But businesses need to ensure sufficient headroom for their peak concurrent call volume. Here's exactly how to calculate it.
+
+## Bandwidth Per Call by Codec
+
+Each VoIP call uses bandwidth in both directions (upload and download). The total per-call bandwidth includes the audio payload plus packet headers:
+
+| Codec | Audio Payload | With Headers | Calls on 10 Mbps |
+|-------|-------------|--------------|-----------------|
+| G.711 (64 kbps) | 64 kbps | ~85 kbps | 117 |
+| G.729 (8 kbps) | 8 kbps | ~31 kbps | 322 |
+| G.722 (64 kbps) | 64 kbps | ~85 kbps | 117 |
+| Opus (adaptive) | 6–510 kbps | ~27–530 kbps | Varies |
+
+The headers add overhead: RTP (12 bytes) + UDP (8 bytes) + IP (20 bytes) = 40 bytes per 20ms packet, which adds ~16 kbps overhead on G.711.
+
+## The Bandwidth Formula
+
+\`\`\`
+Total VoIP bandwidth = Concurrent calls × Bandwidth per call × 2 (bidirectional)
+\`\`\`
+
+Example: 20 concurrent G.711 calls:
+\`\`\`
+20 × 85 kbps × 2 = 3,400 kbps = 3.4 Mbps
+\`\`\`
+
+Leave 30% headroom for data traffic:
+\`\`\`
+3.4 Mbps ÷ 0.7 = 4.86 Mbps dedicated minimum
+\`\`\`
+
+## Quick Reference Calculator
+
+| Concurrent Calls | G.711 (Mbps) | G.729 (Mbps) | G.722 (Mbps) |
+|------------------|------------|------------|------------|
+| 5 | 0.85 | 0.31 | 0.85 |
+| 10 | 1.70 | 0.62 | 1.70 |
+| 25 | 4.25 | 1.55 | 4.25 |
+| 50 | 8.50 | 3.10 | 8.50 |
+| 100 | 17.00 | 6.20 | 17.00 |
+
+Add 30–50% headroom for other internet traffic.
+
+## What Your Internet Connection Can Handle
+
+- **10 Mbps connection:** ~100 concurrent G.711 calls (if dedicated to VoIP)
+- **50 Mbps connection:** ~500 concurrent G.711 calls (if dedicated)
+- **100 Mbps connection:** ~1,100 concurrent G.711 calls (if dedicated)
+
+In reality, you share the connection with other traffic. For a business office, never use more than 50% of your available bandwidth for VoIP.
+
+## Jitter and Latency: As Important as Bandwidth
+
+Bandwidth is only part of the equation. VoIP needs:
+
+- **Latency (one-way):** under 150ms. Above 150ms, conversations feel delayed.
+- **Jitter:** under 30ms. Jitter causes choppy audio.
+- **Packet loss:** under 1%. Above 1%, audio quality degrades rapidly.
+
+You can have 100 Mbps bandwidth but poor VoIP quality if jitter is high. Test with:
+\`\`\`bash
+ping -c 100 sip.voipcat.com
+# Check min/max/avg and standard deviation
+\`\`\`
+
+## QoS: Prioritizing VoIP Traffic
+
+On a shared internet connection, configure QoS (Quality of Service) on your router to give VoIP packets priority:
+- Mark SIP traffic (UDP port 5060) as high priority
+- Mark RTP traffic (UDP ports 10000–20000) as high priority
+- Limit Netflix/YouTube during business hours
+
+Most business-grade routers (Cisco, Ubiquiti, MikroTik) support DSCP marking for VoIP prioritization.
+
+## Testing Your Connection Before Deployment
+
+Before going live with VoIP:
+1. Run a VoIP quality test to your nearest VoIP Cat POP
+2. Make test calls using your free VoIP Cat test route
+3. Monitor MOS score during the test calls (4.0+ is acceptable, 4.3+ is excellent)
+
+VoIP Cat's network has POPs across multiple continents. Test calls connect to the nearest POP automatically, minimizing latency.`,
+  },
+  {
+    id: "voip-for-hotels",
+    title: "VoIP for Hotels: Cut Phone Costs and Improve Guest Experience (2026)",
+    author: "VoIP Cat Team",
+    category: "Business",
+    excerpt: "How hotels are replacing legacy PBX systems with VoIP to cut international call costs, enable room-to-room calling, and integrate with PMS software.",
+    readTime: 6,
+    date: "2026-05-05",
+    content: `# VoIP for Hotels: Cut Phone Costs and Improve Guest Experience (2026)
+
+Hotels are among the highest-volume users of telephone services — international calls, internal room-to-room calls, call centers, reservations lines, and wake-up services. Traditional PBX systems with analog extensions are expensive to maintain and limit features. VoIP transforms all of this.
+
+## The Hotel VoIP Use Case
+
+A 100-room hotel generates phone traffic across several streams:
+- **Guest international calls:** 50–200 minutes/day per occupied room
+- **Room-to-room internal calls:** Zero cost on VoIP (internal extension-to-extension)
+- **Reservations/front desk:** Inbound calls from DIDs in multiple countries
+- **Wake-up calls:** Automated IVR-based wake-up service
+
+The key savings: international calls at wholesale VoIP rates vs PSTN retail rates, and elimination of per-room per-month line rental.
+
+## Hotel VoIP Architecture
+
+A typical hotel VoIP deployment:
+
+1. **IP phones in each room** — connected over hotel LAN/Wi-Fi
+2. **Hospitality PBX** — FusionPBX, VitalPBX, or dedicated hotel PBX software (Phonesuite, Mitel)
+3. **SIP trunk** — VoIP Cat connection for external PSTN calls
+4. **PMS integration** — Property Management System integration for check-in/check-out, minibar charges, wake-up calls
+
+When a guest checks in, the PMS triggers the room extension to activate. Check-out disables it and generates a call charge report.
+
+## Cost Savings: A Real Example
+
+A 100-room hotel in Egypt receiving European guests:
+- Average 30 minutes international calls/room/night (to UK, Germany, France)
+- 70% occupancy = 70 rooms × 30 minutes = 2,100 international minutes/day
+
+**Traditional PSTN carrier (retail):** $0.08–$0.15/min = $168–$315/day = **$5,040–$9,450/month**
+
+**VoIP Cat wholesale rates:**
+- UK: $0.006/min, Germany: $0.007/min, France: $0.007/min (avg ~$0.007/min)
+- 2,100 min/day × $0.007 = $14.70/day = **$441/month**
+
+**Monthly saving: $4,600–$9,000**
+
+## Key Features for Hotels
+
+**Wake-up service:** Program the PBX to call room extensions at guest-specified times. Uses the extension, zero external termination cost.
+
+**Do Not Disturb:** Guests can activate DND from their room phone. Calls route to voicemail or front desk.
+
+**Guest voicemail:** Each room gets its own voicemail box. Front desk can leave messages remotely.
+
+**Call accounting:** Every call logged with duration, cost, and room number. Exported to PMS for guest billing.
+
+**International DIDs:** Get local phone numbers in guest source countries. A British guest calls a UK number to reach the hotel — no international call cost for the guest.
+
+**Emergency calls:** Configure emergency numbers (police, fire, ambulance) to always route through even if room phone is restricted.
+
+## PMS Integration
+
+Most hospitality PBX systems integrate with PMS platforms (Opera, Protel, Fidelio) via FIAS (Fidelio Interface Application Server) protocol over TCP. On check-in, the PMS sends a "room occupied" signal; on check-out, a call charge report is pulled.
+
+VoIP Cat's SIP trunks are compatible with all PMS-integrated PBX platforms. We provide SIP configuration templates for FusionPBX, VitalPBX, and FreePBX Hospitality.
+
+## Getting Started
+
+Contact VoIP Cat with your hotel's room count, PBX platform, and expected call volume. We'll size the SIP trunk appropriately and provide test credentials to validate before any migration. Most hotel VoIP migrations complete in 1–3 days with no guest-facing downtime.`,
+  },
+  {
+    id: "wholesale-voip-reseller-margins",
+    title: "VoIP Reseller Margins: How Much Can You Actually Make in 2026?",
+    author: "VoIP Cat Team",
+    category: "Business",
+    excerpt: "A realistic breakdown of VoIP reseller margins — how the pricing works, what you can charge, and what monthly revenue looks like at different scales.",
+    readTime: 6,
+    date: "2026-04-28",
+    content: `# VoIP Reseller Margins: How Much Can You Actually Make in 2026?
+
+VoIP reselling is one of the lowest-barrier telecom businesses to start: zero infrastructure investment, recurring monthly revenue, and margins that compound as your customer base grows. This guide shows you exactly what the numbers look like.
+
+## How VoIP Reseller Pricing Works
+
+As a VoIP Cat reseller, you buy wholesale termination rates and sell to your customers at retail prices. Your margin is the difference:
+
+\`\`\`
+Margin per minute = Your retail rate − VoIP Cat wholesale rate
+\`\`\`
+
+**Example (US termination):**
+- VoIP Cat wholesale: $0.004/min
+- You charge customers: $0.015/min
+- Margin: $0.011/min = **275% markup**
+
+This margin scales with every minute your customers send.
+
+## Realistic Revenue Scenarios
+
+### Starter: 5 Customers, 20,000 minutes/month each
+
+5 customers × 20,000 min = 100,000 total minutes:
+
+| Route | Wholesale | Retail | Margin/min | Total Margin |
+|-------|-----------|--------|-----------|-------------|
+| US | $0.004 | $0.015 | $0.011 | $1,100 |
+| UK | $0.006 | $0.020 | $0.014 | $1,400 |
+| India | $0.009 | $0.025 | $0.016 | $1,600 |
+| **Blended (avg)** | | | **$0.014** | **$1,400/month** |
+
+Revenue: $1,400/month gross margin from 5 customers.
+
+### Growing: 20 Customers, 50,000 minutes/month each
+
+20 customers × 50,000 min = 1,000,000 total minutes:
+- Blended margin $0.014/min × 1,000,000 = **$14,000/month**
+
+### Established: 50 Customers, 100,000 minutes/month each
+
+50 customers × 100,000 min = 5,000,000 total minutes:
+- Blended margin $0.014/min × 5,000,000 = **$70,000/month**
+
+## What VoIP Cat's Reseller Program Includes
+
+The white-label reseller portal gives you:
+- **Your own branded portal** — customers login to your brand, not VoIP Cat
+- **Customer management** — add customers, set credit limits, view CDRs
+- **Rate deck management** — set different rates for different customer tiers
+- **Automated billing** — invoices generated automatically per customer
+- **API access** — automate provisioning via REST API
+- **Full technical support** — our NOC handles issues, you focus on sales
+
+You don't need technical VoIP knowledge. VoIP Cat handles the infrastructure.
+
+## DID (Phone Number) Reselling
+
+Beyond termination, you can resell DID numbers. Typical economics:
+
+- VoIP Cat DID cost (US): $1.50/month
+- You charge customer: $5.00/month
+- Margin: $3.50/month per number = **233% markup**
+
+A customer with 10 DIDs generates $35/month in DID margin alone — before any call traffic.
+
+## How to Price Competitively
+
+Research what your target customers currently pay. Business customers on retail SIP trunk plans typically pay:
+- US: $0.020–$0.040/min
+- UK: $0.018–$0.035/min
+- India: $0.025–$0.060/min
+
+Pricing 30–50% below their current costs makes you immediately compelling while leaving strong margins for you.
+
+## The Business Model in Practice
+
+1. **Find customers:** IT consultants, call centers, businesses with high phone bills, other resellers looking for better rates
+2. **Onboard them:** Create their account in your reseller portal, set their rate deck, give them SIP credentials
+3. **Let the traffic flow:** CDRs update in real time. Monthly invoices auto-generate.
+4. **Collect payment:** Monthly bank transfer or credit card. Pay VoIP Cat for wholesale usage.
+
+The business compounds because customers are sticky — switching VoIP providers is disruptive, so once a business is configured, they rarely leave.
+
+## Getting Started as a Reseller
+
+Contact VoIP Cat to discuss the reseller program. No upfront investment, no minimum volume commitment. Start with one customer and scale from there. The reseller calculator at voipcat.com/reseller-calculator shows projected revenue at any scale.`,
+  },
+  {
+    id: "sip-trunk-vs-hosted-pbx",
+    title: "SIP Trunk vs Hosted PBX: Which Is Right for Your Business in 2026?",
+    author: "VoIP Cat Team",
+    category: "Business",
+    excerpt: "Should you get a SIP trunk and run your own PBX, or use a hosted phone system? Here's the honest comparison with cost breakdowns.",
+    readTime: 6,
+    date: "2026-04-20",
+    content: `# SIP Trunk vs Hosted PBX: Which Is Right for Your Business in 2026?
+
+Both options let you replace expensive PSTN lines with VoIP — but the architecture, cost, and control model are very different. Here's what each actually means.
+
+## What Is a SIP Trunk?
+
+A SIP trunk is a connection between your PBX (on-premise or cloud) and the PSTN. You run your own PBX software (Asterisk, FreePBX, 3CX), and the SIP trunk provides the external phone lines.
+
+**You control:** PBX configuration, call routing, IVR, extensions, recording
+**Provider provides:** The PSTN gateway, per-minute rates, DIDs
+
+## What Is a Hosted PBX?
+
+A hosted (cloud) PBX is a phone system managed entirely by the provider. You don't run any PBX software — you get a web dashboard, configure settings through a GUI, and assign extensions to staff.
+
+**You control:** Call routing settings, extensions, simple IVR (via GUI)
+**Provider provides:** Everything — PBX, PSTN gateway, storage, maintenance
+
+## Cost Comparison: 10-Employee Office
+
+### SIP Trunk Route
+
+| Item | Monthly Cost |
+|------|-------------|
+| FreePBX server (VPS) | $20–$40 |
+| VoIP Cat SIP trunk (5,000 min × $0.004) | $20 |
+| 3 US DIDs | $4.50 |
+| IT admin time (1 hour/month) | $50–$100 |
+| **Total** | **$95–$165/month** |
+
+### Hosted PBX Route
+
+| Item | Monthly Cost |
+|------|-------------|
+| Hosted PBX per seat (10 users) | $150–$300 |
+| Calls often included (but at higher base cost) | Included |
+| **Total** | **$150–$300/month** |
+
+**SIP trunk wins on cost** for businesses willing to manage their own PBX.
+
+## When to Choose a SIP Trunk
+
+- You already run Asterisk, FreePBX, or 3CX
+- You have an IT person who can manage PBX configuration
+- You need maximum flexibility (custom dialplans, integrations, multi-tenant)
+- You're a developer or MSP building a VoIP service
+- You want the lowest possible per-minute cost
+
+## When to Choose Hosted PBX
+
+- No IT staff or VoIP expertise in-house
+- You want someone else to handle uptime, updates, and maintenance
+- Simple requirements: ring groups, voicemail, basic IVR
+- You prefer a single monthly invoice over variable per-minute billing
+
+## The Hybrid Approach
+
+Many businesses use both: a SIP trunk for outbound/inbound PSTN calls, combined with a cloud PBX that handles the switching. VoIP Cat offers both SIP trunk and hosted PBX services, letting you start with hosted and migrate to self-managed when you're ready.
+
+## Questions to Ask Before Deciding
+
+1. Do we have someone who can manage a PBX? (If no → hosted)
+2. How many minutes do we use per month? (High volume → SIP trunk wins on cost)
+3. Do we need custom integration with our CRM or other systems? (Complex needs → SIP trunk)
+4. How important is uptime to us? (Mission-critical → hosted or managed SIP trunk)
+
+## Summary
+
+| Factor | SIP Trunk | Hosted PBX |
+|--------|-----------|-----------|
+| Monthly cost | Lower | Higher |
+| Setup complexity | Higher | Lower |
+| Flexibility | Maximum | Moderate |
+| Maintenance burden | You | Provider |
+| Best for | Technical teams, high volume | SMBs, non-technical |
+
+Both options use VoIP Cat infrastructure underneath. The difference is how much of the stack you manage yourself. Start with a free test account at portal.voipcat.com to test the call quality regardless of which model you choose.`,
+  },
+  {
+    id: "voip-middle-east-business",
+    title: "VoIP for Business in the Middle East: Regulations, Routes & Savings (2026)",
+    author: "VoIP Cat Team",
+    category: "Business",
+    excerpt: "A market-specific guide to deploying VoIP in Saudi Arabia, UAE, Egypt, Kuwait, and the wider MENA region — including regulatory considerations and where to find premium routes.",
+    readTime: 7,
+    date: "2026-04-15",
+    content: `# VoIP for Business in the Middle East: Regulations, Routes & Savings (2026)
+
+The Middle East is one of the world's highest-cost regions for international voice termination. Businesses calling into or out of Saudi Arabia, UAE, Qatar, and Kuwait face some of the steepest per-minute rates globally — but also some of the greatest savings potential from switching to wholesale VoIP.
+
+## The MENA Telecom Market
+
+Key characteristics of the MENA telecom landscape:
+
+- **Concentrated markets:** 2–3 dominant carriers per country with high retail margins
+- **High international call rates:** Retail rates to Saudi Arabia can reach $0.30–$0.50/min from some markets
+- **Growing B2B VoIP adoption:** Call centers, ITSPs, and enterprise users are rapidly switching
+- **Regulatory variance:** VoIP legality and licensing requirements vary significantly by country
+
+## Country-by-Country Overview
+
+### Saudi Arabia (KSA)
+- **Regulatory status:** Business VoIP is permitted. Consumer VoIP calling over OTT apps is restricted.
+- **Wholesale VoIP rate (into KSA):** $0.018–$0.025/min
+- **Premium CLI routes:** Available — important for contact centers where CLI is required for answer rates
+- **DID availability:** Limited (no local Saudi DIDs via VoIP Cat currently)
+
+### United Arab Emirates (UAE)
+- **Regulatory status:** Licensed VoIP is permitted for business. VOIP calls over unlicensed apps are restricted.
+- **Wholesale VoIP rate (into UAE):** $0.016–$0.022/min
+- **DID availability:** UAE DIDs available (Dubai/Abu Dhabi geographic numbers)
+- **Consideration:** Etisalat and du are the dominant carriers with strong CLI requirements
+
+### Egypt
+- **Regulatory status:** VoIP broadly permitted. NTRA regulates internet telephony.
+- **Wholesale VoIP rate (into Egypt):** $0.010–$0.015/min
+- **DID availability:** Cairo and Alexandria geographic DIDs available
+- **Key use case:** Large call center industry, significant outbound volume to MENA from Egypt
+
+### Kuwait, Bahrain, Oman
+- **Regulatory status:** Business VoIP permitted
+- **Wholesale VoIP rates:** $0.028–$0.035/min (Kuwait/Bahrain), $0.028–$0.032/min (Oman)
+- **DID availability:** Not currently available via direct carrier agreement
+- **CLI:** Premium CLI routes with guaranteed delivery
+
+### Jordan and Lebanon
+- **Wholesale VoIP rates:** $0.022–$0.028/min
+- **CLI availability:** Yes on premium routes
+- **Use case:** Regional hubs for MENA-focused call centers
+
+## Why Middle East Routes Cost More
+
+MENA countries have high termination rates for several reasons:
+
+1. **Monopoly or duopoly carrier markets:** Limited competition keeps prices elevated
+2. **Interconnect fees:** International carriers pay high interconnect rates to terminate onto local networks
+3. **CLI enforcement:** Many MENA operators reject calls without valid CLI, requiring more expensive routes
+4. **Regulatory surcharges:** Some countries levy per-minute taxes on international terminations
+
+Even at $0.020/min, wholesale VoIP is dramatically cheaper than retail PSTN rates ($0.30–$0.50/min) for the same routes.
+
+## Call Center Operations in Egypt for MENA Termination
+
+Egypt is the hub for MENA-focused call centers. Key advantages:
+- Arabic-speaking agent pool at competitive labor costs
+- Well-developed fiber internet infrastructure in Cairo and Alexandria
+- VoIP Cat local DIDs for Egypt, with low-cost domestic routing
+- Direct routes to all GCC countries from Egypt at competitive rates
+
+A call center in Cairo routing 500,000 minutes/month of GCC traffic through VoIP Cat vs retail PSTN saves approximately $75,000–$100,000 per month.
+
+## Technical Considerations for MENA Routes
+
+**CLI is critical:** In Saudi Arabia and UAE especially, calls without valid CLI are rejected or have very low answer rates. Always use CLI-guaranteed routes.
+
+**G.711 preferred:** MENA carriers expect G.711 (PCMA/PCMU). Do not use G.729 for MENA termination without confirming transcoding availability.
+
+**Latency:** For calls originating in Europe or Americas terminating in MENA, latency should be monitored. VoIP Cat has Middle East POPs (via direct carrier agreements) that minimize latency.
+
+## Getting Started
+
+VoIP Cat has direct carrier agreements with MENA termination providers, enabling CLI-guaranteed, high-ASR routes to all major MENA countries. Contact sales via WhatsApp (+201557649136) for MENA-specific pricing and volume packages. Free test routes to any MENA destination are available upon registration.`,
+  },
 ];
