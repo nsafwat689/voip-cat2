@@ -271,7 +271,7 @@ export default function ArticleDetail() {
                         </Button>
                         <Button
                           variant="outline"
-                          onClick={() => window.open('https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route.', '_blank')}
+                          onClick={() => window.open('https://wa.me/201038450546?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route.', '_blank')}
                           className="gap-2"
                         >
                           <MessageCircle className="w-4 h-4" /> WhatsApp

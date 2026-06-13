@@ -42,7 +42,7 @@ export default function AZTermination() {
               Premium voice routes to 190+ countries. CLI guaranteed, high ASR, real-time CDR, and competitive wholesale rates backed by a carrier-grade SLA.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="https://wa.me/201557649136?text=Hi%2C%20I%20need%20A-Z%20termination%20rates." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/80 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              <a href="https://wa.me/201038450546?text=Hi%2C%20I%20need%20A-Z%20termination%20rates." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/80 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                 Get Rate Sheet <ArrowRight className="w-4 h-4" />
               </a>
               <button onClick={() => setLocation('/voip-rates')} className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 text-primary rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/10 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>

@@ -78,7 +78,7 @@ console.log('Call SID:', call.sid);`;
                   Build powerful voice applications with our programmable VoIP API. Make calls, manage SIP trunks, provision DIDs, and access real-time analytics — all through a simple RESTful interface.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20your%20VoIP%20API." target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20your%20VoIP%20API." target="_blank" rel="noopener noreferrer">
                     <Button className="btn-glow flex items-center gap-3 h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                       Get API Access <ArrowRight className="w-5 h-5" />
                     </Button>
@@ -165,7 +165,7 @@ console.log('Call SID:', call.sid);`;
               Get API access and start building voice applications today. Our team is ready to help you integrate.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20get%20API%20access%20for%20VoIP%20integration." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/201038450546?text=Hi%2C%20I%20want%20to%20get%20API%20access%20for%20VoIP%20integration." target="_blank" rel="noopener noreferrer">
                 <Button className="btn-glow flex items-center gap-3 h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   Get API Key <ArrowRight className="w-5 h-5" />
                 </Button>

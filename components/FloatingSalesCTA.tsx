@@ -14,7 +14,7 @@ export default function FloatingSalesCTA() {
         <div className="flex flex-col gap-2 animate-in fade-in slide-in-from-bottom-2 duration-200">
           {/* WhatsApp */}
           <a
-            href="https://wa.me/201557649136?text=Hi%2C%20I%27m%20interested%20in%20VoIP%20Cat%20services."
+            href="https://wa.me/201038450546?text=Hi%2C%20I%27m%20interested%20in%20VoIP%20Cat%20services."
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 px-4 py-3 bg-green-500 text-white rounded-xl shadow-lg hover:bg-green-600 transition-colors font-bold text-sm whitespace-nowrap"

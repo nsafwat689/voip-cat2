@@ -56,7 +56,7 @@ export default function WholesaleVoip() {
               High-quality wholesale voice termination at competitive rates. Direct carrier interconnects, CLI routes, and enterprise-grade reliability for carriers and resellers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20wholesale%20VoIP%20termination." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20wholesale%20VoIP%20termination." target="_blank" rel="noopener noreferrer">
                 <Button className="btn-glow flex items-center gap-3 h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   Get Started <ArrowRight className="w-5 h-5" />
                 </Button>

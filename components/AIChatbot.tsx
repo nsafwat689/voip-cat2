@@ -29,7 +29,7 @@ interface VoIPPlan {
 // Contact information configuration - Sales only
 const CONTACT_INFO = {
   sales: {
-    whatsapp: '+201557649136',
+    whatsapp: '+201038450546',
     email: 'support@voipcat.com',
     name: 'Sales'
   }

@@ -25,7 +25,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappMsg = `Hi VoIP Cat!\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nSubject: ${formData.subject}\nMessage: ${formData.message}`;
-    window.open(`https://wa.me/201557649136?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+    window.open(`https://wa.me/201038450546?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
   };
 
   const contactMethods = [
@@ -34,7 +34,7 @@ export default function Contact() {
       label: 'WhatsApp',
       details: '+20 155 764 9136',
       subtext: 'Fastest response — Available 24/7',
-      href: 'https://wa.me/201557649136?text=Hello%20VoIP%20Cat',
+      href: 'https://wa.me/201038450546?text=Hello%20VoIP%20Cat',
       external: true,
     },
     {
@@ -50,7 +50,7 @@ export default function Contact() {
       label: 'Phone',
       details: '+20 155 764 9136',
       subtext: 'Mon-Fri: 9AM - 8PM | Sat: 10AM - 4PM',
-      href: 'tel:+201557649136',
+      href: 'tel:+201038450546',
       external: false,
     },
     {

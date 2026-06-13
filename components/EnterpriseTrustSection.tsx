@@ -134,7 +134,7 @@ export default function EnterpriseTrustSection() {
             <div className="text-slate-400 text-sm">Request a free test route — provisioned in under 60 minutes.</div>
           </div>
           <a
-            href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20test%20VoIP%20Cat%20infrastructure."
+            href="https://wa.me/201038450546?text=Hi%2C%20I%20want%20to%20test%20VoIP%20Cat%20infrastructure."
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/80 transition-colors whitespace-nowrap"

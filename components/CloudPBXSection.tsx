@@ -134,7 +134,7 @@ export default function CloudPBXSection() {
                       setLocation('/contact');
                     } else {
                       window.open(
-                        'https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20the%20' +
+                        'https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20the%20' +
                           encodeURIComponent(plan.name) +
                           '%20Cloud%20PBX%20plan.',
                         '_blank'

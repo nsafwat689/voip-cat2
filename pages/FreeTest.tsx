@@ -68,7 +68,7 @@ export default function FreeTest() {
                   <ArrowRight className="w-5 h-5" />
                 </Button>
               </a>
-              <a href={`https://wa.me/201557649136?text=${encodeURIComponent('Hi, I want to request a free VoIP test route.')}`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://wa.me/201038450546?text=${encodeURIComponent('Hi, I want to request a free VoIP test route.')}`} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="h-16 px-8 border-primary/50 text-primary hover:bg-primary/10 uppercase tracking-widest text-sm gap-3" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   <MessageCircle className="w-5 h-5" />
                   Talk to Sales First
@@ -180,7 +180,7 @@ export default function FreeTest() {
             </h3>
             <p className="text-muted-foreground max-w-lg mx-auto text-sm">Talk to our team directly for custom wholesale pricing, dedicated routes, or high-volume agreements.</p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href={`https://wa.me/201557649136?text=${encodeURIComponent('Hi, I need enterprise VoIP pricing.')}`} target="_blank" rel="noopener noreferrer">
+              <a href={`https://wa.me/201038450546?text=${encodeURIComponent('Hi, I need enterprise VoIP pricing.')}`} target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 gap-2">
                   <MessageCircle className="w-4 h-4" /> WhatsApp Sales
                 </Button>

@@ -55,7 +55,7 @@ export default function Sip3CX() {
                 <button onClick={() => setLocation('/free-test')} className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/80 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   Start Free Test <ArrowRight className="w-4 h-4" />
                 </button>
-                <a href="https://wa.me/201557649136?text=Hi%2C%20I%20need%20a%203CX%20SIP%20trunk." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 text-primary rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/10 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                <a href="https://wa.me/201038450546?text=Hi%2C%20I%20need%20a%203CX%20SIP%20trunk." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 text-primary rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/10 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   Talk to Sales
                 </a>
               </div>

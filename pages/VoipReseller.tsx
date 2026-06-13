@@ -31,7 +31,7 @@ export default function VoipReseller() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const whatsappMsg = `Hi, I want to join the VoIP reseller program.\nName: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company}\nPhone: ${formData.phone}\nMessage: ${formData.message}`;
-    window.open(`https://wa.me/201557649136?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
+    window.open(`https://wa.me/201038450546?text=${encodeURIComponent(whatsappMsg)}`, '_blank');
   };
 
   const benefits = [

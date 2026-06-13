@@ -1814,7 +1814,7 @@ If you've worked through this guide and still have issues, contact VoIP Cat supp
 2. Your PBX platform and version
 3. Whether the issue is inbound, outbound, or both
 
-Support is available 24/7 via WhatsApp at +201557649136 or email at support@voipcat.com.`,
+Support is available 24/7 via WhatsApp at +201038450546 or email at support@voipcat.com.`,
   },
   {
     id: "voip-call-center-setup",
@@ -2338,6 +2338,6 @@ A call center in Cairo routing 500,000 minutes/month of GCC traffic through VoIP
 
 ## Getting Started
 
-VoIP Cat has direct carrier agreements with MENA termination providers, enabling CLI-guaranteed, high-ASR routes to all major MENA countries. Contact sales via WhatsApp (+201557649136) for MENA-specific pricing and volume packages. Free test routes to any MENA destination are available upon registration.`,
+VoIP Cat has direct carrier agreements with MENA termination providers, enabling CLI-guaranteed, high-ASR routes to all major MENA countries. Contact sales via WhatsApp (+201038450546) for MENA-specific pricing and volume packages. Free test routes to any MENA destination are available upon registration.`,
   },
 ];

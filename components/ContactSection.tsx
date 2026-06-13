@@ -20,7 +20,7 @@ export default function ContactSection() {
       icon: Phone,
       label: 'Phone / WhatsApp',
       details: '+20 155 764 9136',
-      href: 'https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20VoIP%20services.',
+      href: 'https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20VoIP%20services.',
       external: true,
     },
     {
@@ -41,7 +41,7 @@ export default function ContactSection() {
       icon: Clock,
       label: 'Availability',
       details: 'Available 24/7\nFast Response Guaranteed',
-      href: 'https://wa.me/201557649136',
+      href: 'https://wa.me/201038450546',
       external: true,
     },
   ];
@@ -214,7 +214,7 @@ export default function ContactSection() {
               <p className="text-center text-sm text-muted-foreground">
                 Prefer instant messaging?{' '}
                 <a
-                  href="https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20VoIP%20services."
+                  href="https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20VoIP%20services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary font-semibold hover:underline"

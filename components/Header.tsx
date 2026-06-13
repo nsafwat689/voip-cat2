@@ -179,7 +179,7 @@ export default function Header() {
               style={{ fontFamily: 'Orbitron, sans-serif' }}>
               Free Test
             </Link>
-            <a href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20get%20started%20with%20VoIP%20Cat."
+            <a href="https://wa.me/201038450546?text=Hi%2C%20I%20want%20to%20get%20started%20with%20VoIP%20Cat."
               target="_blank" rel="noopener noreferrer">
               <Button className="btn-glow uppercase tracking-wider text-xs"
                 style={{ fontFamily: 'Orbitron, sans-serif' }}>
@@ -230,7 +230,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}>
                   Free Test
                 </Link>
-                <a href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20get%20started."
+                <a href="https://wa.me/201038450546?text=Hi%2C%20I%20want%20to%20get%20started."
                   target="_blank" rel="noopener noreferrer" className="flex-1">
                   <Button className="w-full btn-glow uppercase tracking-wider text-xs"
                     style={{ fontFamily: 'Orbitron, sans-serif' }}>

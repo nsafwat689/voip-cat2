@@ -28,7 +28,7 @@ export default function PremiumRouting() {
             <p className="text-xl text-slate-300 leading-relaxed">
               Our premium routing tier delivers the highest possible ASR with guaranteed CLI — for enterprises and carriers that can't afford quality issues.
             </p>
-            <a href="https://wa.me/201557649136?text=Hi%2C%20I%20need%20premium%20routing%20access." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/80 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
+            <a href="https://wa.me/201038450546?text=Hi%2C%20I%20need%20premium%20routing%20access." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold uppercase tracking-wider text-sm hover:bg-primary/80 transition-colors" style={{ fontFamily: 'Orbitron, sans-serif' }}>
               Request Access <ArrowRight className="w-4 h-4" />
             </a>
           </div>

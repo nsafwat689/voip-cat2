@@ -29,7 +29,7 @@ export default function PlansSection() {
         'SIP TLS encryption',
       ],
       highlighted: false,
-      cta: 'https://wa.me/201557649136?text=Hi%2C%20I%20need%20SIP%20Trunk%20pricing.',
+      cta: 'https://wa.me/201038450546?text=Hi%2C%20I%20need%20SIP%20Trunk%20pricing.',
     },
     {
       name: 'Wholesale VoIP',
@@ -51,7 +51,7 @@ export default function PlansSection() {
         'Anti-fraud monitoring',
       ],
       highlighted: true,
-      cta: 'https://wa.me/201557649136?text=Hi%2C%20I%20need%20Wholesale%20VoIP%20pricing.',
+      cta: 'https://wa.me/201038450546?text=Hi%2C%20I%20need%20Wholesale%20VoIP%20pricing.',
     },
     {
       name: 'Cloud PBX',
@@ -73,7 +73,7 @@ export default function PlansSection() {
         'Analytics dashboard',
       ],
       highlighted: false,
-      cta: 'https://wa.me/201557649136?text=Hi%2C%20I%20need%20Cloud%20PBX%20pricing.',
+      cta: 'https://wa.me/201038450546?text=Hi%2C%20I%20need%20Cloud%20PBX%20pricing.',
     },
     {
       name: 'Enterprise',
@@ -95,7 +95,7 @@ export default function PlansSection() {
         'Custom SLA with financial backing',
       ],
       highlighted: false,
-      cta: 'https://wa.me/201557649136?text=Hi%2C%20I%20need%20Enterprise%20VoIP%20pricing.',
+      cta: 'https://wa.me/201038450546?text=Hi%2C%20I%20need%20Enterprise%20VoIP%20pricing.',
     },
   ];
 

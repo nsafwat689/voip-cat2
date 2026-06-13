@@ -58,7 +58,7 @@ export default function CloudPBX() {
                   Replace your outdated phone system with a modern Cloud PBX. Get enterprise features at a fraction of the cost — auto-attendant, call routing, voicemail, and more.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a href="https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20your%20Cloud%20PBX%20solutions." target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20your%20Cloud%20PBX%20solutions." target="_blank" rel="noopener noreferrer">
                     <Button className="btn-glow flex items-center gap-3 h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                       Get Started <ArrowRight className="w-5 h-5" />
                     </Button>
@@ -117,7 +117,7 @@ export default function CloudPBX() {
                         <span className="text-foreground font-medium">Unlimited concurrent calls</span>
                       </div>
                     )}
-                    <a href="https://wa.me/201557649136?text=Hi%2C%20I%20am%20interested%20in%20the%20Cloud%20PBX%20plan." target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20the%20Cloud%20PBX%20plan." target="_blank" rel="noopener noreferrer">
                       <Button className={`w-full h-12 uppercase tracking-widest text-[10px] font-bold ${plan.popular ? 'btn-glow' : 'bg-primary/10 text-primary border border-primary/20 hover:bg-primary hover:text-white'}`} style={{ fontFamily: 'Orbitron, sans-serif' }}>
                         {plan.price ? 'Get This Plan' : 'Contact Sales'}
                       </Button>
@@ -164,7 +164,7 @@ export default function CloudPBX() {
               Contact us for a free consultation and demo. See how Cloud PBX can transform your business communications.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://wa.me/201557649136?text=Hi%2C%20I%20want%20a%20Cloud%20PBX%20demo." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/201038450546?text=Hi%2C%20I%20want%20a%20Cloud%20PBX%20demo." target="_blank" rel="noopener noreferrer">
                 <Button className="btn-glow flex items-center gap-3 h-14 px-8 uppercase tracking-wider text-sm" style={{ fontFamily: 'Orbitron, sans-serif' }}>
                   Request Demo <ArrowRight className="w-5 h-5" />
                 </Button>

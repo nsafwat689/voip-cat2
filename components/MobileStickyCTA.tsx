@@ -20,7 +20,7 @@ export default function MobileStickyCTA() {
     {
       icon: MessageCircle,
       label: 'WhatsApp',
-      href: 'https://wa.me/201557649136?text=Hi%2C%20I%20want%20to%20start%20a%20free%20VoIP%20test.',
+      href: 'https://wa.me/201038450546?text=Hi%2C%20I%20want%20to%20start%20a%20free%20VoIP%20test.',
       className: 'bg-green-500 text-white',
     },
     {

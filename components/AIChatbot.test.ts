@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 describe('AIChatbot Component', () => {
   describe('Contact Information', () => {
     it('should have sales WhatsApp number', () => {
-      const whatsappNumber = '+201557649136';
+      const whatsappNumber = '+201038450546';
       expect(whatsappNumber).toBeDefined();
       expect(whatsappNumber).toMatch(/^\+\d+/);
     });
@@ -72,7 +72,7 @@ describe('AIChatbot Component', () => {
 
   describe('WhatsApp URL Generation', () => {
     it('should generate valid WhatsApp URL with message', () => {
-      const whatsappNumber = '+201557649136';
+      const whatsappNumber = '+201038450546';
       const message = 'Hi! I need assistance with your services.';
       const cleanNumber = whatsappNumber.replace(/\D/g, '');
       const whatsappUrl = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
@@ -143,7 +143,7 @@ describe('AIChatbot Component', () => {
     it('should have contact info for Sales only', () => {
       const contactInfo = {
         sales: {
-          whatsapp: '+201557649136',
+          whatsapp: '+201038450546',
           email: 'sales@voipcat.com',
           name: 'Sales'
         }

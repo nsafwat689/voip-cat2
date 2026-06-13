@@ -216,7 +216,7 @@ export default function FAQ() {
                   Can't find the answer you're looking for? Our support team is here to help. Contact us anytime via WhatsApp or email.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <a href="https://wa.me/201557649136" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/201038450546" target="_blank" rel="noopener noreferrer">
                     <Button className="btn-glow w-full sm:w-auto">
                       WhatsApp Support
                     </Button>

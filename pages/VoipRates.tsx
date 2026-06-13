@@ -104,7 +104,7 @@ export default function VoipRates() {
                   </Button>
                 </Link>
                 <a
-                  href="https://wa.me/201557649136?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route%20and%20live%20rates."
+                  href="https://wa.me/201038450546?text=Hi%2C%20I%20would%20like%20a%20free%20test%20route%20and%20live%20rates."
                   target="_blank"
                   rel="noopener noreferrer"
                 >
