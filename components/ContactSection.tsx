@@ -19,7 +19,7 @@ export default function ContactSection() {
     {
       icon: Phone,
       label: 'Phone / WhatsApp',
-      details: '+20 155 764 9136',
+      details: '+20 103 845 0546',
       href: 'https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20VoIP%20services.',
       external: true,
     },

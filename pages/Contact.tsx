@@ -32,7 +32,7 @@ export default function Contact() {
     {
       icon: MessageCircle,
       label: 'WhatsApp',
-      details: '+20 155 764 9136',
+      details: '+20 103 845 0546',
       subtext: 'Fastest response — Available 24/7',
       href: 'https://wa.me/201038450546?text=Hello%20VoIP%20Cat',
       external: true,
@@ -48,7 +48,7 @@ export default function Contact() {
     {
       icon: Phone,
       label: 'Phone',
-      details: '+20 155 764 9136',
+      details: '+20 103 845 0546',
       subtext: 'Mon-Fri: 9AM - 8PM | Sat: 10AM - 4PM',
       href: 'tel:+201038450546',
       external: false,

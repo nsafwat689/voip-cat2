@@ -63,7 +63,7 @@ export default function Footer() {
             </p>
             <div className="text-sm text-slate-400 space-y-1">
               <p>Email: <a href="mailto:support@voipcat.com" className="text-primary hover:underline">support@voipcat.com</a></p>
-              <p>WhatsApp: <a href="https://wa.me/201038450546" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+20 155 764 9136</a></p>
+              <p>WhatsApp: <a href="https://wa.me/201038450546" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+20 103 845 0546</a></p>
             </div>
           </div>
 
