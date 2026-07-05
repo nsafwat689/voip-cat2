@@ -56,7 +56,7 @@ export default function Contact() {
     {
       icon: MapPin,
       label: 'Office',
-      details: '251 Mercer St, New York, NY 10012, USA',
+      details: 'VoIP Cat LLC, 30 N Gould St Ste R, Sheridan, WY 82801, USA',
       subtext: 'Visit by appointment',
       href: '#',
       external: false,

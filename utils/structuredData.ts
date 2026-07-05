@@ -25,10 +25,10 @@ export const organizationSchema = {
   },
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '251 Mercer St',
-    addressLocality: 'New York',
-    addressRegion: 'NY',
-    postalCode: '10012',
+    streetAddress: '30 N Gould St Ste R',
+    addressLocality: 'Sheridan',
+    addressRegion: 'WY',
+    postalCode: '82801',
     addressCountry: 'US',
   },
 };
