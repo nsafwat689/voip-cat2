@@ -7,6 +7,7 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'VOIP CAT',
+  legalName: 'VoIP Cat LLC',
   url: 'https://voipcat.com',
   logo: 'https://voipcat.com/images/logo-fox.jpg',
   description: 'Enterprise-grade VoIP solutions provider offering SIP trunking, wholesale voice termination, Cloud PBX, and programmable voice API for businesses worldwide.',

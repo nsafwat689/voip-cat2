@@ -136,7 +136,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Copyright */}
           <p className="text-slate-500 text-xs uppercase tracking-widest" style={{ fontFamily: 'Orbitron, sans-serif' }}>
-            &copy; {currentYear} VoIP Cat. All Rights Reserved.
+            &copy; {currentYear} VoIP Cat LLC. All Rights Reserved.
           </p>
 
           {/* Social Links */}
