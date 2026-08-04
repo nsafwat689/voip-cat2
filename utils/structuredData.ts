@@ -19,10 +19,9 @@ export const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'Sales',
-    telephone: '+201038450546',
+    telephone: '+13073015500',
     email: 'support@voipcat.com',
     availableLanguage: ['English', 'Arabic'],
-    contactOption: 'TollFree',
   },
   address: {
     '@type': 'PostalAddress',

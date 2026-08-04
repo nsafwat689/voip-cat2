@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, Clock, Send, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Send, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 
 /**
@@ -18,8 +18,15 @@ export default function ContactSection() {
   const contactInfo = [
     {
       icon: Phone,
-      label: 'Phone / WhatsApp',
-      details: '+20 103 845 0546',
+      label: 'Phone',
+      details: '+1 307 301 5500',
+      href: 'tel:+13073015500',
+      external: false,
+    },
+    {
+      icon: MessageCircle,
+      label: 'WhatsApp',
+      details: '+20 103 845 0546\nAvailable 24/7 — fast response',
       href: 'https://wa.me/201038450546?text=Hi%2C%20I%20am%20interested%20in%20VoIP%20services.',
       external: true,
     },
@@ -31,17 +38,10 @@ export default function ContactSection() {
       external: false,
     },
     {
-      icon: MessageCircle,
+      icon: Send,
       label: 'Telegram',
       details: '@voipcat',
       href: 'https://t.me/voipcat',
-      external: true,
-    },
-    {
-      icon: Clock,
-      label: 'Availability',
-      details: 'Available 24/7\nFast Response Guaranteed',
-      href: 'https://wa.me/201038450546',
       external: true,
     },
   ];

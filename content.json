@@ -178,7 +178,11 @@
       "address": "VoIP Cat LLC, 30 N Gould St Ste R, Sheridan, WY 82801, USA"
     },
     "phone": {
-      "label": "Call or WhatsApp Us",
+      "label": "Call Us",
+      "number": "+13073015500"
+    },
+    "whatsapp": {
+      "label": "WhatsApp Us",
       "number": "+201038450546"
     },
     "email": {

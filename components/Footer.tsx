@@ -63,6 +63,7 @@ export default function Footer() {
             </p>
             <div className="text-sm text-slate-400 space-y-1">
               <p>Email: <a href="mailto:support@voipcat.com" className="text-primary hover:underline">support@voipcat.com</a></p>
+              <p>Phone: <a href="tel:+13073015500" className="text-primary hover:underline">+1 307 301 5500</a></p>
               <p>WhatsApp: <a href="https://wa.me/201038450546" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+20 103 845 0546</a></p>
               <p>Address: <span className="text-slate-300">VoIP Cat LLC, 30 N Gould St Ste R, Sheridan, WY 82801, USA</span></p>
             </div>

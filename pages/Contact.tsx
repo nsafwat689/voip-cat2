@@ -48,9 +48,9 @@ export default function Contact() {
     {
       icon: Phone,
       label: 'Phone',
-      details: '+20 103 845 0546',
+      details: '+1 307 301 5500',
       subtext: 'Mon-Fri: 9AM - 8PM | Sat: 10AM - 4PM',
-      href: 'tel:+201038450546',
+      href: 'tel:+13073015500',
       external: false,
     },
     {
