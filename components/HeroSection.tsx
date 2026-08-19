@@ -114,6 +114,26 @@ export default function HeroSection() {
               </a>
             </div>
 
+            {/* High-volume US dialer traffic — its own row rather than a third
+                button, so the demo/register pair keeps its weight and this
+                stays unambiguous about who it is for. */}
+            <a
+              href="/us-traffic-signup"
+              className="group flex items-center justify-between gap-3 w-full h-14 px-5 rounded-xl border border-primary/50 bg-primary/10 hover:bg-primary/20 hover:border-primary transition-colors"
+            >
+              <span className="flex items-center gap-3 min-w-0">
+                <span className="relative flex h-2 w-2 flex-shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+                </span>
+                <span className="text-primary font-bold uppercase tracking-wider text-xs sm:text-sm truncate"
+                      style={{ fontFamily: 'Orbitron, sans-serif' }}>
+                  US Auto-Dialer Traffic — Register
+                </span>
+              </span>
+              <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+
             {/* Android app — tertiary CTA */}
             <div className="flex items-center gap-4">
               <a

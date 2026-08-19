@@ -115,18 +115,18 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20 py-2">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 shrink-0">
             <div className="relative">
               <img src="/images/logo-fox.jpg" alt="VoIP Cat Logo"
                 className="h-12 w-auto rounded-lg shadow-sm border border-primary/20" />
               <div className="absolute -inset-1 bg-primary/20 blur-sm rounded-lg -z-10" />
             </div>
-            <span className="font-bold text-xl text-foreground hidden sm:inline tracking-wider"
+            <span className="font-bold text-xl text-foreground hidden sm:inline tracking-wider whitespace-nowrap"
               style={{ fontFamily: 'Orbitron, sans-serif' }}>VOIP CAT</span>
           </Link>
 
           {/* Desktop nav — pure CSS hover, zero JS timers */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1 min-w-0">
             <Link href="/"
               className="flex items-center px-3 py-2 text-xs font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest rounded-md hover:bg-primary/5"
               style={{ fontFamily: 'Orbitron, sans-serif' }}>
@@ -174,15 +174,28 @@ export default function Header() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2 shrink-0">
+            {/* Highest-value action on the site — high-volume US dialer traffic.
+                Filled tint so it reads apart from the plain outline and the solid
+                WhatsApp button either side of it. */}
+            <Link href="/us-traffic-signup"
+              title="Register high-volume US auto-dialer traffic"
+              className="hidden lg:inline-flex items-center gap-2 justify-center px-3 py-2 bg-primary/10 border border-primary text-primary hover:bg-primary/20 rounded-md uppercase tracking-wider text-xs transition-colors whitespace-nowrap"
+              style={{ fontFamily: 'Orbitron, sans-serif' }}>
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary" />
+              </span>
+              US Traffic
+            </Link>
             <Link href="/free-test"
-              className="inline-flex items-center justify-center px-4 py-2 border border-primary text-primary hover:bg-primary/5 rounded-md uppercase tracking-wider text-xs transition-colors"
+              className="inline-flex items-center justify-center px-3 py-2 border border-primary text-primary hover:bg-primary/5 rounded-md uppercase tracking-wider text-xs transition-colors whitespace-nowrap"
               style={{ fontFamily: 'Orbitron, sans-serif' }}>
               Free Test
             </Link>
             <a href="https://wa.me/201038450546?text=Hi%2C%20I%20want%20to%20get%20started%20with%20VoIP%20Cat."
               target="_blank" rel="noopener noreferrer">
-              <Button className="btn-glow uppercase tracking-wider text-xs"
+              <Button className="btn-glow uppercase tracking-wider text-xs whitespace-nowrap"
                 style={{ fontFamily: 'Orbitron, sans-serif' }}>
                 Get Started
               </Button>
@@ -224,7 +237,15 @@ export default function Header() {
                   })}
                 </div>
               ))}
-              <div className="flex gap-2 px-4 pt-4 border-t border-border mt-2">
+              <div className="px-4 pt-4 border-t border-border mt-2">
+                <Link href="/us-traffic-signup"
+                  className="mb-2 flex items-center justify-center gap-2 px-4 py-3 bg-primary/10 border border-primary text-primary rounded-md uppercase tracking-wider text-xs transition-colors"
+                  style={{ fontFamily: 'Orbitron, sans-serif' }}
+                  onClick={() => setMobileMenuOpen(false)}>
+                  Register US Dialer Traffic
+                </Link>
+              </div>
+              <div className="flex gap-2 px-4 pb-1">
                 <Link href="/free-test"
                   className="flex-1 inline-flex items-center justify-center px-4 py-3 border border-primary text-primary hover:bg-primary/5 rounded-md uppercase tracking-wider text-xs transition-colors"
                   style={{ fontFamily: 'Orbitron, sans-serif' }}
