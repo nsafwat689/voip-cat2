@@ -37,6 +37,7 @@ const Calculator        = lazy(() => import("./pages/Calculator"));
 const ResellerCalculator= lazy(() => import("./pages/ResellerCalculator"));
 const VsCompetitor      = lazy(() => import("./pages/VsCompetitor"));
 const Demo              = lazy(() => import("./pages/Demo"));
+const USTrafficSignup   = lazy(() => import("./pages/USTrafficSignup"));
 
 // Minimal full-screen spinner — shown during code-split loading (Task 17)
 function PageLoader() {
@@ -88,6 +89,7 @@ function Router() {
         <Route path="/reseller-calculator" component={ResellerCalculator} />
         <Route path="/vs/:competitor"      component={VsCompetitor} />
         <Route path="/demo"               component={Demo} />
+        <Route path="/us-traffic-signup"   component={USTrafficSignup} />
         <Route path="/404"                 component={NotFound} />
         <Route                             component={NotFound} />
       </Switch>

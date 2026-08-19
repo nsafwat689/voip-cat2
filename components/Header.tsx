@@ -28,6 +28,7 @@ export default function Header() {
       children: [
         { label: 'SIP Trunking',   href: '/sip-trunk',      desc: 'Connect your PBX to the PSTN' },
         { label: 'Wholesale VoIP', href: '/wholesale-voip', desc: 'A-Z termination to 190+ countries' },
+        { label: 'US Dialer Traffic', href: '/us-traffic-signup', desc: 'Register high-volume US auto-dialer traffic' },
         { label: 'Cloud PBX',      href: '/cloud-pbx',      desc: 'Hosted phone system' },
         { label: 'VoIP API',       href: '/voip-api',       desc: 'Programmable voice at scale' },
         { label: 'VoIP Reseller',  href: '/voip-reseller',  desc: 'White-label your own VoIP brand' },
