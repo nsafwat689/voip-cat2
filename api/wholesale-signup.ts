@@ -7,11 +7,12 @@
  * when BOTH miss — the form then shows them the WhatsApp fallback.
  */
 
-const SHEET_URL = process.env.SIGNUP_SHEET_WEBHOOK || '';
-const SHEET_SECRET = process.env.SIGNUP_SHEET_SECRET || '';
-const MAILGUN_KEY = process.env.MAILGUN_API_KEY || '';
-const MAILGUN_DOMAIN = process.env.MAILGUN_DOMAIN || 'voipcat.com';
-const NOTIFY = process.env.SIGNUP_NOTIFY_TO || 'sales.voipcat@gmail.com';
+// Our own capture service on the portal (voipcat-leads.service, proxied by the
+// phone.voipcat.com vhost). It writes the lead to disk before it answers, then
+// mails sales and appends to the Google Sheet. Keeping the Mailgun key and the
+// Apps Script URL on a box we control means no secret ships in this repo and no
+// environment variable has to be set for the form to work.
+const CAPTURE_URL = process.env.LEAD_CAPTURE_URL || 'https://phone.voipcat.com/lead-capture';
 
 const MIN_FILL_MS = 8000;
 const WINDOW_MS = 60 * 60 * 1000;
@@ -49,60 +50,14 @@ const FIELDS: [string, string][] = [
 
 const flat = (v: unknown) => Array.isArray(v) ? v.join(', ') : v == null ? '' : String(v);
 
-const esc = (s: string) =>
-  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-function mailBody(d: Record<string, unknown>, meta: Record<string, string>) {
-  const row = (k: string, v: string) =>
-    `<tr><td style="padding:6px 14px 6px 0;color:#64748b;white-space:nowrap;vertical-align:top">${esc(k)}</td>` +
-    `<td style="padding:6px 0;color:#0f172a;white-space:pre-wrap">${esc(v)}</td></tr>`;
-  const rows = FIELDS.filter(([k]) => flat(d[k]).trim()).map(([k, label]) => row(label, flat(d[k]))).join('');
-  const metaRows = Object.entries(meta).map(([k, v]) => row(k, v)).join('');
-  return `<div style="font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:14px">
-<h2 style="margin:0 0 4px">US auto-dialer traffic registration</h2>
-<p style="margin:0 0 18px;color:#64748b">${esc(flat(d.legalName))} — ${esc(flat(d.contactName))} &lt;${esc(flat(d.email))}&gt;</p>
-<table style="border-collapse:collapse">${rows}</table>
-<h3 style="margin:24px 0 4px;font-size:13px;color:#64748b">Submission</h3>
-<table style="border-collapse:collapse">${metaRows}</table></div>`;
-}
-
-async function toSheet(payload: unknown): Promise<boolean> {
-  if (!SHEET_URL) return false;
+async function capture(record: unknown): Promise<boolean> {
   const ctl = new AbortController();
-  const t = setTimeout(() => ctl.abort(), 8000);
+  const t = setTimeout(() => ctl.abort(), 12000);
   try {
-    const r = await fetch(SHEET_URL, {
+    const r = await fetch(CAPTURE_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ secret: SHEET_SECRET, payload }),
-      signal: ctl.signal,
-    });
-    return r.ok;
-  } catch {
-    return false;
-  } finally {
-    clearTimeout(t);
-  }
-}
-
-async function toMail(html: string, subject: string): Promise<boolean> {
-  if (!MAILGUN_KEY) return false;
-  const form = new URLSearchParams({
-    from: `VoIP Cat Website <sales@${MAILGUN_DOMAIN}>`,
-    to: NOTIFY,
-    subject,
-    html,
-  });
-  const ctl = new AbortController();
-  const t = setTimeout(() => ctl.abort(), 8000);
-  try {
-    const r = await fetch(`https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`, {
-      method: 'POST',
-      headers: {
-        Authorization: 'Basic ' + Buffer.from(`api:${MAILGUN_KEY}`).toString('base64'),
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: form,
+      body: JSON.stringify(record),
       signal: ctl.signal,
     });
     return r.ok;
@@ -145,18 +100,12 @@ export default async function handler(req: any, res: any) {
   };
 
   const record = { ...Object.fromEntries(FIELDS.map(([k]) => [k, flat(body[k])])), ...meta };
-  const subject = `US traffic registration — ${flat(body.legalName)} (${flat(body.cps) || '?'} CPS, ${flat(body.concurrentCalls) || '?'} CC)`;
 
-  const [sheetOk, mailOk] = await Promise.all([
-    toSheet(record),
-    toMail(mailBody(body, meta), subject),
-  ]);
-
-  if (!sheetOk && !mailOk) {
-    console.error('[signup] BOTH destinations failed', { legalName: flat(body.legalName), email: flat(body.email) });
+  if (!(await capture(record))) {
+    console.error('[signup] capture service unreachable', { legalName: flat(body.legalName), email: flat(body.email) });
     return res.status(502).json({ error: 'We could not reach our systems. Please contact us directly — your details were not saved.' });
   }
 
-  console.log('[signup] captured', { legalName: flat(body.legalName), sheetOk, mailOk });
+  console.log('[signup] captured', { legalName: flat(body.legalName) });
   return res.status(200).json({ ok: true });
 }
