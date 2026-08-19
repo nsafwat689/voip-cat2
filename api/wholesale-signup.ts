@@ -74,7 +74,15 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  // voipcat.com sits behind Cloudflare in front of Vercel, and the first
+  // x-forwarded-for entry that arrives here is a Cloudflare edge address, not
+  // the visitor. CF-Connecting-IP is the only header that carries the real
+  // client through that chain — without it every lead records 104.x and we
+  // cannot tell a genuine US buyer from a bot.
+  const hdr = (k: string) => String(req.headers[k] || '').trim();
+  const xff = hdr('x-forwarded-for');
+  const ip = hdr('cf-connecting-ip') || hdr('x-real-ip') ||
+             xff.split(',')[0].trim() || 'unknown';
   const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
 
   // Bot gates. All three answer with 200 so a scraper learns nothing from the
@@ -93,6 +101,8 @@ export default async function handler(req: any, res: any) {
   const meta = {
     'Received': new Date().toISOString(),
     'IP': ip,
+    'Forwarded chain': xff || '(none)',
+    'Geo country': hdr('cf-ipcountry') || hdr('x-vercel-ip-country') || '',
     'Page': flat(body._page),
     'Referrer': flat(body._referrer) || '(direct)',
     'User agent': String(req.headers['user-agent'] || ''),

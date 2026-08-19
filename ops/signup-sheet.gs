@@ -62,6 +62,8 @@ var COLUMNS = [
   ['Notes', 'notes'],
   ['Consent', 'Consent'],
   ['IP', 'IP'],
+  ['Geo country', 'Geo country'],
+  ['Forwarded chain', 'Forwarded chain'],
   ['Page', 'Page'],
   ['Referrer', 'Referrer'],
   ['User agent', 'User agent'],
