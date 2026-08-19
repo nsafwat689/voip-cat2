@@ -68,6 +68,7 @@
   --popover-foreground: #001B3D;
   --muted: #F0F7FF;
   --muted-foreground: #475569;
+  --placeholder: #64748B;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #E2E8F0;
@@ -98,6 +99,7 @@
   --popover-foreground: #F1F5F9;
   --muted: #1A1A1A; /* Dark gray for muted elements */
   --muted-foreground: #A0A0A0;
+  --placeholder: #8B8B8B;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #1A1A1A; /* Dark gray borders */
@@ -248,8 +250,11 @@
 }
 
 /* ── Task 21: Accessibility — focus-visible styles ── */
+/* The tokens in this file are hex, not HSL triplets — wrapping one in hsl()
+   makes the whole declaration invalid and the browser drops it, which silently
+   removed the focus ring. Use the token directly. */
 *:focus-visible {
-  outline: 2px solid hsl(var(--primary));
+  outline: 2px solid var(--primary);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -277,9 +282,12 @@
   white-space: normal;
 }
 
-/* Ensure sufficient contrast on placeholder text */
+/* Example text in a field must read as an example, not as an entered value.
+   Its own token: light enough to sit clearly below the label, dark enough to
+   still clear AA against the field background. */
 ::placeholder {
-  color: hsl(var(--muted-foreground) / 0.6);
+  color: var(--placeholder);
+  opacity: 1;            /* Firefox dims placeholders by default */
 }
 
 /* Task 18: Respect reduced motion preference */

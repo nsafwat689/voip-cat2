@@ -270,14 +270,18 @@ function Sel({ id, value, set, options, error, placeholder }: {
   id: string; value: Data; set: (k: string, v: string) => void; options: string[];
   error?: string; placeholder: string;
 }) {
+  // A select's prompt is a real option, so ::placeholder never touches it — it
+  // has to be greyed by hand while nothing is chosen, or it reads as an answer.
+  const empty = !value[id];
   return (
     <select id={id} value={String(value[id] || '')} onChange={e => set(id, e.target.value)}
             aria-invalid={!!error}
             className={`flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-xs
                         outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:border-ring
-                        md:text-sm ${error ? 'border-destructive' : 'border-input'}`}>
-      <option value="">{placeholder}</option>
-      {options.map(o => <option key={o} value={o}>{o}</option>)}
+                        md:text-sm ${error ? 'border-destructive' : 'border-input'}`}
+            style={empty ? { color: 'var(--placeholder)' } : undefined}>
+      <option value="" style={{ color: 'var(--placeholder)' }}>{placeholder}</option>
+      {options.map(o => <option key={o} value={o} style={{ color: 'var(--foreground)' }}>{o}</option>)}
     </select>
   );
 }
