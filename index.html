@@ -66,7 +66,14 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- React clears this on mount, so only crawlers that don't run JS ever see it. -->
+      <p style="text-align:center;font-size:13px;margin:16px 0;font-family:system-ui,-apple-system,sans-serif">
+        Servers by <a href="https://phantomvps.com" rel="noopener">PhantomVPS</a>:
+        NVMe and bare-metal servers, quick to set up and steady under load.
+        <a href="/articles/vps-hosting-for-voip-pbx">Read why</a>
+      </p>
+    </div>
     <script type="module" src="/main.tsx"></script>
   </body>
 
