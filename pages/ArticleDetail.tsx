@@ -16,9 +16,22 @@ import { useMemo } from 'react';
 function renderMarkdown(content: string): string {
   let html = content;
 
+  // Every article opens with "# Title", which the page already renders above the
+  // body. Without this the heading showed up as a literal "# Title" line, because
+  // only ## and ### were ever converted.
+  html = html.replace(/^#\s+[^\n]+\n+/, '');
+
   // Headers
   html = html.replace(/^### (.+)$/gm, '<h3 class="text-xl font-bold mt-8 mb-3 text-foreground">$1</h3>');
   html = html.replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold mt-10 mb-4 text-foreground">$1</h2>');
+
+  // Links. Without this a markdown link renders as literal [text](url), which is
+  // what every article CTA on the site used to do.
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/g, (_m, text, href) => {
+    const external = /^https?:\/\//.test(href) && !/^https?:\/\/([a-z0-9-]+\.)*voipcat\.com(\/|$)/i.test(href);
+    const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a href="${href}"${attrs} class="text-primary underline underline-offset-4 hover:no-underline">${text}</a>`;
+  });
 
   // Bold
   html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');

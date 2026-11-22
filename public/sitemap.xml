@@ -94,6 +94,7 @@
   <url><loc>https://voipcat.com/vs/telnyx</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Articles -->
+  <url><loc>https://voipcat.com/articles/vps-hosting-for-voip-pbx</loc><lastmod>2026-11-21</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://voipcat.com/articles/sip-trunk-setup-3cx</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://voipcat.com/articles/sip-trunk-setup-freepbx</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://voipcat.com/articles/wholesale-voip-guide</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -106,5 +107,17 @@
   <url><loc>https://voipcat.com/articles/reduce-telecom-costs</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://voipcat.com/articles/voip-middle-east</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://voipcat.com/articles/cloud-pbx-vs-on-premise</loc><lastmod>2026-06-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-for-small-business</loc><lastmod>2026-05-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/sip-trunk-pricing-guide</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-pbx-comparison</loc><lastmod>2026-05-22</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-codecs-explained</loc><lastmod>2026-05-25</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-number-porting</loc><lastmod>2026-05-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-troubleshooting</loc><lastmod>2026-05-30</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-call-center-setup</loc><lastmod>2026-05-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-bandwidth-requirements</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-for-hotels</loc><lastmod>2026-05-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/wholesale-voip-reseller-margins</loc><lastmod>2026-04-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/sip-trunk-vs-hosted-pbx</loc><lastmod>2026-04-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://voipcat.com/articles/voip-middle-east-business</loc><lastmod>2026-04-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
 </urlset>

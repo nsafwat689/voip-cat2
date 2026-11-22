@@ -2,6 +2,80 @@ import { Article } from './articles';
 
 export const articles: Article[] = [
   {
+    id: "vps-hosting-for-voip-pbx",
+    title: "Hosting a VoIP or PBX Server: What Actually Matters (and Paying in Crypto)",
+    author: "VoIP Cat Team",
+    category: "Guides",
+    excerpt: "Picking a server for Asterisk, FreePBX or a dialer: the bandwidth maths, why clock speed beats core count, the console you need when you lock yourself out, and how crypto payment works.",
+    readTime: 7,
+    date: "2026-11-21",
+    content: `# Hosting a VoIP or PBX Server: What Actually Matters (and Paying in Crypto)
+
+Most people choosing a server for a PBX look at the wrong column. They compare cores and RAM, pick the cheapest box with 8 GB, and then spend three weeks chasing one-way audio. Voice is not a web workload. Here is what the spec sheet should tell you before you order.
+
+## Work out the bandwidth first
+
+One G.711 call is about 85-90 kbps in **each** direction once you count IP, UDP and RTP headers on top of the 64 kbps payload. That is roughly:
+
+- 10 concurrent calls: about 0.9 Mbps up and down
+- 50 concurrent calls: about 4.5 Mbps each way
+- 100 concurrent calls: about 9 Mbps each way
+
+Nothing frightening. The catch is that it has to be 9 Mbps of *steady* traffic, 50 packets a second per call, with nothing pausing to think. A 1 Gbps port on a contended host will do worse for voice than a clean 100 Mbps port.
+
+G.729 cuts the payload to 8 kbps and lands you around 30 kbps per call with headers, but you pay for it in CPU — see below.
+
+## Clock speed beats core count
+
+Media handling is single-threaded per call. A 3.8 GHz box with 4 cores will carry more concurrent calls than a 2.1 GHz box with 16. When you read a plan, look for the actual processor model, then look up its single-thread speed.
+
+Two things change the picture completely:
+
+- **Pass-through calls cost almost nothing.** If the codec on both legs matches and you are not recording, a modest VPS carries hundreds of concurrent calls.
+- **Transcoding is the wall.** Convert G.711 to G.729 on every leg and the same box manages a fraction of that. If you must transcode, size the CPU for it or move the transcoding off the PBX.
+
+Recording and call-detail writes are the other quiet load. Both are disk, not CPU: put them on NVMe and the problem disappears.
+
+## The numbers that decide call quality
+
+Measure these from the server, to the places your calls actually go:
+
+- **Jitter** under 30 ms. Above that, de-jitter buffers start discarding packets and callers hear clipping.
+- **Packet loss** under 1%. Voice survives a little loss; 3% is audible on every sentence.
+- **Round trip** under 150 ms one way for a natural conversation.
+
+Ping and traceroute from your own connection before you pay anyone. A host that publishes test IPs per location is telling you something about its confidence — you can measure the route to Amsterdam, Paris or New York yourself instead of trusting a marketing page.
+
+## Put the server where the calls are
+
+Latency is geography. Host the PBX near whichever is less flexible: your agents or your carriers. If your team sits in Cairo and your routes terminate in the United States, a European location is usually the better compromise than putting the box on either coast. If you run a dialer, the server belongs close to the carrier side, because that is where the packets are heaviest.
+
+## Root access and a console you can actually reach
+
+You will need root. Kernel network tuning, \`rtpengine\`, firewall rules, SIP ALG-free NAT handling, a custom kernel module — none of it is possible on a managed platform that hands you a control panel.
+
+You will also, at some point, lock yourself out. Everyone who has tightened iptables on a SIP server at 2 am has done it. What saves the night is out-of-band access: IPMI on a dedicated server, an emergency VNC console on a VPS. Check it exists **before** you need it, and check you can reinstall the OS from it.
+
+## Disk and snapshots
+
+Call recordings grow faster than people expect: an hour of stereo G.711 WAV is about 115 MB. Compress on write, or budget for it. If the box also carries your CDR database, NVMe is not a luxury — a slow disk under a busy CDR table shows up as delayed billing, not as a slow disk.
+
+## Paying for it
+
+Card payment is the default everywhere, and for most people that is the end of it. Two reasons it sometimes is not: cards issued in Egypt and parts of the Gulf get declined by overseas hosts more often than anyone admits, and some operators simply prefer not to route infrastructure spend through a card.
+
+Crypto covers both. The flow is unremarkable: you order, the panel raises an invoice, you pay it in Monero, Bitcoin, Litecoin, USDT, USDC, SOL or TRX, and the invoice marks itself paid once the network confirms. Renewal invoices arrive ten days before the due date, so nothing switches off while a payment confirms. A card route through a processor is still there if you want it.
+
+## What we use
+
+Our own servers sit with [PhantomVPS](https://phantomvps.com/vpn-vps) — NVMe and bare-metal boxes, full root, IPMI on dedicated and VNC on VPS, delivery usually within minutes, and the crypto payment flow above. Plans start at $7.99 a month and every plan lists its processor, port and location before you order, which is exactly the information this article says to look for.
+
+## Then test the voice path
+
+A good server is half of it. The other half is the route. Set the PBX up, then [take a free test route](https://voipcat.com/free-test) and watch ASR and audio on real calls before you move any traffic across.
+`,
+  },
+  {
     id: "sip-trunk-setup-3cx",
     title: "How to Set Up a SIP Trunk on 3CX: Step-by-Step Guide (2026)",
     author: "VoIP Cat Team",

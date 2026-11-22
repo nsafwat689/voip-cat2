@@ -133,6 +133,38 @@ export default function Footer() {
         {/* Divider */}
         <div className="h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent mb-10" />
 
+        {/* Hosting we use */}
+        <div className="mb-10 flex flex-col items-center gap-4 rounded-xl border border-primary/10 bg-primary/5 px-5 py-4 text-center sm:flex-row sm:text-left">
+          <img
+            src="/partners/phantomvps.svg"
+            alt="PhantomVPS"
+            width={36}
+            height={36}
+            loading="lazy"
+            className="shrink-0 rounded-lg"
+          />
+          <p className="text-sm leading-relaxed text-slate-400">
+            <span className="text-slate-500">Servers by </span>
+            <a
+              href="https://phantomvps.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-slate-200 underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+            >
+              PhantomVPS
+            </a>
+            <span className="mx-2 text-slate-600">&middot;</span>
+            NVMe and bare-metal servers, quick to set up and steady under load. We run our own systems
+            on them and recommend them.
+          </p>
+          <a
+            href="/articles/vps-hosting-for-voip-pbx"
+            className="shrink-0 rounded-lg border border-primary/20 px-3 py-1.5 text-xs font-semibold text-slate-200 transition-colors hover:border-primary/50 hover:bg-primary/10 sm:ml-auto"
+          >
+            Read why
+          </a>
+        </div>
+
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Copyright */}
